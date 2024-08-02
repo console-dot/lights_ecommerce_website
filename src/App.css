@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  max-width: 1280px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+    
+.nine h1 {
+  text-align:center; font-size:50px; text-transform:uppercase; color:#222; letter-spacing:1px;
+    font-family:"Playfair Display", serif; font-weight:400;
+  }
+  .nine h1 span {
+    margin-top: 5px;
+      font-size:15px; color:#444; word-spacing:1px; font-weight:normal; letter-spacing:2px;
+      text-transform: uppercase; font-family:"Raleway", sans-serif; font-weight:500;
+  
+      display: grid;
+      grid-template-columns: 1fr max-content 1fr;
+      grid-template-rows: 27px 0;
+      grid-gap: 20px;
+      align-items: center;
+  }
+  
+  .nine h1 span:after,.nine h1 span:before {
+      content: " ";
+      display: block;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      height: 5px;
+    background-color:#f8f8f8;
+  }
+  figure.zoom {
+    background-position: 50% 50%;
+    position: relative;
+    width: 500px;
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+  figure.zoom img:hover {
+    opacity: 0;
+  }
+  figure.zoom img {
+    transition: opacity .5s;
+    display: block;
+    width: 100%;
+  }
+  /* Banner.css */
+
+/* Default styles for the navigation buttons */
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #fff; /* Change the color of the navigation buttons */
+  background-color: rgba(0, 0, 0, 0.5); /* Add a background color with transparency */
+  border-radius: 50%; /* Make the buttons circular */
+  width: 40px; /* Set the width */
+  height: 40px; /* Set the height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mySwiper .swiper-button-next:hover,
+.mySwiper .swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Change background color on hover */
+}
+
+.mySwiper .swiper-button-next::after,
+.mySwiper .swiper-button-prev::after {
+  font-size: 20px; /* Change the size of the arrow icons */
+}
+
+/* Styles for small screens */
+@media (max-width: 600px) {
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-button-prev {
+    width: 30px; /* Smaller width for small screens */
+    height: 30px; /* Smaller height for small screens */
+  }
+
+  .mySwiper .swiper-button-next::after,
+  .mySwiper .swiper-button-prev::after {
+    font-size: 16px; /* Smaller icon size for small screens */
+  }
+}
+
+/* Styles for medium screens */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-button-prev {
+    width: 35px; /* Medium width for medium screens */
+    height: 35px; /* Medium height for medium screens */
+  }
+
+  .mySwiper .swiper-button-next::after,
+  .mySwiper .swiper-button-prev::after {
+    font-size: 18px; /* Medium icon size for medium screens */
+  }
+}
+
+/* Styles for large screens */
+@media (min-width: 1025px) {
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-button-prev {
+    width: 40px; /* Default width for large screens */
+    height: 40px; /* Default height for large screens */
+  }
+
+  .mySwiper .swiper-button-next::after,
+  .mySwiper .swiper-button-prev::after {
+    font-size: 20px; /* Default icon size for large screens */
+  }
+}
+.mySwiper .swiper-wrapper {
+  transform: translate3d(0px, 0, 0);
+}
