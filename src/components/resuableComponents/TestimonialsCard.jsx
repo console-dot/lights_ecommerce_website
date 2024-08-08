@@ -1,79 +1,122 @@
 import React from "react";
-import { FaQuoteLeft } from "react-icons/fa";
+import Slider from "react-slick";
+import { user1, user2, user3 } from "../../assets";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { MdFormatQuote } from "react-icons/md";
 
-export const TestimonialsCard = ({ data }) => {
+export const TestimonialsCard = () => {
+  const data = [
+    {
+      img: user1,
+      name: "Johny Deep",
+      designation: "CEO & Founder",
+      feedback:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam necessitatibus ea corrupti fugiat maxime! Tempora non sapiente nesciunt temporibus fugiat.",
+    },
+    {
+      img: user2,
+      name: "Johny Deep",
+      designation: "CEO & Founder",
+      feedback:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam necessitatibus ea corrupti fugiat maxime! Tempora non sapiente nesciunt temporibus fugiat.",
+    },
+    {
+      img: user3,
+      name: "Johny Deep",
+      designation: "CEO & Founder",
+      feedback:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam necessitatibus ea corrupti fugiat maxime! Tempora non sapiente nesciunt temporibus fugiat.",
+    },
+  ];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 500000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          dots: true,
+          infinite: true,
+          speed: 2000,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 500000,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          dots: true,
+          infinite: true,
+          speed: 2000,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 500000,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          dots: true,
+          infinite: true,
+          speed: 2000,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 500000,
+          arrows: false,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className="">
-      <div class=" cursor-pointer  max-w-md bg-white border border-gray-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700 p-4  shadow-lg">
-        <div class=" flex justify-center items-center flex-col  ">
-          <div className="h-20 w-20  ">
-            {" "}
-            <img
-              class=" w-full h-full rounded-full"
-              src={data?.image}
-              alt="product image"
-            />
-          </div>
-          <h5 className="font-semibold p-2">{data.name}</h5>
-        </div>
-        <div className="flex justify-center flex-col items-center ">
-          <h5 class="text-md text-center  tracking-tight text-gray-900 dark:text-white py-4">
-            {data?.description}
-          </h5>
-          <div class="flex items-center mt-2.5 mb-5">
-            <div class="flex items-center space-x-1 rtl:space-x-reverse">
-              <svg
-                class="w-4 h-4 text-yellow-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
-              <svg
-                class="w-4 h-4 text-yellow-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
-              <svg
-                class="w-4 h-4 text-yellow-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
-              <svg
-                class="w-4 h-4 text-yellow-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
-              <svg
-                class="w-4 h-4 text-gray-200 dark:text-gray-600"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
+    <div className="w-full h-auto md:py-10 py-7">
+      <Slider {...settings}>
+        {data.map((item, index) => (
+          <div key={index}>
+            <div className="flex md:flex-row flex-col justify-center items-center w-full md:px-10 px-3 md:gap-0 gap-4">
+              <div className="flex flex-col justify-center items-center text-center md:w-[30%] w-full ">
+                <div className="h-30 w-30 mb-4">
+                  <img
+                    className="w-full h-full rounded-full"
+                    src={item.img}
+                    alt={`${item.name}'s image`}
+                  />
+                </div>
+                <h5 className="font-semibold">{item.name}</h5>
+                <p className="text-sm text-gray-2000">{item.designation}</p>
+              </div>
+              <div className="hidden md:block  w-[5%]">
+                <div className="bg-gray-700 rounded-full w-[1px] h-40 ">
+                  <div className="w-12 h-12 rounded-full border-[1px] border-gray-700 flex justify-center bg-gray-800 relative right-6 top-14 ">
+                    <div className="rotate-180 flex justify-center  items-center text-4xl text-yellow-400">
+                      <MdFormatQuote />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="md:w-[65%] w-full">
+                <p className="text-lg text-white md:text-start text-center">
+                  {item.feedback}
+                </p>
+              </div>
             </div>
-            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">
-              5.0
-            </span>
           </div>
-        </div>
-      </div>
+        ))}
+      </Slider>
     </div>
   );
 };
