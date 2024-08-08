@@ -19,6 +19,26 @@ module.exports = {
       "2xl": "1536px",
       "3xl":"1700px",
     },
+     fontFamily: {
+        playfair: ['"Playfair Display"', 'serif'],
+        raleway: ['"Raleway"', 'sans-serif'],
+      },
+      spacing: {
+        '5': '20px', // Equivalent to the grid-gap: 20px;
+      },
+      letterSpacing: {
+        wide: '1px',
+        wider: '2px',
+      },
+      wordSpacing: {
+        wide: '1px',
+      },
+      colors: {
+        'gray-800': '#222',
+        'gray-600': '#444',
+        'gray-300': '#ccc',
+        'gray-50': '#f8f8f8',
+      },
   },
   },
   plugins: [

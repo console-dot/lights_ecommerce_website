@@ -1,18 +1,21 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { HomePage, ProductDetailsPage } from "./pages";
-
+import { AllProductCardsPage, AllProductCategory, HomePage, ProductDetailsPage } from "./pages";
+import { AddCardState } from "./context";
 
 
 
 function App() {
   return (
     // <Nav />
-    <Routes>
-      <Route path="/home" element={<HomePage/>} />
-      <Route path="/" element={<ProductDetailsPage/>} />
-
-    </Routes>
+    <AddCardState>
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/productDetails/:id" element={<ProductDetailsPage />} />
+        <Route path="/product" element={<AllProductCardsPage />} />
+        <Route path="/product/:id" element={<AllProductCategory />} />
+      </Routes>
+    </AddCardState>
   );
 }
 

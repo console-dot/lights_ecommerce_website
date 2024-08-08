@@ -19,7 +19,7 @@ export const Banner = () => {
           disableOnInteraction: false,
         }}
         speed={1000}
-        navigation
+        // navigation
         pagination={{ clickable: true }} // Enable pagination dots
         modules={[Autoplay, Navigation, Pagination]}
         className="mySwiper"
