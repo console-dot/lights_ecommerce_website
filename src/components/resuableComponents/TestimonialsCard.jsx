@@ -89,7 +89,7 @@ export const TestimonialsCard = () => {
           <div key={index}>
             <div className="flex md:flex-row flex-col justify-center items-center w-full md:px-10 px-3 md:gap-0 gap-4">
               <div className="flex flex-col justify-center items-center text-center md:w-[30%] w-full ">
-                <div className="h-30 w-30 mb-4">
+                <div className="h-30 w-30 mb-4 border-4 border-white rounded-full">
                   <img
                     className="w-full h-full rounded-full"
                     src={item.img}
