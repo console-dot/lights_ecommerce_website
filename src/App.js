@@ -8,6 +8,7 @@ import { AddCardState } from "./context";
 function App() {
   return (
     // <Nav />
+ 
     <AddCardState>
       <Routes>
         <Route path="/home" element={<HomePage />} />
@@ -16,6 +17,7 @@ function App() {
         <Route path="/product/:id" element={<AllProductCategory />} />
       </Routes>
     </AddCardState>
+ 
   );
 }
 
