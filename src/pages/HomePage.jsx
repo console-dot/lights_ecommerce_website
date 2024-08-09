@@ -25,7 +25,7 @@ const images =[
 export const HomePage = () => {
   return (
     <Layout>
-      <Banner/>
+      <Banner />
       <FutureProducts/>
       <NewArrivals/>
       <Testimonials/>
