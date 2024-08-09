@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Layout } from '../themes'
-import { Banner, FeatureProducts, FutureProducts, NewArrivals, Testimonials } from '../components'
+import { Banner, DiscountOffer, FeatureProducts, FutureProducts, NewArrivals, Testimonials } from '../components'
 import { benner } from '../assets'
 const images =[
 {
@@ -28,6 +28,7 @@ export const HomePage = () => {
       <Banner/>
       <FutureProducts/>
       <NewArrivals/>
+      <DiscountOffer/>
       <Testimonials/>
       
     </Layout>
