@@ -10,7 +10,7 @@ function App() {
     // <Nav />
     <AddCardState>
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="" element={<HomePage />} />
         <Route path="/productDetails/:id" element={<ProductDetailsPage />} />
         <Route path="/product" element={<AllProductCardsPage />} />
         <Route path="/product/:id" element={<AllProductCategory />} />

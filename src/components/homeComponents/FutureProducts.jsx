@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { benner } from "../../assets";
-import { ProductCard } from "../resuableComponents";
+import { ProductCard, ProductDetailsModal } from "../resuableComponents";
 import { Link } from "react-router-dom";
 
 export const FutureProducts = () => {
@@ -62,7 +62,7 @@ export const FutureProducts = () => {
       price: 3500,
     },
   ];
-
+const [productDeail ,setProductDetail ] = useState(false)
   return (
     <div className="flex justify-center items-center">
       <div className="container  lg:p-10 p-4">
@@ -80,6 +80,8 @@ export const FutureProducts = () => {
             tone for a look that will never go out of style.
           </p>
         </div>
+        {productDeail && <ProductDetailsModal/>}
+        <button onClick={()=>setProductDetail(true)}> Viev Product</button>
         <div className="sm:grid flex flex-col xxs:grid-cols-2 lg:grid-cols-3 md:p-5 p-2 gap-4 place-items-center">
           {productData.map((i,index) => (
             <ProductCard data={i} id={index} />
