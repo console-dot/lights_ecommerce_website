@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import { EffectFade, Autoplay, Pagination } from "swiper/modules";
+import { EffectFade, Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BennerImage1, BennerImage2, BennerImage3 } from "../../assets";
 import "../../App.css"; // Make sure this imports the CSS with the Swiper container styles
-
 
 export const Banner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,7 +30,6 @@ export const Banner = () => {
   return (
     <div className="swiper-container">
       <Swiper
-
         effect="fade"
         autoplay={{
           delay: 3500,
@@ -44,7 +42,7 @@ export const Banner = () => {
         <SwiperSlide className="relative w-full h-full">
           <img
             className="w-full h-full object-cover"
-            src={benner}
+            src={BennerImage1}
             alt="Banner"
           />
           <div
@@ -77,7 +75,7 @@ export const Banner = () => {
         <SwiperSlide className="relative w-full h-full">
           <img
             className="w-full h-full object-cover"
-            src={benner1}
+            src={BennerImage2}
             alt="Banner"
           />
           <div
@@ -110,7 +108,7 @@ export const Banner = () => {
         <SwiperSlide className="relative w-full h-full">
           <img
             className="w-full h-full object-cover"
-            src={benner2}
+            src={BennerImage3}
             alt="Banner"
           />
           <div

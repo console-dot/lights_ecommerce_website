@@ -1,6 +1,5 @@
 import React from "react";
-import { benner } from "../../assets";
-import { FaGreaterThan } from "react-icons/fa";
+import { BennerImage1, } from "../../assets";
 import "../../App.css";
 
 export const ProductCardBanner = ({ name }) => {
@@ -9,7 +8,7 @@ export const ProductCardBanner = ({ name }) => {
       {" "}
       <div className="w-full h-[200px] md:h-[400px]  ">
         <div
-          style={{ backgroundImage: `url(${benner})` }}
+          style={{ backgroundImage: `url(${BennerImage1})` }}
           className="w-full h-full flex flex-col justify-center items-center relative "
         >
           {/* products */}

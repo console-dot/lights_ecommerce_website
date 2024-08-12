@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  benner,
-  benner1,
+  BennerImage1,
+  BennerImage11,
   light1,
   light1Bg,
   light2,

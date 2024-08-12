@@ -1,54 +1,54 @@
 import React from "react";
 import { ProductCard } from "../resuableComponents";
-import { benner } from "../../assets";
+import { BennerImage1, BennerImage2 } from "../../assets";
 import { Link } from "react-router-dom";
 
 export const NewArrivals = () => {
   const newArrivalsData = [
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       price: 3500,
       description: "lorem",
     },
     {
-      image: benner,
+      image: BennerImage2,
       name: "wood",
       price: 3500,
       description: "lorem",
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       price: 3500,
       description: "lorem",
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       price: 3500,
       description: "lorem",
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       price: 3500,
       description: "lorem",
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       price: 3500,
       description: "lorem",
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       price: 3500,
       description: "lorem",
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       price: 3500,
       description: "lorem",
@@ -58,7 +58,7 @@ export const NewArrivals = () => {
     <div div className="flex justify-center items-center">
       <div className="container p-4 md:p-10">
         <div class="nine">
-          <h1  class="text-center text-4xl md:text-5xl uppercase text-gray-800 tracking-wide font-playfair font-normal">
+          <h1 class="text-center text-4xl md:text-5xl uppercase text-gray-800 tracking-wide font-playfair font-normal">
             New Arrivals
           </h1>
         </div>
@@ -71,7 +71,7 @@ export const NewArrivals = () => {
         </div>
         <div className="flex justify-center items-center pt-10 ">
           <button className="px-7 py-3 bg-[#fa9105] border-[#fa9105] hover:bg-white hover:text-[#fa9105] font-semibold  border text-white  rounded-lg">
-          <Link to='/product'>Veiw All Products</Link>
+            <Link to="/product">Veiw All Products</Link>
           </button>
         </div>
       </div>

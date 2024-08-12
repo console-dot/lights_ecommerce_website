@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { benner, benner2 } from "../../assets";
+import { BennerImage1, BennerImage12 } from "../../assets";
 import AddCardContext from "../../context/addCart/AddCardContext";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegEye, FaShoppingCart } from "react-icons/fa";

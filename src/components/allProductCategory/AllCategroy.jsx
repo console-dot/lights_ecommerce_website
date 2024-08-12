@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { benner } from "../../assets";
+import { BennerImage1 } from "../../assets";
 import { ProductCard, ProductCardBanner } from "../resuableComponents";
 import AddCardContext from "../../context/addCart/AddCardContext";
 import { Link, useParams } from "react-router-dom";
@@ -12,7 +12,7 @@ export const AllCategroy = () => {
   console.log(name);
   return (
     <div className="">
-     <ProductCardBanner name={name}/>
+      <ProductCardBanner name={name} />
       <div className="md:px-10 px-5 pt-5  md:pt-10">
         <nav class="flex" aria-label="Breadcrumb">
           <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -48,7 +48,7 @@ export const AllCategroy = () => {
                   />
                 </svg>
                 <div class="ms-1 text-sm font-medium text-gray-700  px-3 py-2 rounded-lg hover:text-white hover:bg-amber-500 md:ms-2 dark:text-gray-400 dark:hover:text-white">
-                <Link to="/product">Products</Link>
+                  <Link to="/product">Products</Link>
                 </div>
               </div>
             </li>

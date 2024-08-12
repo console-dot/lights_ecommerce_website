@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { benner } from "../../assets";
+import { BennerImage1 } from "../../assets";
 import { FaGreaterThan } from "react-icons/fa";
 import { ProductCard, ProductCardBanner } from "../resuableComponents";
 import AddCardContext from "../../context/addCart/AddCardContext";
@@ -10,7 +10,7 @@ export const AllProductCards = () => {
   const cart = useContext(AddCardContext);
   return (
     <div>
-        <ProductCardBanner/>
+      <ProductCardBanner />
       <div className="md:px-10 px-5 pt-5  md:pt-10">
         <nav class="flex" aria-label="Breadcrumb">
           <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -46,7 +46,7 @@ export const AllProductCards = () => {
                   />
                 </svg>
                 <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">
-                 Product
+                  Product
                 </span>
               </div>
             </li>
