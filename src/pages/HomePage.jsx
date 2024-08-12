@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Layout } from "../themes";
 import {
   Banner,
+  CategoryCard,
   DiscountOffer,
   FutureProducts,
   NewArrivals,
   OurBenefits,
+  SignUpNewsLetter,
   Testimonials,
 } from "../components";
 
@@ -18,6 +20,8 @@ export const HomePage = () => {
       <NewArrivals />
       <DiscountOffer />
       <Testimonials />
+      <CategoryCard />
+      <SignUpNewsLetter/>
     </Layout>
   );
 };

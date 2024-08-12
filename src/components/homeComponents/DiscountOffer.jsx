@@ -12,7 +12,7 @@ export const DiscountOffer = () => {
       <div className="absolute bg-black opacity-20 inset-0"></div>
       <div className="relative flex mx-auto w-full max-w-[1200px] justify-between px-4 md:px-8">
         <div className="relative text-start text-white p-6 flex flex-col justify-end">
-          <h1 className="md:text-7xl text-4xl text-[#FFC000] text-center font-bold mb-4">
+          <h1 className="md:text-7xl text-4xl text-[#F99106] text-center font-bold mb-4">
             GET FLAT 50%
           </h1>
           <div className="w-[2px] bg-white h-10 mx-auto md:my-4 my-1"></div>
@@ -23,7 +23,7 @@ export const DiscountOffer = () => {
             DEAL THIS WEEKEND
           </p>
           <div className="flex justify-center">
-            <button className="shop-button mt-6 w-28 px-2 py-3 bg-[#FFC000] text-black rounded-full">
+            <button className="shop-button mt-6 w-28 px-2 py-3 bg-[#F99106] text-black rounded-full">
               <span>Shop Now</span>
             </button>
           </div>

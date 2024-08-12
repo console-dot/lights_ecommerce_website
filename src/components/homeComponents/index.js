@@ -3,3 +3,5 @@ export * from './NewArrivals'
 export * from "./Testimonials"
 export * from "./OurBenefits"
 export * from "./DiscountOffer"
+export * from "./CategoryCard"
+export * from "./SignUpNewsLetter"
