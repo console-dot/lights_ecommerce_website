@@ -13,6 +13,8 @@ import light2Bg from "./Light2bg.jpg";
 import BennerImage1 from "./bennerImage1.jpg";
 import BennerImage2 from "./Main-banner-1-1920x930.jpg";
 import BennerImage3 from "./Main-banner-2-1920x930.jpg";
+import categoryCardIamge from "./cms-banner-1.jpg"
+import categoryCardIamge1 from "./cms-banner-2.jpg"
 export {
   benner,
   benner1,
@@ -28,4 +30,6 @@ export {
   user1,
   user2,
   user3,
+  categoryCardIamge,
+  categoryCardIamge1
 };

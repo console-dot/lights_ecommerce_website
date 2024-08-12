@@ -77,7 +77,7 @@ export const FutureProducts = () => {
       price: 3500,
     },
   ];
-  const [productDeail, setProductDetail] = useState (false);
+ 
   return (
     <div className="flex justify-center items-center">
       <div className="container  lg:p-10 p-4">
