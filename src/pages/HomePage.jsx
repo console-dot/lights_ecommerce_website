@@ -7,6 +7,7 @@ import {
   FutureProducts,
   NewArrivals,
   OurBenefits,
+  SignUpNewsLetter,
   Testimonials,
 } from "../components";
 
@@ -20,6 +21,7 @@ export const HomePage = () => {
       <DiscountOffer />
       <Testimonials />
       <CategoryCard />
+      <SignUpNewsLetter/>
     </Layout>
   );
 };

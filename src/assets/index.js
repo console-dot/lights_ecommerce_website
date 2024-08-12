@@ -12,6 +12,7 @@ import user3 from "./user3.jpg";
 import logo from "./logo.png" 
 import categoryCardIamge from "./cms-banner-1.jpg"
 import categoryCardIamge1 from "./cms-banner-2.jpg"
+import newLetterImage from "./newsletter-img.jpg"
 export {
   light1Bg,
   light2,
@@ -26,5 +27,6 @@ export {
   user3,
   categoryCardIamge1,
   categoryCardIamge,
-  logo
+  logo,
+  newLetterImage
 };
