@@ -12,7 +12,7 @@ export const HomePage = () => {
   return (
     <Layout>
       <Banner  />
-      {/* <FutureProducts /> */}
+      <FutureProducts />
       <OurBenefits />
       <NewArrivals />
       <DiscountOffer/>
