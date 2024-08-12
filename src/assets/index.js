@@ -25,6 +25,6 @@ export {
   user2,
   user3,
   categoryCardIamge1,
-  categoryCardIamge
+  categoryCardIamge,
   logo
 };
