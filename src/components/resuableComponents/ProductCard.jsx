@@ -39,6 +39,7 @@ export const ProductCard = ({ data, id }) => {
         className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 relative lg:h-[470px] h-[300px] sm:h-[400px] md:[290px]"
         onMouseEnter={isMdOrLarger ? () => setImageIcon(true) : undefined}
         onMouseLeave={isMdOrLarger ? () => setImageIcon(false) : undefined}
+        onClick={()=>navigate(`/productDetails/:id`)}
       >
         <div className="flex-col flex w-full h-full">
           <div className="relative w-full ">
@@ -132,8 +133,8 @@ export const ProductCard = ({ data, id }) => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="font-semibold md:py-2 ">{data?.name}</h1>
-            <h1 className="font-semibold inline">
+            <h1 className="font-semibold md:py-2  text-white">{data?.name}</h1>
+            <h1 className="font-semibold inline text-white">
               <span>$</span>
               {data?.price}
             </h1>
