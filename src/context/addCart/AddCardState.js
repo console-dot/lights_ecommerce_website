@@ -1,15 +1,15 @@
 import { useState } from "react";
 import AddCardContext from "./AddCardContext";
-import { benner } from "../../assets";
+import { BennerImage1 } from "../../assets";
 import { useNavigate } from "react-router-dom";
 export const AddCardState = (props) => {
   const navigate = useNavigate();
-  const [filterInput, setFilterInput] = useState('');
-  const [search, setSearch]=useState()
+  const [filterInput, setFilterInput] = useState("");
+  const [search, setSearch] = useState();
   const productData = [
     {
       category: "light",
-      image: benner,
+      image: BennerImage1,
       name: "light",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
@@ -17,7 +17,7 @@ export const AddCardState = (props) => {
     },
     {
       category: "stool",
-      image: benner,
+      image: BennerImage1,
       name: "stool",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
@@ -25,7 +25,7 @@ export const AddCardState = (props) => {
     },
     {
       category: "tabel",
-      image: benner,
+      image: BennerImage1,
       name: "tabel",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
@@ -33,7 +33,7 @@ export const AddCardState = (props) => {
     },
     {
       category: "stool",
-      image: benner,
+      image: BennerImage1,
       name: "stool",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
@@ -41,7 +41,7 @@ export const AddCardState = (props) => {
     },
     {
       category: "tabel",
-      image: benner,
+      image: BennerImage1,
       name: "tabel",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
@@ -49,7 +49,7 @@ export const AddCardState = (props) => {
     },
     {
       category: "light",
-      image: benner,
+      image: BennerImage1,
       name: "light",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
@@ -57,7 +57,7 @@ export const AddCardState = (props) => {
     },
     {
       category: "stool",
-      image: benner,
+      image: BennerImage1,
       name: "stool",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
@@ -65,14 +65,14 @@ export const AddCardState = (props) => {
     },
     {
       category: "light",
-      image: benner,
+      image: BennerImage1,
       name: "light",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
   ];
-  
+
   const [cards, setCards] = useState();
   const [cartData, setCartData] = useState([]);
   const [quantity, setQuantity] = useState(0);
@@ -106,13 +106,12 @@ export const AddCardState = (props) => {
   };
 
   const handleSearch = (e) => {
-    setFilterInput(e.target.value); 
+    setFilterInput(e.target.value);
     const searchData = productData.filter((item) =>
-    item.name.toLowerCase().includes(filterInput.toLowerCase())
-  );
-  setSearch(searchData)
+      item.name.toLowerCase().includes(filterInput.toLowerCase())
+    );
+    setSearch(searchData);
   };
-
 
   return (
     <AddCardContext.Provider

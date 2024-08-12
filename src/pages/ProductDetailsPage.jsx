@@ -5,62 +5,62 @@ import {
   ProductDetails,
   RelatedProduct,
   RightSide,
-} from "../components/productDetailsComponent";
-import { benner } from "../assets";
+} from "../components";
+import { BennerImage1 } from "../assets";
 import { useParams } from "react-router-dom";
 export const ProductDetailsPage = () => {
   const productData = [
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "whello",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: benner,
+      image: BennerImage1,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",

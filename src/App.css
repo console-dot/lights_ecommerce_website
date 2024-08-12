@@ -2,18 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-background-color: #111111;
+  background-color: #111111;
 }
 /* slick */
 .slick-dots li button:before {
-  color: #f3f5fa !important; 
-  font-size: 15px !important; 
+  color: #f3f5fa !important;
+  font-size: 15px !important;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #fbbf24 !important; 
+  color: #fbbf24 !important;
 }
 /* slick */
 
@@ -50,7 +49,7 @@ background-color: #111111;
 }
 
 .shop-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -75,7 +74,6 @@ background-color: #111111;
   transition: color 0.4s ease;
 }
 
-
 /* Discount Offer Button */
 /* Navbar */
 /* Custom underline effect */
@@ -96,7 +94,6 @@ background-color: #111111;
 
 /* Navbar */
 
-
 .container {
   max-width: 1280px;
   display: flex;
@@ -105,28 +102,33 @@ background-color: #111111;
   flex-direction: column;
 }
 
-  .zoom {
-    background-position: 50% 50%;
-    position: relative;
-    width: 500px;
-    overflow: hidden;
-    cursor: zoom-in;
-  }
-  .zoom img:hover {
-    opacity: 0;
-  }
-  .zoom img {
-    transition: opacity .5s;
-    display: block;
-    width: 100%;
-  }
-  /* Banner.css */
+.zoom {
+  background-position: 50% 50%;
+  position: relative;
+  width: 500px;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.zoom img:hover {
+  opacity: 0;
+}
+.zoom img {
+  transition: opacity 0.5s;
+  display: block;
+  width: 100%;
+}
+/* Banner.css */
 
 /* Default styles for the navigation buttons */
 .mySwiper .swiper-button-next,
 .mySwiper .swiper-button-prev {
   color: #fff; /* Change the color of the navigation buttons */
-  background-color: rgba(0, 0, 0, 0.5); /* Add a background color with transparency */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Add a background color with transparency */
   border-radius: 50%; /* Make the buttons circular */
   width: 40px; /* Set the width */
   height: 40px; /* Set the height */
@@ -186,8 +188,7 @@ background-color: #111111;
     font-size: 20px; /* Default icon size for large screens */
   }
 }
-
-.swiper-wrapper{
+.swiper-wrapper {
   /* padding-top: 15px;
   padding-bottom: 15px; */
   /* padding: 15px; */
@@ -279,56 +280,102 @@ background-color: #111111;
   border-left: 30px solid #f9c4d2;
 }
 
-.wrapper{
-display: flex;
-
-}
-
-.img-box{
-  justify-content: center;
-  align-items: center;
-
+.wrapper {
   display: flex;
 }
 
-.image1{
-  border-radius: 1rem;
+.img-box {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+/* 
+.image1 {
+/* 
+.image1 {
   position: relative;
-  transition: 0.5s ease-in-out;
+  transition: 0.10s ease-in-out;
+  transition: 0.10s ease-in-out;
 }
 
-.image2{
+.image2 {
+.image2 {
   position: absolute;
-  border-radius: 1rem;
-  transition: 0.5s ease-in-out;
+  transition: 0.10s ease-in-out;
+  transition: 0.10s ease-in-out;
   opacity: 0;
 }
 
-.img-box:hover .image1{
-opacity: 0;
+.img-box:hover .image1 {
+  opacity: 0;
+.img-box:hover .image1 {
+  opacity: 0;
 }
 
-.img-box:hover .image2{
- opacity: 100%;
+.img-box:hover .image2 {
+  opacity: 100%;
+} */
+.img-box:hover .image2 {
+  opacity: 100%;
 }
-
-.watermark{
-  position: absolute;
-}
-/* Slide-in animation */
-/* Slide-in animation */
-@keyframes slideIn {
-  from {
-    transform: translateX(-50%);
-    opacity: 0;
+*/ .watermark {
+  .watermark {
+    position: absolute;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+
+  .glow {
+    font-size: 80px;
+    color: orange;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fa9105, 0 0 20px #fa9105, 0 0 30px #e60073,
+        0 0 20px #ffc505, 0 0 30px #ffc505, 0 0 40px #ffc505, 0 0 40px #ffc505;
+    }
+    to {
+      text-shadow: 0 0 20px #fa9105, 0 0 30px #ffc505, 0 0 20px #ffc505,
+        0 0 30px #ffc505, 0 0 40px #ffc505, 0 0 40px #ffc505, 0 0 50px #ffc505;
+    }
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fa9105, 0 0 20px #fa9105, 0 0 30px #e60073,
+        0 0 20px #ffc505, 0 0 30px #ffc505, 0 0 40px #ffc505, 0 0 40px #ffc505;
+    }
+    to {
+      text-shadow: 0 0 20px #fa9105, 0 0 30px #ffc505, 0 0 20px #ffc505,
+        0 0 30px #ffc505, 0 0 40px #ffc505, 0 0 40px #ffc505, 0 0 50px #ffc505;
+    }
+  }
+
+  .glow-text {
+    font-size: 24px;
+    color: #f8f7f4;
+    -webkit-animation: glow 1.5s infinite alternate;
+    animation: glow 1.5s infinite alternate;
+  }
+
+  @keyframes mymove {
+    from {
+      transform: translateX(100%);
+      @keyframes slideIn {
+        from {
+          transform: translateX(-50%);
+
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .animate-slide-in {
+        animation: slideIn 1s ease-out;
+      }
+    }
   }
 }
-
-.animate-slide-in {
-  animation: slideIn 1s ease-out;
-}
-

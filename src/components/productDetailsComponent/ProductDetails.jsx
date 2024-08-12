@@ -1,17 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { benner1, benner, benner2 } from "../../assets";
+import { BennerImage1, BennerImage2, BennerImage3 } from "../../assets";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import "../../App.css";
 import { FaRegHeart } from "react-icons/fa";
+
 export const ProductDetails = () => {
   const imageData = [
-    { image: benner },
-    { image: benner1 },
-    { image: benner2 },
-    { image: benner1 },
+    { image: BennerImage1 },
+    { image: BennerImage2 },
+    { image: BennerImage3 },
+    { image: BennerImage1 },
   ];
 
   const [showImage, setShowImage] = useState();
