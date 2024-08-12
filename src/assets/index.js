@@ -9,6 +9,7 @@ import parallax from "./parallax.jpg";
 import user1 from "./user1.jpg";
 import user2 from "./user2.jpg";
 import user3 from "./user3.jpg";
+import logo from "./logo.png" 
 
 export {
   light1Bg,
@@ -22,4 +23,5 @@ export {
   user1,
   user2,
   user3,
+  logo
 };

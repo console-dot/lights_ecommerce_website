@@ -16,6 +16,31 @@ body {
 }
 /* slick */
 
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* navbar */
+
 /* Discount Offer Button */
 .shop-button {
   position: relative;
@@ -40,7 +65,7 @@ body {
 }
 
 .shop-button:hover {
-  color: #333232; /* Text color changes to yellow */
+  color: #333232; 
 }
 
 .shop-button span {
@@ -50,6 +75,24 @@ body {
 }
 
 /* Discount Offer Button */
+/* Navbar */
+/* Custom underline effect */
+.group button::after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 2px;
+  width: 0px;
+  background: transparent;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.group:hover button::after {
+  width: 100%;
+  background: #fbbf24; /* Tailwind's yellow-400 */
+}
+
+/* Navbar */
 
 .container {
   max-width: 1280px;
