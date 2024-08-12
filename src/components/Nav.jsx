@@ -34,7 +34,7 @@ export const Nav = () => {
           )}
         </h1>
         <h1
-          className="text-[#fa9105] z-50  font-semibold text-2xl lg:text-xl"
+          className="text-[#fa9105] z-50  font-semibold text-2xl lg:text-xl glow-text"
           onClick={() => navigate(`/home`)}
         >
           MAKINSA
@@ -180,7 +180,7 @@ export const Nav = () => {
               </div>
             )}
           </li>
-          <li className="p-3 lg:text-[12px] xl:text-base"> Blogs </li>
+          <li className="p-3 lg:text-[12px] xl:text-base"> AboutUS </li>
           <li className="p-3 lg:text-[12px] xl:text-base"> Contact </li>
         </ul>
         <div className="flex justify-center items-center">

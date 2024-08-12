@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { AllProductCardsPage, AllProductCategory, HomePage, ProductDetailsPage } from "./pages";
+import { AboutUsPage, AllProductCardsPage, AllProductCategory, HomePage, ProductDetailsPage } from "./pages";
 import { AddCardState } from "./context";
 
 
@@ -15,6 +15,7 @@ function App() {
         <Route path="/productDetails/:id" element={<ProductDetailsPage />} />
         <Route path="/product" element={<AllProductCardsPage />} />
         <Route path="/product/:id" element={<AllProductCategory />} />
+        <Route path="/about"element={<AboutUsPage/>}/>
       </Routes>
     </AddCardState>
  

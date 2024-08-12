@@ -5,3 +5,4 @@ export * from './homeComponents'
 export * from './productDetailsComponent'
 export * from './allProductCards'
 export * from "./allProductCategory"
+export * from "./aboutUS"

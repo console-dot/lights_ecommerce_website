@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/effect-fade";
-import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "../../App.css"; // Make sure this file includes the CSS for animations
+import React from "react";
 import "swiper/css";
-import { benner, benner1, benner2 } from "../../assets";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import { EffectFade, Autoplay, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { BennerImage1, BennerImage2, BennerImage3 } from "../../assets";
+import "../../App.css"; // Make sure this imports the CSS with the Swiper container styles
+
 
 export const Banner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,8 +29,9 @@ export const Banner = () => {
   }, [activeIndex]);
 
   return (
-    <div>
+    <div className="swiper-container">
       <Swiper
+
         effect="fade"
         autoplay={{
           delay: 3500,
