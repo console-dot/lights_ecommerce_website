@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Layout } from "../themes";
 import {
   Banner,
+  CategoryCard,
   DiscountOffer,
   FutureProducts,
   NewArrivals,
@@ -18,6 +19,7 @@ export const HomePage = () => {
       <NewArrivals />
       <DiscountOffer />
       <Testimonials />
+      <CategoryCard />
     </Layout>
   );
 };
