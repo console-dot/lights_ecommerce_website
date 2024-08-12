@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { benner1 } from "../../assets";
+import { BennerImage1 } from "../../assets";
 import AddCardContext from "../../context/addCart/AddCardContext";
 import { FaCross, FaRegHeart } from "react-icons/fa";
 import { TbFlagCancel } from "react-icons/tb";
@@ -12,7 +12,7 @@ export const ProductDetailsModal = () => {
       <div className="fixed z-50 top-12 right-[15%]">
         <form method="dialog" className="modal-backdrop">
           <button className="border-none">
-            <ImCross className="text-[#b1b1b1]"/>
+            <ImCross className="text-[#b1b1b1]" />
           </button>
         </form>
       </div>
@@ -21,7 +21,7 @@ export const ProductDetailsModal = () => {
         style={{ maxWidth: "70%" }}
       >
         <div className="w-1/2">
-          <img src={benner1} className="h-[500px] px-2" />
+          <img src={BennerImage1} className="h-[500px] px-2" />
         </div>
         <div className="w-1/2 flex flex-col px-2">
           <div>
@@ -170,7 +170,9 @@ export const ProductDetailsModal = () => {
                 </div>{" "}
                 Add to list{" "}
               </div>
-              <div className=" hover:border-b-2 py-2 text-white">Add to registry</div>
+              <div className=" hover:border-b-2 py-2 text-white">
+                Add to registry
+              </div>
             </div>
           </div>
         </div>

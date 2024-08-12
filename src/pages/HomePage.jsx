@@ -3,8 +3,6 @@ import { Layout } from "../themes";
 import {
   Banner,
   DiscountOffer,
-  Banner,
-  DiscountOffer,
   FutureProducts,
   NewArrivals,
   OurBenefits,
