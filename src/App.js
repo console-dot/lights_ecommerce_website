@@ -12,7 +12,6 @@ import { AddCardState } from "./context";
 function App() {
   return (
     // <Nav />
-
     <AddCardState>
       <Routes>
         <Route path="/" element={<HomePage />} />
