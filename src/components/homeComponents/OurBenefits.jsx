@@ -30,11 +30,11 @@ const benefitsData = [
 // Individual benefit card component
 const BenefitCard = ({ icon, heading, description }) => (
   <div className="flex flex-col justify-center items-center p-4 group md:max-w-screen-lg max-w-screen-sm">
-    <div className="mb-2 group-hover:text-[#FFC000] transition-all duration-500">
+    <div className="mb-2 group-hover:text-[#F99106] transition-all duration-500">
       {icon}
     </div>
     <div>
-      <span className="text-lg group-hover:text-[#FFC000]">
+      <span className="text-lg group-hover:text-[#F99106]">
         {heading}
       </span>
     </div>

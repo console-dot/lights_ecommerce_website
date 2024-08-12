@@ -157,7 +157,7 @@ export const ProductDetailsModal = () => {
                 </button>
               </div>
               <div className="flex justify-center items-center">
-                <button className="shop-button   px-4 py-3 bg-[#FFC000] text-black rounded-full">
+                <button className="shop-button   px-4 py-3 bg-[#F99106] text-black rounded-full">
                   <span>Add to Cart</span>
                 </button>
               </div>

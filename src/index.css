@@ -5534,7 +5534,7 @@ details.collapse summary::-webkit-details-marker {
   border-color: rgb(159 88 10 / var(--tw-border-opacity));
 }
 
-.border-t-\[\#FFC000\] {
+.border-t-\[\#F99106\] {
   --tw-border-opacity: 1;
   border-top-color: rgb(255 192 0 / var(--tw-border-opacity));
 }
@@ -5568,7 +5568,7 @@ details.collapse summary::-webkit-details-marker {
   background-color: rgb(249 145 6 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#FFC000\] {
+.bg-\[\#F99106\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 192 0 / var(--tw-bg-opacity));
 }
@@ -6505,7 +6505,7 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(249 145 6 / var(--tw-text-opacity));
 }
 
-.text-\[\#FFC000\] {
+.text-\[\#F99106\] {
   --tw-text-opacity: 1;
   color: rgb(255 192 0 / var(--tw-text-opacity));
 }
@@ -8357,7 +8357,7 @@ nav .flex {
   background-color: rgb(252 233 106 / var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:text-\[\#FFC000\] {
+.group:hover .group-hover\:text-\[\#F99106\] {
   --tw-text-opacity: 1;
   color: rgb(255 192 0 / var(--tw-text-opacity));
 }

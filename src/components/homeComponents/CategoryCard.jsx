@@ -27,7 +27,7 @@ export const CategoryCard = () => {
             <h1 className="md:text-xl lg:text-3xl py-1  md:pb-2 font-semibold text-white lg:py-3 ">
               Desk lamps
             </h1>
-            <button className="shop-button px-2 py-1 lg:px-4 lg:py-2 bg-[#FFC000] text-black rounded-full flex justify-center items-center">
+            <button className="shop-button px-2 py-1 lg:px-4 lg:py-2 bg-[#F99106] text-black rounded-full flex justify-center items-center">
               <span className="text-[10px] md:text-base">Shop Now</span>
             </button>
           </div>

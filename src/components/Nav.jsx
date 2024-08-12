@@ -185,7 +185,7 @@ export const Nav = () => {
 
               {/* Desktop dropdowns */}
               {activeDropdown === menu.name && menu.name === "Indore Lights" && (
-                <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#FFC000] shadow-lg z-10">
+                <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
                   <ul className="py-2 text-sm text-gray-400">
                     <div className="w-[700px] flex p-8 justify-start items-center">
                       <div className="w-full flex justify-start items-start flex-wrap">
@@ -216,7 +216,7 @@ export const Nav = () => {
               )}
 
               {activeDropdown === menu.name && menu.name === "Wall Lights" && (
-                <div className="absolute top-full left-[-130%] bg-[#080808] border-t-[2px] border-t-[#FFC000] shadow-lg z-10">
+                <div className="absolute top-full left-[-130%] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
                   <div className="w-[700px] flex p-2 justify-around items-center">
                     {menu.data.map((item, k) => (
                       <a
@@ -233,7 +233,7 @@ export const Nav = () => {
                           <span className="text-white text-md">
                             {item.title}
                           </span>
-                          <span className="text-[#FFC000] text-lg font-semibold">
+                          <span className="text-[#F99106] text-lg font-semibold">
                             {item.price}
                           </span>
                         </div>
@@ -244,7 +244,7 @@ export const Nav = () => {
               )}
 
               {activeDropdown === menu.name && menu.name === "Table Lamps" && (
-                <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#FFC000] shadow-lg z-10">
+                <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
                   <ul className="p-2 w-44 text-sm text-gray-400">
                     {menu.data.map((item, l) => (
                       <li key={l}>
@@ -258,7 +258,7 @@ export const Nav = () => {
               )}
 
               {activeDropdown === menu.name && menu.name === "Commercial Lights" && (
-                <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#FFC000] shadow-lg z-10">
+                <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
                   <ul className="p-2 w-44 text-sm text-gray-400">
                     {menu.data.map((item, m) => (
                       <li key={m}>

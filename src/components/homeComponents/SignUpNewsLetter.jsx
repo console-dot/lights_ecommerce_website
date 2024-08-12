@@ -26,7 +26,7 @@ export const SignUpNewsLetter = () => {
             className="input input-bordered text-white input-primary w-full  focus:outline-none border-none bg-transparent"
           />
           <div className="absolute bottom-1 right-0">
-            <button className="shop-button px-2 py-1 bg-[#FFC000] text-black rounded-full">
+            <button className="shop-button px-2 py-1 bg-[#F99106] text-black rounded-full">
               <span>Subscribe</span>
             </button>
           </div>
