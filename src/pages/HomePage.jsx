@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Layout } from "../themes";
 import {
-  Banner, DiscountOffer,
+  Banner,
+  DiscountOffer,
   FutureProducts,
   NewArrivals,
   OurBenefits,
@@ -11,11 +12,11 @@ import {
 export const HomePage = () => {
   return (
     <Layout>
-      <Banner  />
-      {/* <FutureProducts /> */}
+      <Banner />
+      <FutureProducts />
       <OurBenefits />
-      <NewArrivals />
-      <DiscountOffer/>
+      {/* <NewArrivals /> */}
+      <DiscountOffer />
       <Testimonials />
     </Layout>
   );

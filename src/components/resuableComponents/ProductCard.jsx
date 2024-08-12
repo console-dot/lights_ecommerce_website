@@ -3,6 +3,7 @@ import { benner, benner2 } from "../../assets";
 import AddCardContext from "../../context/addCart/AddCardContext";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegEye, FaShoppingCart } from "react-icons/fa";
+import { ProductDetailsModal } from "./ProductDetailsModal";
 
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(window.matchMedia(query).matches);
@@ -19,6 +20,7 @@ const useMediaQuery = (query) => {
 };
 
 export const ProductCard = ({ data, id }) => {
+  const [productDetail, setProductDetail] = useState(false);
   const isMdOrLarger = useMediaQuery("(min-width: 768px)");
   const [imageIcon, setImageIcon] = useState(false);
   const navigate = useNavigate();
@@ -34,9 +36,10 @@ export const ProductCard = ({ data, id }) => {
   return (
     <>
       <div
-        className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 relative lg:h-[470px] h-[400px] md:[290px]"
+        className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 relative lg:h-[470px] h-[300px] sm:h-[400px] md:[290px]"
         onMouseEnter={isMdOrLarger ? () => setImageIcon(true) : undefined}
         onMouseLeave={isMdOrLarger ? () => setImageIcon(false) : undefined}
+        onClick={()=>navigate(`/productDetails/:id`)}
       >
         <div className="flex-col flex w-full h-full">
           <div className="relative w-full ">
@@ -55,7 +58,13 @@ export const ProductCard = ({ data, id }) => {
             {imageIcon && (
               <div className=" ">
                 <div className="flex md:flex-col justify-center items-center flex-row gap-2">
-                  <div className="bg-black hidden md:flex md:w-10 w-5 h-5 md:h-10 rounded-full justify-center items-center hover:bg-amber-600">
+                  <div
+                    className="bg-black hidden md:flex md:w-10 w-5 h-5 md:h-10 rounded-full justify-center items-center hover:bg-amber-600"
+                    onClick={() => {
+                      setProductDetail(true);
+                      document.getElementById("my_modal_1").showModal();
+                    }}
+                  >
                     <FaRegEye className="text-white" />
                   </div>
                   <div className="bg-black md:w-10 w-8 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-amber-600">
@@ -124,12 +133,15 @@ export const ProductCard = ({ data, id }) => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="font-semibold md:py-2 ">{data?.name}</h1>
-            <h1 className="font-semibold inline">
+            <h1 className="font-semibold md:py-2  text-white">{data?.name}</h1>
+            <h1 className="font-semibold inline text-white">
               <span>$</span>
               {data?.price}
             </h1>
           </div>
+          <dialog id="my_modal_1" className="modal flex items-end">
+            <ProductDetailsModal />
+          </dialog>
         </div>
       </div>
     </>
