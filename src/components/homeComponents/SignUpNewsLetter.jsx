@@ -4,9 +4,9 @@ import { CiMail } from "react-icons/ci";
 
 export const SignUpNewsLetter = () => {
   return (
-    <div className="flex justify-center items-center flex-col md:flex-row w-full pb-10 bg-[#171717]">
+    <div className="flex justify-center items-center flex-col md:flex-row w-full pb-10 bg-[#171717] overflow-hidden">
       <div className="md:w-1/2 ">
-        <img src={newLetterImage} />
+        <img src={newLetterImage}  className="hover:scale-105 cursor-pointer"/>
       </div>
       <div className="md:w-1/2 md:px-10  px-4 flex justify-center flex-col pt-5 ">
         <div className="flex flex-row lg:flex-col items-center lg:items-start gap-2">

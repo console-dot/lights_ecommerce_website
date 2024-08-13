@@ -19,6 +19,7 @@ import glowPlate5 from './Glowplate5.jpg'
 import categoryCardIamge from "./cms-banner-1.jpg"
 import categoryCardIamge1 from "./cms-banner-2.jpg"
 import newLetterImage from "./newsletter-img.jpg"
+import ProductDetailImage from "./ProductDetailsImage.jpg"
 export {
   light1Bg,
   light2,
@@ -40,5 +41,7 @@ export {
   glowPlate3,
   glowPlate4,
   glowPlate5,
-  newLetterImage
+  newLetterImage,
+ ProductDetailImage
+  
 };

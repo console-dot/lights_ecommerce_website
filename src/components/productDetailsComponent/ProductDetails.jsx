@@ -1,18 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
-import { BennerImage1, BennerImage2, BennerImage3 } from "../../assets";
+import { BennerImage1, BennerImage2, BennerImage3, light2 } from "../../assets";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import "../../App.css";
 import { FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export const ProductDetails = () => {
   const imageData = [
-    { image: BennerImage1 },
+    { image: light2 },
     { image: BennerImage2 },
     { image: BennerImage3 },
-    { image: BennerImage1 },
+    { image: BennerImage3 },
+    { image: BennerImage3 },
   ];
 
   const [showImage, setShowImage] = useState();
@@ -34,57 +36,34 @@ export const ProductDetails = () => {
   };
 
   return (
-    <div className="pt-[72px]">
+    <div>
       <div className="flex flex-col md:flex-row w-full">
-        <div className=" w-full flex flex-col  p-4">
-          <div className="flex w-full flex-col md:flex-row justify-center items-center md:h-screen h-[400px]">
-            <div className="md:w-[10%] w-full flex justify-center  items-center flex-row md:flex-col p-2 order-2 md:order-none h-[20%] md:h-full ">
-              {imageData?.map((item, index) => (
-                <div
-                  className={`w-20 h-20 hover:border-blue-500  hover:border-2 cursor-pointer rounded-lg  p-2`}
-                >
-                  <img
-                    src={item.image}
-                    className="w-full h-full rounded-lg"
-                    onClick={() => selectImage(item, index)}
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="md:w-[90%] h-[80%] md:h-full w-full flex order-1 md:order-none">
-              <div className="hidden lg:w-[10%] lg:flex h-full">
-                <h1 className="flex justify-center items-center w-full h-full">
-                  <SlArrowLeft
-                    className="bg-black bg-opacity-70 text-white rounded-full p-1 text-3xl"
-                    onClick={prevImage}
-                  />
-                </h1>
-              </div>
-              <div className="w-full  flex justify-center items-center">
-                <div className="w-full h-[90%] md:h-full p-2 ">
-                  <img
-                    src={showImage?.image || imageData[currentImage]?.image}
-                    className="w-full h-full rounded-lg "
-                    alt="Product"
-                  />
-                </div>
-              </div>
-              <div className="w-[10%] relative  justify-center items-center lg:flex hidden">
-                <div className="absolute top-10 flex flex-col gap-3 z-10">
-                  <div className="w-8 h-8 rounded-full bg-[#F8F8F8] flex justify-center items-center">
-                    <FaRegHeart />
-                  </div>
-                </div>
-                <div className="w-full h-full flex justify-center items-center">
-                  <SlArrowRight
-                    className="bg-black bg-opacity-70 text-white rounded-full p-1 text-3xl"
-                    onClick={nextImage}
-                  />
-                </div>
-              </div>
-            </div>
+        <div className="w-full  flex justify-center items-center px-5 ">
+          <div className="w-full h-[600px]  ">
+            <img
+              src={showImage?.image || imageData[currentImage]?.image}
+              className="w-full h-full  "
+              alt="Product"
+            />
           </div>
         </div>
+      </div>
+      <div className=" w-full flex justify-center gap-3  items-center flex-row pt-5  md:pt-14  ">
+        <div className="carousel carousel-center space-x-4 p-4 max-w-full md:max-w-full lg:max-w-sm touch-auto ">
+          {imageData?.map((item, index) => (
+            <div
+              key={index}
+              className="md:w-24 w-20 h-28 md:h-32 hover:border-blue-500 border cursor-pointer p-1 carousel-item touch-auto"
+            >
+              <img
+                src={item.image}
+                className="w-full h-full"
+                onClick={() => selectImage(item, index)}
+                alt={`Image ${index}`}
+              />
+            </div>
+          ))}
+          </div>
       </div>
     </div>
   );
