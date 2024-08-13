@@ -25,6 +25,9 @@ import dignoalLines from"./dignoalLine.png"
 import decorateLight1 from"./decorateLight1.jpg"
 import decorateLight2 from"./decorateLight2.jpg"
 import ProductDetailImage from "./ProductDetailsImage.jpg"
+import blog1 from "./blog1-870x573.jpg"
+import blog2 from "./blog2-870x573.jpg"
+import blog3 from "./blog4-870x573.jpg"
 export {
   light1Bg,
   light2,
@@ -52,6 +55,9 @@ export {
   dignoalLines,
   decorateLight1,
   decorateLight2,
- ProductDetailImage
+ ProductDetailImage,
+ blog1,
+ blog2,
+ blog3
   
 };
