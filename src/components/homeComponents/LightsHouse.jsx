@@ -7,11 +7,11 @@ export const LightsHouse = () => {
       <div className="flex flex-col md:flex-row  gap-4  text-white">
         {/* Left Image with Diagonal Lines */}
         <div className="relative md:w-[50%] w-auto">
-          <div className="absolute   left-10 ">
+          <div className="absolute    ">
             <img
               src={dignoalLines}
               alt=""
-              className="md:w-[600px] w-full md:h-[500px] h-auto  object-cover "
+              className=" relative md:left-10 left-0 md:w-[600px] w-full md:h-[500px] h-auto  object-cover "
             />
           </div>
           <div className="relative md:w-[600px] w-full md:h-[500px] h-full top-[-50px] ">
