@@ -2,65 +2,74 @@ import React, { useState } from "react";
 import { Layout } from "../themes";
 import {
   AboutThisItem,
+  BreadCrumbsDetailPage,
   ProductDetails,
   RelatedProduct,
   RightSide,
 } from "../components";
-import { BennerImage1 } from "../assets";
+import {  light1, light1Bg, light2, light2Bg } from "../assets";
 import { useParams } from "react-router-dom";
 export const ProductDetailsPage = () => {
   const productData = [
     {
-      image: BennerImage1,
+      image: light1,
+      imageBackground: light1Bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: BennerImage1,
-      name: "whello",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
-    },
-    {
-      image: BennerImage1,
+      image: light2,
+      imageBackground: light2Bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: BennerImage1,
+      image: light1,
+      imageBackground: light1Bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: BennerImage1,
+      image: light2,
+      imageBackground: light2Bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: BennerImage1,
+      image: light1,
+      imageBackground: light1Bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: BennerImage1,
+      image: light2,
+      imageBackground: light2Bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
     {
-      image: BennerImage1,
+      image: light1,
+      imageBackground: light1Bg,
+      name: "wood",
+      description:
+        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+      price: 3500,
+    },
+    {
+      image: light2,
+      imageBackground: light2Bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
@@ -71,20 +80,26 @@ export const ProductDetailsPage = () => {
   const index = params?.id;
   const [data, setData] = useState(productData[index]);
   return (
-    <Layout>
-      <div className="flex flex-col lg:flex-row ">
-        <div className="lg:w-[70%]">
-          <ProductDetails />
-          <div className="lg:hidden">
-            <RightSide productData={productData} data={data} />
+    <Layout >
+      <BreadCrumbsDetailPage />
+      <div className="flex justify-center items-center pt-[20px] ">
+        <div
+          className="flex flex-col md:flex-row container"
+          style={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+          }}
+        >
+          <div className="w-full md:w-[50%] lg:w-[40%] ">
+            <ProductDetails />
           </div>
-
-          <AboutThisItem data={data} />
-        </div>
-        <div className="lg:w-[30%] lg:pt-[72px] lg:flex hidden">
-          <RightSide productData={productData} />
+          <div className="w-full md:w-[50%] lg:w-[60%]">
+            <RightSide />
+          </div>
         </div>
       </div>
+      <AboutThisItem data={data} />
       <RelatedProduct productData={productData} />
     </Layout>
   );

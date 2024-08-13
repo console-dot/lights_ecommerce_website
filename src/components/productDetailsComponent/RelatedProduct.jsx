@@ -9,10 +9,11 @@ import { ProductCard } from "../resuableComponents";
 export const RelatedProduct = ({productData}) => {
     
   return (
-    <>
-      {/* related product */}
-      <div className="p-4 ">
-        <h1 className="text-3xl font-semibold md:py-10">Related Product</h1>
+    <div className="flex justify-center items-center">
+      <div className="container ">
+      <div className="p-4 w-full">
+        <div className="flex justify-center items-center"><h1 className="text-3xl font-semibold text-white md:py-10">Related Product</h1></div>
+        
         <Swiper
           breakpoints={{
             10: {
@@ -21,12 +22,12 @@ export const RelatedProduct = ({productData}) => {
             },
 
             320: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               navigation: false // Hide navigation for viewports <= 640px
             },
             640: {
               centeredSlides: false,
-              slidesPerView: 2,
+              slidesPerView: 3,
               navigation: false // Hide navigation for viewports <= 640px
             },
             1024: {
@@ -50,6 +51,7 @@ export const RelatedProduct = ({productData}) => {
           ))}
         </Swiper>
       </div>
-    </>
+      </div>
+    </div>
   );
 };
