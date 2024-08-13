@@ -19,6 +19,11 @@ import glowPlate5 from './Glowplate5.jpg'
 import categoryCardIamge from "./cms-banner-1.jpg"
 import categoryCardIamge1 from "./cms-banner-2.jpg"
 import newLetterImage from "./newsletter-img.jpg"
+import lightHouse from "./lightHouse.jpg"
+import lightHouse2 from "./lightHouse2.jpg"
+import dignoalLines from"./dignoalLine.png"
+import decorateLight1 from"./decorateLight1.jpg"
+import decorateLight2 from"./decorateLight2.jpg"
 import ProductDetailImage from "./ProductDetailsImage.jpg"
 export {
   light1Bg,
@@ -42,6 +47,11 @@ export {
   glowPlate4,
   glowPlate5,
   newLetterImage,
+  lightHouse,
+  lightHouse2,
+  dignoalLines,
+  decorateLight1,
+  decorateLight2,
  ProductDetailImage
   
 };

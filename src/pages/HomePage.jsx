@@ -3,8 +3,10 @@ import { Layout } from "../themes";
 import {
   Banner,
   CategoryCard,
+  DecorateLight,
   DiscountOffer,
   FutureProducts,
+  LightsHouse,
   NewArrivals,
   OurBenefits,
   SignUpNewsLetter,
@@ -17,11 +19,13 @@ export const HomePage = () => {
       <Banner />
       <FutureProducts />
       <OurBenefits />
+      <LightsHouse />
+      <DecorateLight/>
       <NewArrivals />
       <DiscountOffer />
       <Testimonials />
       <CategoryCard />
-      <SignUpNewsLetter/>
+      <SignUpNewsLetter />
     </Layout>
   );
 };
