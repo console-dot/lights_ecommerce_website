@@ -51,7 +51,7 @@ export {
   lightHouse2,
   dignoalLines,
   decorateLight1,
-  decorateLight2,,
+  decorateLight2,
  ProductDetailImage
   
 };
