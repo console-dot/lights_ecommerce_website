@@ -3,10 +3,10 @@ import { decorateLight1, decorateLight2, dignoalLines } from "../../assets";
 
 export const DecorateLight = () => {
   return (
-    <div className="mxauto   mx-auto  py-4 md:mt-40 mt-10">
-      <div className="flex flex-col md:flex-row  gap-4  text-white">
+    <div className="container mx-auto  py-4 md:mt-40 mt-10 w-[100%]">
+      <div className="flex flex-col md:flex-row  gap-4  text-white w-[100%]">
         {/* Right Image */}
-        <div className="">
+        <div className="w-[30%]">
           <img
             src={decorateLight1}
             alt="Light House 2"
@@ -14,7 +14,7 @@ export const DecorateLight = () => {
           />
         </div>
         {/* Text Section */}
-        <div className="relative flex flex-col md:items-end items-start md:ml-0 px-6  ">
+        <div className="relative flex flex-col md:items-end items-start md:ml-0 px-6 w-[30%] ">
           <h2 className="  md:text-5xl text-3xl md:text-end text-start tracking-tighter font-bold ">
             DECORATE LIGHT
           </h2>
@@ -31,15 +31,15 @@ export const DecorateLight = () => {
         </div>
 
         {/* Right Image with Diagonal Lines */}
-        <div className="relative md:w-[50%] w-auto">
+        <div className="relative md:w-[40%] w-auto">
           <div className="absolute    ">
             <img
               src={dignoalLines}
               alt=""
-              className="md:w-[600px] w-full md:h-[500px] h-auto  object-cover "
+              className="relative md:right-10 right-0 md:w-[500px] w-full md:h-[500px] h-auto  object-cover "
             />
           </div>
-          <div className="relative md:left-10 left-0 md:w-[600px] w-full md:h-[500px] h-full md:top-[-50px] top-0">
+          <div className="relative md:w-[500px] w-full md:h-[400px] h-full md:top-[-50px] top-0">
             <img
               src={decorateLight2}
               alt="Light House 1"
