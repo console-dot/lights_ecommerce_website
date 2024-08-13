@@ -12,7 +12,7 @@ body {
 }
 
 .slick-dots li.slick-active button:before {
-  color: #fbbf24 !important;
+  color: #F99106 !important;
 }
 /* slick */
 
@@ -39,6 +39,27 @@ body {
   transform-origin: bottom left;
 }
 
+nav {
+  background-color: #080808;
+}
+
+nav img {
+  height: 40px;
+}
+
+nav .flex {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+}
+
+
 /* navbar */
 
 /* Discount Offer Button */
@@ -58,6 +79,7 @@ body {
   background-color: white;
   z-index: 0;
   transition: left 0.4s ease;
+  border-radius: 20px;
 }
 
 .shop-button:hover::before {
@@ -89,7 +111,7 @@ body {
 
 .group:hover button::after {
   width: 100%;
-  background: #fbbf24; /* Tailwind's yellow-400 */
+  background: #F99106; /* Tailwind's yellow-400 */
 }
 
 /* Navbar */
