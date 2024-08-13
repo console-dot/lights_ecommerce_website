@@ -7,7 +7,7 @@ export const BreadCrumbsDetailPage = () => {
       <div className="flex justify-center items-center bg-[#232323]  h-24">
         <div className="container flex-row  ">
           <div className="">
-            <nav class="flex" aria-label="Breadcrumb">
+            <nav class="flex bg-transparent" aria-label="Breadcrumb">
               <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li class="inline-flex items-center">
                   <div class="inline-flex items-center text-sm font-medium text-white px-3 py-2 rounded-lg hover:text-white hover:bg-amber-500 dark:text-gray-400 dark:hover:text-white ">
@@ -62,7 +62,7 @@ export const BreadCrumbsDetailPage = () => {
                         d="m1 9 4-4-4-4"
                       />
                     </svg>
-                    <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"></span>
+                    <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Name Light</span>
                   </div>
                 </li>
               </ol>

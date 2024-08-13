@@ -39,10 +39,9 @@ export const ProductCard = ({ data, id }) => {
         className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 relative lg:h-[470px] h-[300px] sm:h-[400px] md:[290px]"
         onMouseEnter={isMdOrLarger ? () => setImageIcon(true) : undefined}
         onMouseLeave={isMdOrLarger ? () => setImageIcon(false) : undefined}
-        onClick={()=>navigate(`/productDetails/:id`)}
       >
         <div className="flex-col flex w-full h-full">
-          <div className="relative w-full ">
+          <div className="relative w-full "  onClick={()=>navigate(`/productDetails/:id`)}>
             <img
               src={data?.image}
               className="relative inset-0 transition-opacity duration-300 group-hover:opacity-0"
