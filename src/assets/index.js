@@ -10,6 +10,12 @@ import user1 from "./user1.jpg";
 import user2 from "./user2.jpg";
 import user3 from "./user3.jpg";
 import logo from "./logo.png" 
+import menuImg from './menu-01.jpg'
+import glowPlate1 from './Glowplate1.jpg'
+import glowPlate2 from './Glowplate2.jpg'
+import glowPlate3 from './Glowplate3.jpg'
+import glowPlate4 from './Glowplate4.jpg'
+import glowPlate5 from './Glowplate5.jpg'
 import categoryCardIamge from "./cms-banner-1.jpg"
 import categoryCardIamge1 from "./cms-banner-2.jpg"
 import newLetterImage from "./newsletter-img.jpg"
@@ -28,5 +34,11 @@ export {
   categoryCardIamge1,
   categoryCardIamge,
   logo,
+  menuImg,
+  glowPlate1,
+  glowPlate2,
+  glowPlate3,
+  glowPlate4,
+  glowPlate5,
   newLetterImage
 };
