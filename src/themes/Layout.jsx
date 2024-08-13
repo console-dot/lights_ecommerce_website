@@ -6,7 +6,7 @@ export const Layout = ({ children }) => {
     <div>
       <Nav/>
       <div className="pt-[128px]" style={{height:'calc(100vh-nav)'}}>{ children }</div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
