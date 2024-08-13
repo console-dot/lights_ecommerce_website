@@ -24,6 +24,7 @@ import lightHouse2 from "./lightHouse2.jpg"
 import dignoalLines from"./dignoalLine.png"
 import decorateLight1 from"./decorateLight1.jpg"
 import decorateLight2 from"./decorateLight2.jpg"
+import ProductDetailImage from "./ProductDetailsImage.jpg"
 export {
   light1Bg,
   light2,
@@ -50,5 +51,7 @@ export {
   lightHouse2,
   dignoalLines,
   decorateLight1,
-  decorateLight2,
+  decorateLight2,,
+ ProductDetailImage
+  
 };
