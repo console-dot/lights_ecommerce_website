@@ -41,7 +41,10 @@ export const ProductCard = ({ data, id }) => {
         onMouseLeave={isMdOrLarger ? () => setImageIcon(false) : undefined}
       >
         <div className="flex-col flex w-full h-full">
-          <div className="relative w-full "  onClick={()=>navigate(`/productDetails/:id`)}>
+          <div
+            className="relative w-full "
+            onClick={() => navigate(`/productDetails/${id}`)}
+          >
             <img
               src={data?.image}
               className="relative inset-0 transition-opacity duration-300 group-hover:opacity-0"
@@ -70,7 +73,10 @@ export const ProductCard = ({ data, id }) => {
                     <FaHeart className="text-white" />
                   </div>
                   <div className="bg-black md:w-10 w-8 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-amber-600">
-                    <FaShoppingCart className="text-white" />
+                    <FaShoppingCart
+                      className="text-white"
+                      onClick={() => cart.addToCart(data)}
+                    />
                   </div>
                 </div>
               </div>
@@ -132,9 +138,10 @@ export const ProductCard = ({ data, id }) => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="font-semibold md:py-2  text-white">{data?.name}</h1>
-            <h1 className="font-semibold inline text-white">
-              <span>$</span>
+            <h1 className="font-semibold md:py-2 text-amber-400">
+              {data?.name || data?.title}
+            </h1>
+            <h1 className="font-semibold inline text-amber-400 ">
               {data?.price}
             </h1>
           </div>

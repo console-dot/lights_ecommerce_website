@@ -418,24 +418,19 @@ nav .flex {
     animation: glow 1.5s infinite alternate;
   }
 
-  @keyframes mymove {
+  @keyframes slideIn {
     from {
-      transform: translateX(100%);
-      @keyframes slideIn {
-        from {
-          transform: translateX(-50%);
-
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
+      transform: translateX(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 
       .animate-slide-in {
         animation: slideIn 1s ease-out;
       }
     }
-  }
-}
+  

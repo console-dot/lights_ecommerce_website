@@ -1,6 +1,13 @@
 import { useState } from "react";
 import AddCardContext from "./AddCardContext";
-import { BennerImage1 } from "../../assets";
+import {
+  BennerImage1,
+  glowPlate1,
+  glowPlate2,
+  glowPlate3,
+  glowPlate4,
+  glowPlate5,
+} from "../../assets";
 import { useNavigate } from "react-router-dom";
 export const AddCardState = (props) => {
   const navigate = useNavigate();
@@ -72,10 +79,184 @@ export const AddCardState = (props) => {
       price: 3500,
     },
   ];
+  const torchesData = [
+    {
+      image: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "IndoreLights",
+    },
+    {
+      image: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "IndoreLights",
+    },
+    {
+      image: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "IndoreLights",
+    },
+    {
+      image: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "IndoreLights",
+    },
+  ];
+
+  const glowPlateData = [
+    {
+      image: glowPlate1,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "WallLights",
+    },
+    {
+      image: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "WallLights",
+    },
+    {
+      image: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "WallLights",
+    },
+    {
+      image: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "WallLights",
+    },
+    {
+      image: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "WallLights",
+    },
+  ];
+
+  const nightLampData = [
+    {
+      image: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "TableLamps",
+    },
+    {
+      image: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "TableLamps",
+    },
+    {
+      image: glowPlate4,
+      title: "Black Festive",
+      category: "TableLamps",
+      price: "$3,600",
+    },
+    {
+      image: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "TableLamps",
+    },
+  ];
+
+  const spotlightData = [
+    {
+      image: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "CommercialLights",
+    },
+    {
+      image: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "CommercialLights",
+    },
+    {
+      image: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "CommercialLights",
+    },
+    {
+      image: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "CommercialLights",
+    },
+  ];
+  const restaurantlightData = [
+    {
+      image: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "RestaurantLights",
+    },
+    {
+      image: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "RestaurantLights",
+    },
+    {
+      image: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "RestaurantLights",
+    },
+    {
+      image: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "RestaurantLights",
+    },
+  ];
+  const multiplylightData = [
+    {
+      image: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "MultiLights",
+    },
+    {
+      image: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "MultiLights",
+    },
+    {
+      image: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "MultiLights",
+    },
+    {
+      image: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "MultiLights",
+    },
+  ];
+
+  const menuItems = [
+    { name: "IndoreLights", data: torchesData },
+    { name: "WallLights", data: glowPlateData },
+    { name: "TableLamps", data: nightLampData },
+    { name: "CommercialLights", data: spotlightData },
+    { name: "RestaurantLights", data: restaurantlightData },
+    { name: "MultiLights", data: multiplylightData },
+  ];
 
   const [cards, setCards] = useState();
   const [cartData, setCartData] = useState([]);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const addToCart = (obj) => {
     setCartData([...cartData, obj]);
@@ -99,9 +280,7 @@ export const AddCardState = (props) => {
   };
   const cardButton = (name) => {
     navigate(`/product/${name}`);
-    const filterData = productData.filter((item) =>
-      item.category.includes(name)
-    );
+    const filterData = menuItems.filter((item) => item.name.includes(name));
     setCards(filterData);
   };
 
@@ -130,6 +309,7 @@ export const AddCardState = (props) => {
         search,
         filterInput,
         productData,
+        menuItems,
       }}
     >
       {props.children}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Layout } from "../themes";
 import {
   Banner,
+  Blogs,
   CategoryCard,
   DecorateLight,
   DiscountOffer,
@@ -19,12 +20,13 @@ export const HomePage = () => {
       <Banner />
       <FutureProducts />
       <OurBenefits />
+      <NewArrivals />
       <LightsHouse />
       <DecorateLight/>
-      <NewArrivals />
       <DiscountOffer />
       <Testimonials />
       <CategoryCard />
+      <Blogs/>
       <SignUpNewsLetter />
     </Layout>
   );

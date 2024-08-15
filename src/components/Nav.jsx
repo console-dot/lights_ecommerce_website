@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   FaBars,
   FaChevronCircleDown,
@@ -18,12 +18,19 @@ import {
 import { useWindowSize } from "../hooks";
 import { IoIosSearch } from "react-icons/io";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import AddCardContext from "../context/addCart/AddCardContext";
+import { CartModal } from "./resuableComponents";
 
 export const Nav = () => {
+  const cart = useContext(AddCardContext);
+  const [modal, setModal] = useState(false);
+
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
   const size = useWindowSize();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = (menu) => {
     if (size.width > 768) {
@@ -47,60 +54,28 @@ export const Nav = () => {
 
   const torchesData = [
     {
-      category: "Indore Lights",
-      items: ["Battery Torch", "Brazing Torch", "Propane Torch", "Reflector"],
+      img: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
     },
     {
-      category: "Wall Lights",
-      items: ["Cottage Lamp", "Modern Lamp", "Piano Lamps", "Table Lamps"],
+      img: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
     },
     {
-      category: "Commercial Lights",
-      items: [
-        "Fresnel Commercial Lights",
-        "Industrial Lamp",
-        "LED Commercial Lights",
-        "Ceiling Lamp",
-      ],
+      img: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
     },
     {
-      category: "Table Lamps",
-      items: [
-        "Bedside Lamp",
-        "Desk Lamp",
-        "Lava Lamp",
-        "Novelty Lamp",
-        "Study Lamp",
-      ],
-    },
-    {
-      category: "PENDANT",
-      items: [
-        "Bowl Pendant",
-        "Bulb Pendant",
-        "Drum Pendant",
-        "Globe Pendant",
-        "Mini Pendant",
-      ],
-    },
-    {
-      category: "SUPPOSITORIES",
-      items: [
-        "Multiple Pendants",
-        "Table Lamps",
-        "Torchiere",
-        "Wall Lights",
-        "Restaurant Lights",
-      ],
+      img: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
     },
   ];
 
   const glowPlateData = [
-    {
-      img: glowPlate1,
-      title: "Black Festive",
-      price: "$3,600",
-    },
     {
       img: glowPlate2,
       title: "Black Festive",
@@ -124,18 +99,93 @@ export const Nav = () => {
   ];
 
   const nightLampData = [
-    "Bedside Lamp",
-    "Desk Lamp",
-    "Lava Lamp",
-    "Novelty Lamp",
-    "Study Lamp",
+    {
+      img: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+    },
   ];
 
   const spotlightData = [
-    "LED Commercial Lights",
-    "Mission Style",
-    "Fresnel Commercial Lights",
-    "Industrial Lamp",
+    {
+      img: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+  ];
+  const restaurantlightData = [
+    {
+      img: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+  ];
+  const multiplylightData = [
+    {
+      img: glowPlate2,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate3,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate4,
+      title: "Black Festive",
+      price: "$3,600",
+    },
+    {
+      img: glowPlate5,
+      title: "Black Festive",
+      price: "$3,600",
+    },
   ];
 
   const menuItems = [
@@ -143,8 +193,8 @@ export const Nav = () => {
     { name: "Wall Lights", data: glowPlateData },
     { name: "Table Lamps", data: nightLampData },
     { name: "Commercial Lights", data: spotlightData },
-    { name: "Restaurant Lights", data: [] }, // No dropdown
-    { name: "Multipurpose Lights", data: [] }, // No dropdown
+    { name: "Restaurant Lights", data: restaurantlightData },
+    { name: "Multi Lights", data: multiplylightData },
   ];
 
   return (
@@ -162,7 +212,8 @@ export const Nav = () => {
           <img
             src={logo}
             alt="Logo"
-            className="md:h-10 md:w-auto h-7 w-32 ml-4"
+            className="md:h-10 md:w-auto h-7 w-32 ml-4 cursor-pointer"
+            onClick={() => navigate(`/`)}
           />
         </div>
 
@@ -176,48 +227,46 @@ export const Nav = () => {
                 onMouseLeave={handleMouseLeave}
               >
                 <button className="flex items-center h-24">
-                  <div className="nav-link">{menu.name}</div>
-                  {menu.data &&
-                    menu.data.length > 0 &&
-                    menu.name !== "Restaurant Lights" && (
-                      <RiArrowDropDownLine size={20} className="ml-1" />
-                    )}
+                  <div
+                    className="nav-link"
+                    onClick={() =>
+                      cart.cardButton(menu.name.split(" ").join(""))
+                    }
+                  >
+                    {menu.name}
+                  </div>
+                  {menu.data && menu.data.length > 0 && (
+                    <RiArrowDropDownLine size={20} className="ml-1" />
+                  )}
                 </button>
 
                 {/* Desktop dropdowns */}
                 {activeDropdown === menu.name &&
                   menu.name === "Indore Lights" && (
                     <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
-                      <ul className="py-2 text-sm text-gray-400">
-                        <div className="w-[700px] flex p-8 justify-start items-center">
-                          <div className="w-full flex justify-start items-start flex-wrap">
-                            {menu.data.map((section, i) => (
-                              <div key={i} className="flex flex-col w-[33%]">
-                                <h2 className="text-white text-lg py-1 font-bold">
-                                  {section.category}
-                                </h2>
-                                {section.items.map((item, j) => (
-                                  <li key={j}>
-                                    <a
-                                      href="#"
-                                      className="block py-1 hover:text-white"
-                                    >
-                                      {item}
-                                    </a>
-                                  </li>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
-                          <div>
+                      <div className="w-[700px]  flex p-2 justify-around items-center">
+                        {menu.data.map((item, k) => (
+                          <a
+                            key={k}
+                            href="#"
+                            className="block py-2 hover:text-white"
+                          >
                             <img
-                              src={menuImg}
-                              alt=""
-                              className="h-auto w-auto"
+                              src={item.img}
+                              alt={item.title}
+                              className="h-[150px] w-[120px]"
                             />
-                          </div>
-                        </div>
-                      </ul>
+                            <div className="flex flex-col justify-center items-center mt-2">
+                              <span className="text-white text-md">
+                                {item.title}
+                              </span>
+                              <span className="text-[#F99106] text-lg font-semibold">
+                                {item.price}
+                              </span>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   )}
 
@@ -253,30 +302,114 @@ export const Nav = () => {
                 {activeDropdown === menu.name &&
                   menu.name === "Table Lamps" && (
                     <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
-                      <ul className="p-2 w-44 text-sm text-gray-400">
-                        {menu.data.map((item, l) => (
-                          <li key={l}>
-                            <a href="#" className="block py-2 hover:text-white">
-                              {item}
-                            </a>
-                          </li>
+                      <div className="w-[700px] flex p-2 justify-around items-center">
+                        {menu.data.map((item, k) => (
+                          <a
+                            key={k}
+                            href="#"
+                            className="block py-2 hover:text-white"
+                          >
+                            <img
+                              src={item.img}
+                              alt={item.title}
+                              className="h-[150px] w-[120px]"
+                            />
+                            <div className="flex flex-col justify-center items-center mt-2">
+                              <span className="text-white text-md">
+                                {item.title}
+                              </span>
+                              <span className="text-[#F99106] text-lg font-semibold">
+                                {item.price}
+                              </span>
+                            </div>
+                          </a>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   )}
 
                 {activeDropdown === menu.name &&
                   menu.name === "Commercial Lights" && (
-                    <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
-                      <ul className="p-2 w-44 text-sm text-gray-400">
-                        {menu.data.map((item, m) => (
-                          <li key={m}>
-                            <a href="#" className="block py-2 hover:text-white">
-                              {item}
-                            </a>
-                          </li>
+                    <div className="absolute top-full right-[-300px] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+                      <div className="w-[700px] flex p-2 justify-around items-center">
+                        {menu.data.map((item, k) => (
+                          <a
+                            key={k}
+                            href="#"
+                            className="block py-2 hover:text-white"
+                          >
+                            <img
+                              src={item.img}
+                              alt={item.title}
+                              className="h-[150px] w-[120px]"
+                            />
+                            <div className="flex flex-col justify-center items-center mt-2">
+                              <span className="text-white text-md">
+                                {item.title}
+                              </span>
+                              <span className="text-[#F99106] text-lg font-semibold">
+                                {item.price}
+                              </span>
+                            </div>
+                          </a>
                         ))}
-                      </ul>
+                      </div>
+                    </div>
+                  )}
+                {activeDropdown === menu.name &&
+                  menu.name === "Restaurant Lights" && (
+                    <div className="absolute top-full right-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+                      <div className="w-[700px] flex p-2 justify-around items-center">
+                        {menu.data.map((item, k) => (
+                          <a
+                            key={k}
+                            href="#"
+                            className="block py-2 hover:text-white"
+                          >
+                            <img
+                              src={item.img}
+                              alt={item.title}
+                              className="h-[150px] w-[120px]"
+                            />
+                            <div className="flex flex-col justify-center items-center mt-2">
+                              <span className="text-white text-md">
+                                {item.title}
+                              </span>
+                              <span className="text-[#F99106] text-lg font-semibold">
+                                {item.price}
+                              </span>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                {activeDropdown === menu.name &&
+                  menu.name === "Multi Lights" && (
+                    <div className="absolute top-full right-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+                      <div className="w-[700px] flex p-2 justify-around items-center">
+                        {menu.data.map((item, k) => (
+                          <a
+                            key={k}
+                            href="#"
+                            className="block py-2 hover:text-white"
+                          >
+                            <img
+                              src={item.img}
+                              alt={item.title}
+                              className="h-[150px] w-[120px]"
+                            />
+                            <div className="flex flex-col justify-center items-center mt-2">
+                              <span className="text-white text-md">
+                                {item.title}
+                              </span>
+                              <span className="text-[#F99106] text-lg font-semibold">
+                                {item.price}
+                              </span>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   )}
               </li>
@@ -383,11 +516,18 @@ export const Nav = () => {
           )
         )}
 
-        <div className="flex items-center md:gap-6 gap-3  ">
+        <div className="flex items-center md:gap-6 gap-3 relative ">
           <IoIosSearch className="md:text-2xl text-xl" />
           <FaRegUser className="md:text-xl " />
-          <AiOutlineShoppingCart className="md:text-2xl text-xl" />
+          <AiOutlineShoppingCart
+            className="md:text-2xl text-xl cursor-pointer"
+            onClick={() => setModal(!modal)}
+          />
+          <div className="h-5 w-5 cursor-pointer rounded-full absolute top-[-5px] right-[-10px] bg-amber-500 flex justify-center items-center">
+            <h1 className="text-white font-bold">{cart?.cartData?.length}</h1>
+          </div>
         </div>
+          {modal && <CartModal />}
       </div>
     </nav>
   );
