@@ -146,7 +146,7 @@ export const ProductCard = ({ data, id }) => {
             </h1>
           </div>
           <dialog id="my_modal_1" className="modal flex items-end">
-            <ProductDetailsModal />
+            <ProductDetailsModal data={data}/>
           </dialog>
         </div>
       </div>

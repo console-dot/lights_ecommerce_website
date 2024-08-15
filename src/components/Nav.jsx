@@ -418,7 +418,7 @@ export const Nav = () => {
         ) : (
           mobileMenuOpen && (
             <ul className="absolute top-full left-0 w-full bg-[#080808]  flex flex-col py-4">
-              {menuItems.map((menu, index) => (
+              {menuItems?.map((menu, index) => (
                 <li key={index} className="text-left">
                   <button
                     className="flex justify-between items-center h-12 w-full px-4"
@@ -427,89 +427,121 @@ export const Nav = () => {
                     {menu.name}
                     {menu.data &&
                       menu.data.length > 0 &&
-                      menu.name !== "Restaurant Lights" &&
+                      // menu.name !== "Restaurant Lights" &&
                       (activeMobileDropdown === menu.name ? (
                         <FaChevronUp />
                       ) : (
                         <FaChevronCircleDown />
                       ))}
                   </button>
-                  {activeMobileDropdown === menu.name &&
-                    menu.name !== "Restaurant Lights" && (
-                      <ul className="bg-[#080808]  text-gray-400 text-sm max-h-48 overflow-y-auto">
-                        {menu.name === "Indore Lights" &&
-                          menu.data.map((section, i) => (
-                            <li
-                              key={i}
-                              className="px-4 py-2 border-t border-gray-700"
+                  {activeMobileDropdown === menu.name && (
+                    <ul className="bg-[#080808]  text-gray-400 text-sm max-h-48 overflow-y-auto">
+                      {menu.name === "Indore Lights" &&
+                        menu.data.map((item, i) => (
+                          <li
+                            key={i}
+                            className="px-4 py-2 border-t border-gray-700"
+                          >
+                            <a
+                              href="#"
+                              className=" hover:text-white flex items-center"
                             >
-                              <h2 className="text-white text-md py-1 font-bold">
-                                {section.category}
-                              </h2>
-                              <ul>
-                                {section.items.map((item, j) => (
-                                  <li key={j} className="py-1">
-                                    <a
-                                      href="#"
-                                      className="block hover:text-white"
-                                    >
-                                      {item}
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            </li>
-                          ))}
-                        {menu.name === "Wall Lights" &&
-                          menu.data.map((item, k) => (
-                            <li
-                              key={k}
-                              className="px-4 py-2 border-t border-gray-700"
+                              <img
+                                src={item.img}
+                                alt={item.title}
+                                className="h-[100px] w-[80px] mr-2"
+                              />
+                              <div className="flex flex-col">
+                                <span className="text-white text-sm">
+                                  {item.title}
+                                </span>
+                                <span className="text-white text-md font-semibold">
+                                  {item.price}
+                                </span>
+                              </div>
+                            </a>
+                          </li>
+                        ))}
+                      {menu.name === "Wall Lights" &&
+                        menu.data.map((item, k) => (
+                          <li
+                            key={k}
+                            className="px-4 py-2 border-t border-gray-700"
+                          >
+                            <a
+                              href="#"
+                              className=" hover:text-white flex items-center"
                             >
-                              <a
-                                href="#"
-                                className=" hover:text-white flex items-center"
-                              >
-                                <img
-                                  src={item.img}
-                                  alt={item.title}
-                                  className="h-[100px] w-[80px] mr-2"
-                                />
-                                <div className="flex flex-col">
-                                  <span className="text-white text-sm">
-                                    {item.title}
-                                  </span>
-                                  <span className="text-white text-md font-semibold">
-                                    {item.price}
-                                  </span>
-                                </div>
-                              </a>
-                            </li>
-                          ))}
-                        {menu.name === "Table Lamps" &&
-                          menu.data.map((item, l) => (
-                            <li
-                              key={l}
-                              className="px-4 py-2 border-t border-gray-700"
+                              <img
+                                src={item.img}
+                                alt={item.title}
+                                className="h-[100px] w-[80px] mr-2"
+                              />
+                              <div className="flex flex-col">
+                                <span className="text-white text-sm">
+                                  {item.title}
+                                </span>
+                                <span className="text-white text-md font-semibold">
+                                  {item.price}
+                                </span>
+                              </div>
+                            </a>
+                          </li>
+                        ))}
+                      {menu.name === "Table Lamps" &&
+                        menu.data.map((item, l) => (
+                          <li
+                            key={l}
+                            className="px-4 py-2 border-t border-gray-700"
+                          >
+                            <a
+                              href="#"
+                              className=" hover:text-white flex items-center"
                             >
-                              <a href="#" className="block hover:text-white">
-                                {item}
-                              </a>
-                            </li>
-                          ))}
-                        {menu.name === "Commercial Lights" &&
-                          menu.data.map((item, m) => (
-                            <li
-                              key={m}
-                              className="px-4 py-2 border-t border-gray-700"
+                              <img
+                                src={item.img}
+                                alt={item.title}
+                                className="h-[100px] w-[80px] mr-2"
+                              />
+                              <div className="flex flex-col">
+                                <span className="text-white text-sm">
+                                  {item.title}
+                                </span>
+                                <span className="text-white text-md font-semibold">
+                                  {item.price}
+                                </span>
+                              </div>
+                            </a>
+                          </li>
+                        ))}
+                      {menu.name === "Commercial Lights" &&
+                        menu.data.map((item, m) => (
+                          <li
+                            key={m}
+                            className="px-4 py-2 border-t border-gray-700"
+                          >
+                            <a
+                              href="#"
+                              className=" hover:text-white flex items-center"
                             >
-                              <a href="#" className="block hover:text-white">
-                                {item}
-                              </a>
-                            </li>
-                          ))}
-                      </ul>
-                    )}
+                              <img
+                                src={item.img}
+                                alt={item.title}
+                                className="h-[100px] w-[80px] mr-2"
+                              />
+                              <div className="flex flex-col">
+                                <span className="text-white text-sm">
+                                  {item.title}
+                                </span>
+                                <span className="text-white text-md font-semibold">
+                                  {item.price}
+                                </span>
+                              </div>
+                            </a>
+                          </li>
+                        ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
@@ -527,7 +559,7 @@ export const Nav = () => {
             <h1 className="text-white font-bold">{cart?.cartData?.length}</h1>
           </div>
         </div>
-          {modal && <CartModal />}
+        {modal && <CartModal />}
       </div>
     </nav>
   );

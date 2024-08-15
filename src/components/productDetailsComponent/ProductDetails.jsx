@@ -3,12 +3,11 @@ import { BennerImage1, BennerImage2, BennerImage3, light2 } from "../../assets";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import "../../App.css";
-import { FaRegHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import AddCardContext from "../../context/addCart/AddCardContext";
+import { useParams } from "react-router-dom";
 
-export const ProductDetails = () => {
+export const ProductDetails = ({data}) => {
   const imageData = [
     { image: light2 },
     { image: BennerImage2 },
@@ -16,6 +15,73 @@ export const ProductDetails = () => {
     { image: BennerImage3 },
     { image: BennerImage3 },
   ];
+  // const productData = [
+  //   {
+  //     category: "light",
+  //     image: BennerImage1,
+  //     name: "light",
+  //     description:
+  //       "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  //     price: 3500,
+  //   },
+  //   {
+  //     category: "stool",
+  //     image: BennerImage1,
+  //     name: "stool",
+  //     description:
+  //       "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  //     price: 3500,
+  //   },
+  //   {
+  //     category: "tabel",
+  //     image: BennerImage1,
+  //     name: "tabel",
+  //     description:
+  //       "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  //     price: 3500,
+  //   },
+  //   {
+  //     category: "stool",
+  //     image: BennerImage1,
+  //     name: "stool",
+  //     description:
+  //       "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  //     price: 3500,
+  //   },
+  //   {
+  //     category: "tabel",
+  //     image: BennerImage1,
+  //     name: "tabel",
+  //     description:
+  //       "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  //     price: 3500,
+  //   },
+  //   {
+  //     category: "light",
+  //     image: BennerImage1,
+  //     name: "light",
+  //     description:
+  //       "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  //     price: 3500,
+  //   },
+  //   {
+  //     category: "stool",
+  //     image: BennerImage1,
+  //     name: "stool",
+  //     description:
+  //       "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  //     price: 3500,
+  //   },
+  //   {
+  //     category: "light",
+  //     image: BennerImage1,
+  //     name: "light",
+  //     description:
+  //       "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+  //     price: 3500,
+  //   },
+  // ];
+  const cart = useContext(AddCardContext);
 
   const [showImage, setShowImage] = useState();
   const [currentImage, setCurrentImage] = useState(0);
@@ -23,19 +89,20 @@ export const ProductDetails = () => {
     setCurrentImage(index);
     setShowImage(item);
   };
-
   useEffect(() => {
     setShowImage(imageData[currentImage]?.image);
   }, [currentImage]);
 
-
+const params = useParams()
+const id = params?.id
+console.log(id);
   return (
     <div>
       <div className="flex flex-col md:flex-row w-full">
         <div className="w-full  flex justify-center items-center px-5 ">
           <div className="w-full h-[600px]  ">
             <img
-              src={showImage?.image || imageData[currentImage]?.image}
+              src={showImage?.image || data.image }
               className="w-full h-full  "
               alt="Product"
             />
