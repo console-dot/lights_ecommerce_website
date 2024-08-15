@@ -10,7 +10,7 @@ export const RightSide = ({ productData, data }) => {
       <div className=" w-full flex flex-col px-5">
         <div>
           <h1 className="text-white font-semibold text-lg pb-2 border-b border-[#414141]">
-            Name Light
+           { data?.name||"Name Light"}
           </h1>
         </div>
         <div className="flex items-center gap-3 md:gap-5">
@@ -146,7 +146,7 @@ export const RightSide = ({ productData, data }) => {
               </button>
             </div>
             <div className="flex justify-center items-center">
-              <button className="shop-button px-4 py-3 bg-[#FFC000] text-black rounded-full">
+              <button className="shop-button px-4 py-3 bg-[#FFC000] text-black rounded-full"  onClick={() => cart.addToCart(data)}>
                 <span>Add to Cart</span>
               </button>
             </div>

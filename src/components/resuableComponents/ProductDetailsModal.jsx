@@ -5,7 +5,7 @@ import { FaCross, FaRegHeart } from "react-icons/fa";
 import { TbFlagCancel } from "react-icons/tb";
 import { ImCross } from "react-icons/im";
 
-export const ProductDetailsModal = () => {
+export const ProductDetailsModal = ({data}) => {
   const cart = useContext(AddCardContext);
   
   return (
@@ -27,7 +27,7 @@ export const ProductDetailsModal = () => {
         <div className="w-1/2 flex flex-col px-2">
           <div>
             <h1 className="text-white font-semibold text-lg pb-2 border-b border-[#414141]">
-              Name
+              {data?.name}
             </h1>
           </div>
           <div className="flex flex-col">
@@ -158,7 +158,7 @@ export const ProductDetailsModal = () => {
                 </button>
               </div>
               <div className="flex justify-center items-center">
-                <button className="shop-button   px-4 py-3 bg-[#F99106] text-black rounded-full"  >
+                <button className="shop-button   px-4 py-3 bg-[#F99106] text-black rounded-full" onClick={() => cart.addToCart(data)}  >
                   <span>Add to Cart</span>
                 </button>
               </div>

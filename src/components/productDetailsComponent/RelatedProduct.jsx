@@ -46,7 +46,7 @@ export const RelatedProduct = ({productData}) => {
             <SwiperSlide key={index} className="w-full justify-center items-center p-4 md:py-4" style={
               {display:'flex'}
             }>
-              <ProductCard data={product} />
+              <ProductCard data={product} id={index} />
             </SwiperSlide>
           ))}
         </Swiper>

@@ -92,10 +92,10 @@ export const ProductDetailsPage = () => {
           }}
         >
           <div className="w-full md:w-[50%] lg:w-[40%] ">
-            <ProductDetails />
+            <ProductDetails data={data} />
           </div>
           <div className="w-full md:w-[50%] lg:w-[60%]">
-            <RightSide />
+            <RightSide data={data} />
           </div>
         </div>
       </div>
