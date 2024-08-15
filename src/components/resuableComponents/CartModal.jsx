@@ -6,8 +6,8 @@ export const CartModal = () => {
   const cart = useContext(AddCardContext);
   console.log(cart);
   return (
-    <div className=" lg:w-[40%] w-full sm:w-3/5 md:1/2  min-h-80 bg-slate-50 h-96  absolute z-50 top-14 md:right-24  rounded-lg overflow-y-scroll">
-      <div className="p-2 fixed lg:w-[40%] w-full sm:w-3/5 md:1/2 ">
+    <div className=" lg:w-[30%] w-full sm:w-3/5 md:1/2  min-h-80 bg-black h-96  absolute  top-full md:right-10   overflow-y-scroll border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+      <div className="p-2 fixed lg:w-[30%] w-full sm:w-3/5 md:1/2 ">
         <div className="flex px-2 justify-between ">
           <h1 className="w-[20%] flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
             Iamge
@@ -16,7 +16,7 @@ export const CartModal = () => {
             Name
           </h1>
           <h1 className="w-[20%] flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
-            Quantity
+            Items
           </h1>
           <h1 className="w-[20%] flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
             Price
@@ -27,13 +27,14 @@ export const CartModal = () => {
         </div>
       </div>
       <div className="mt-10">
-        {cart?.cartData?.map((i, index) => (
-          <div className="p-2  ">
-            <div className="flex justify-between items-center bg-amber-400 rounded-lg p-2 w-full h-16 md:h-20">
+        {cart?.cartData?.map((i, index) => (<>
+           <></>
+          <div className="pl-2 pt-2  ">
+            <div className="flex justify-between items-center bg-black  p-2 w-full h-16 md:h-20">
               <div className="w-[20%] h-full flex items-center gap-2">
-                <img src={i?.image} className="w-full h-full rounded-lg" />
+                <img src={i?.image} className="w-full h-full" />
               </div>
-              <div className="w-[20%] text-xs md:text-base flex justify-center items-center">
+              <div className="w-[20%] text-xs md:text-base flex justify-center items-center text-amber-400">
                 {i?.name}
               </div>
               <div className=" justify-center items-center flex w-[20%] ">
@@ -45,7 +46,7 @@ export const CartModal = () => {
                   <input
                     type="text"
                     value={cart.quantity}
-                    className="h-full text-center p-0 xxs:w-10 w-5 border rounded-md md:rounded-lg "
+                    className="h-full text-center p-0 xxs:w-6 w-5 bg-amber-400  border  "
                     onChange={(e) => cart.onChange(e)}
                   />
                   <button className="md:text-2xl" onClick={cart.addQuantity}>
@@ -53,17 +54,18 @@ export const CartModal = () => {
                   </button>
                 </div>
               </div>
-              <div className="w-[20%] flex justify-center items-center ">
+              <div className="w-[20%] flex justify-center items-center  text-amber-400">
                 {i?.price}
               </div>
               <div
                 className="w-[20%] flex justify-center items-center hover:cursor-pointer"
                 onClick={() => cart.deleteProduct(index)}
               >
-                <MdDeleteSweep className="text-2xl" />
+                <MdDeleteSweep className="text-2xl text-amber-400" />
               </div>
             </div>
           </div>
+          </>
         ))}
       </div>
     </div>

@@ -15,7 +15,7 @@ export const ProductCardBanner = ({ name }) => {
           <div className="bg-black opacity-90 w-1/2 flex flex-col justify-center items-center h-3/5 absolute top-[70%] rounded-lg">
             {" "}
             <h1 className="glow-text  text-center  text-4xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-semibold ">
-              About Us
+             { name||"About Us"}
             </h1>
             <p className="text-white text-center p-7">
               Sharing your organisation’s story. Best practice for content

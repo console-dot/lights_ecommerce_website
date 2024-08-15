@@ -83,7 +83,7 @@ export const FutureProducts = () => {
       <div className="container  lg:p-10 p-4">
         <div className="xl:px-48 xl:pb-10 flex justify-center items-center text-center flex-col">
           <div class="nine">
-            <h1 class="text-center text-4xl md:text-5xl uppercase text-white tracking-wide font-playfair font-normal">
+            <h1 class="text-center text-4xl md:text-5xl uppercase text-amber-400 tracking-wide font-playfair font-normal">
               Future Products
             </h1>
           </div>
@@ -103,7 +103,7 @@ export const FutureProducts = () => {
 
         <div className="flex justify-center items-center pt-10 ">
           <button className="px-7 py-3 bg-[#fa9105] border-[#fa9105] hover:bg-white hover:text-[#fa9105] font-semibold  border text-white  rounded-lg">
-            <Link to="/product">Veiw All Products</Link>
+            <Link to={`/${"allProducts"}`}>Veiw All Products</Link>
           </button>
         </div>
       </div>

@@ -9,7 +9,7 @@ export const CategoryCard = () => {
   return (
     <div className="flex w-full justify-center items-center pb-10">
       <div
-        className="container h-[330px]  xl:h-[330px] md:h-auto   px-[20px] gap-5 md:gap-10 flex-col md:flex-row"
+        className="container h-[330px]  xl:h-auto md:h-auto  gap-5 md:gap-10 flex-col md:flex-row"
         style={{ display: "flex" }}
       >
         <div

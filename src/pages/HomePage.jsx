@@ -20,9 +20,9 @@ export const HomePage = () => {
       <Banner />
       <FutureProducts />
       <OurBenefits />
+      <NewArrivals />
       <LightsHouse />
       <DecorateLight/>
-      <NewArrivals />
       <DiscountOffer />
       <Testimonials />
       <CategoryCard />

@@ -28,12 +28,6 @@ export const ProductDetails = () => {
     setShowImage(imageData[currentImage]?.image);
   }, [currentImage]);
 
-  const nextImage = () => {
-    setCurrentImage(currentImage + (1 % imageData.length));
-  };
-  const prevImage = () => {
-    setCurrentImage(currentImage - 1);
-  };
 
   return (
     <div>
