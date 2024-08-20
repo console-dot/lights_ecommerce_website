@@ -28,6 +28,13 @@ import ProductDetailImage from "./ProductDetailsImage.jpg"
 import blog1 from "./blog1-870x573.jpg"
 import blog2 from "./blog2-870x573.jpg"
 import blog3 from "./blog4-870x573.jpg"
+import wallLightbg from "./walllightbg.png"
+import wallLight1bg from "./walllight1bg.jpg"
+import wallLight from "./walllight.png"
+import wallLight1 from "./walllight1.png"
+import login from "./led-823383_640.jpg"
+import login1 from "./How-to-choose-the-perfect-decor-lights-for-your-room-FB-1200x700-compressed.jpg"
+
 export {
   light1Bg,
   light2,
@@ -58,6 +65,12 @@ export {
  ProductDetailImage,
  blog1,
  blog2,
- blog3
-  
+ blog3,
+wallLight,
+wallLight1,
+wallLight1bg,
+wallLightbg,
+login,
+login1
+
 };

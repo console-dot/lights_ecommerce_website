@@ -15,7 +15,7 @@ export const AboutThisItem = ({ data }) => {
       <div className=" flex justify-center items-center  md:pt-10">
         <div className="container p-5">
           <div className="flex justify-center items-center border-b border-[#414141] w-full">
-            <h1 className="text-3xl font-semibold p-5 text-amber-400">
+            <h1 className="text-3xl font-semibold p-5 text-amber-500">
               {" "}
               Description
             </h1>
@@ -102,7 +102,9 @@ export const AboutThisItem = ({ data }) => {
             </h1>
           </div>
           <div className="flex md:gap-4 gap-2 items-center justify-start w-full py-5">
-            <h1 className="font-bold text-white text-[14px] md:text-base">Rating</h1>
+            <h1 className="font-bold text-white text-[14px] md:text-base">
+              Rating
+            </h1>
             <h1 className="text-[#CCCCCC] text-[14px] md:text-base">Bad</h1>
             <div className="flex gap-2 md:gap-4 items-center">
               <input

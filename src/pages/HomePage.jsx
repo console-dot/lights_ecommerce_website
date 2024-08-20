@@ -7,7 +7,9 @@ import {
   DecorateLight,
   DiscountOffer,
   FutureProducts,
+  Gellary,
   LightsHouse,
+  Login,
   NewArrivals,
   OurBenefits,
   SignUpNewsLetter,
@@ -25,9 +27,11 @@ export const HomePage = () => {
       <DecorateLight/>
       <DiscountOffer />
       <Testimonials />
+      <Gellary/>
       <CategoryCard />
       <Blogs/>
       <SignUpNewsLetter />
+      <Login/>
     </Layout>
   );
 };

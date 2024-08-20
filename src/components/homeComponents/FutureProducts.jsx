@@ -77,13 +77,13 @@ export const FutureProducts = () => {
       price: 3500,
     },
   ];
- 
+
   return (
     <div className="flex justify-center items-center">
-      <div className="container  lg:p-10 p-4">
+      <div className="container   p-4">
         <div className="xl:px-48 xl:pb-10 flex justify-center items-center text-center flex-col">
           <div class="nine">
-            <h1 class="text-center text-4xl md:text-5xl uppercase text-amber-400 tracking-wide font-playfair font-normal">
+            <h1 class="text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-normal">
               Future Products
             </h1>
           </div>
@@ -95,7 +95,7 @@ export const FutureProducts = () => {
             tone for a look that will never go out of style.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 md:p-5 p-2 gap-4 place-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:p-5 p-2 gap-4 place-items-center">
           {productData.map((i, index) => (
             <ProductCard data={i} id={index} />
           ))}
@@ -103,7 +103,7 @@ export const FutureProducts = () => {
 
         <div className="flex justify-center items-center pt-10 ">
           <button className="px-7 py-3 bg-[#fa9105] border-[#fa9105] hover:bg-white hover:text-[#fa9105] font-semibold  border text-white  rounded-lg">
-            <Link to={`/${"allProducts"}`}>Veiw All Products</Link>
+            <Link to={`/${"Products"}`}>Veiw All Products</Link>
           </button>
         </div>
       </div>

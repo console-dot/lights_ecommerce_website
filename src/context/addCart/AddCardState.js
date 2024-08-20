@@ -1,13 +1,6 @@
 import { useState } from "react";
 import AddCardContext from "./AddCardContext";
-import {
-  BennerImage1,
-  glowPlate1,
-  glowPlate2,
-  glowPlate3,
-  glowPlate4,
-  glowPlate5,
-} from "../../assets";
+import { BennerImage1, glowPlate1, glowPlate2, glowPlate3, glowPlate4, glowPlate5 } from "../../assets";
 import { useNavigate } from "react-router-dom";
 export const AddCardState = (props) => {
   const navigate = useNavigate();
@@ -84,25 +77,28 @@ export const AddCardState = (props) => {
       image: glowPlate2,
       title: "Black Festive",
       price: "$3,600",
-      category: "IndoreLights",
+      category:"IndoreLights"
+
     },
     {
       image: glowPlate3,
       title: "Black Festive",
       price: "$3,600",
-      category: "IndoreLights",
+      category:"IndoreLights"
+
     },
     {
       image: glowPlate4,
       title: "Black Festive",
       price: "$3,600",
-      category: "IndoreLights",
+      category:"IndoreLights"
+
     },
     {
       image: glowPlate5,
       title: "Black Festive",
       price: "$3,600",
-      category: "IndoreLights",
+      category:"IndoreLights"
     },
   ];
 
@@ -111,31 +107,35 @@ export const AddCardState = (props) => {
       image: glowPlate1,
       title: "Black Festive",
       price: "$3,600",
-      category: "WallLights",
+      category:"WallLights"
+
     },
     {
       image: glowPlate2,
       title: "Black Festive",
       price: "$3,600",
-      category: "WallLights",
+      category:"WallLights"
+
     },
     {
       image: glowPlate3,
       title: "Black Festive",
       price: "$3,600",
-      category: "WallLights",
+      category:"WallLights"
+
     },
     {
       image: glowPlate4,
       title: "Black Festive",
       price: "$3,600",
-      category: "WallLights",
+      category:"WallLights"
+
     },
     {
       image: glowPlate5,
       title: "Black Festive",
       price: "$3,600",
-      category: "WallLights",
+      category:"WallLights"
     },
   ];
 
@@ -144,25 +144,28 @@ export const AddCardState = (props) => {
       image: glowPlate2,
       title: "Black Festive",
       price: "$3,600",
-      category: "TableLamps",
+      category:"TableLamps"
+
     },
     {
       image: glowPlate3,
       title: "Black Festive",
       price: "$3,600",
-      category: "TableLamps",
+      category:"TableLamps"
+
     },
     {
       image: glowPlate4,
       title: "Black Festive",
-      category: "TableLamps",
+      category:"TableLamps",
       price: "$3,600",
     },
     {
       image: glowPlate5,
       title: "Black Festive",
       price: "$3,600",
-      category: "TableLamps",
+      category:"TableLamps"
+
     },
   ];
 
@@ -171,25 +174,29 @@ export const AddCardState = (props) => {
       image: glowPlate2,
       title: "Black Festive",
       price: "$3,600",
-      category: "CommercialLights",
+      category:"CommercialLights"
+
     },
     {
       image: glowPlate3,
       title: "Black Festive",
       price: "$3,600",
-      category: "CommercialLights",
+      category:"CommercialLights"
+
     },
     {
       image: glowPlate4,
       title: "Black Festive",
       price: "$3,600",
-      category: "CommercialLights",
+      category:"CommercialLights"
+
     },
     {
       image: glowPlate5,
       title: "Black Festive",
       price: "$3,600",
-      category: "CommercialLights",
+      category:"CommercialLights"
+
     },
   ];
   const restaurantlightData = [
@@ -197,25 +204,28 @@ export const AddCardState = (props) => {
       image: glowPlate2,
       title: "Black Festive",
       price: "$3,600",
-      category: "RestaurantLights",
+      category:"RestaurantLights"
     },
     {
       image: glowPlate3,
       title: "Black Festive",
       price: "$3,600",
-      category: "RestaurantLights",
+      category:"RestaurantLights"
+
     },
     {
       image: glowPlate4,
       title: "Black Festive",
       price: "$3,600",
-      category: "RestaurantLights",
+      category:"RestaurantLights"
+
     },
     {
       image: glowPlate5,
       title: "Black Festive",
       price: "$3,600",
-      category: "RestaurantLights",
+      category:"RestaurantLights"
+
     },
   ];
   const multiplylightData = [
@@ -223,35 +233,35 @@ export const AddCardState = (props) => {
       image: glowPlate2,
       title: "Black Festive",
       price: "$3,600",
-      category: "MultiLights",
+      category:"MultiLights"
     },
     {
       image: glowPlate3,
       title: "Black Festive",
       price: "$3,600",
-      category: "MultiLights",
+      category:"MultiLights"
     },
     {
       image: glowPlate4,
       title: "Black Festive",
       price: "$3,600",
-      category: "MultiLights",
+      category:"MultiLights"
     },
     {
       image: glowPlate5,
       title: "Black Festive",
       price: "$3,600",
-      category: "MultiLights",
+      category:"MultiLights"
     },
   ];
 
   const menuItems = [
-    { name: "IndoreLights", data: torchesData },
-    { name: "WallLights", data: glowPlateData },
-    { name: "TableLamps", data: nightLampData },
-    { name: "CommercialLights", data: spotlightData },
-    { name: "RestaurantLights", data: restaurantlightData },
-    { name: "MultiLights", data: multiplylightData },
+    { name: "Indore  Lights", data: torchesData },
+    { name: "Wall  Lights", data: glowPlateData },
+    { name: "Table  Lamps", data: nightLampData },
+    { name: "Commercial  Lights", data: spotlightData },
+    { name: "Restaurant  Lights", data: restaurantlightData }, 
+    { name: "Multi  Lights", data: multiplylightData }, 
   ];
 
   const [cards, setCards] = useState();
@@ -280,7 +290,9 @@ export const AddCardState = (props) => {
   };
   const cardButton = (name) => {
     navigate(`/product/${name}`);
-    const filterData = menuItems.filter((item) => item.name.includes(name));
+    const filterData = menuItems.filter((item) =>
+      item.name.split(" ").join("").includes(name)
+    );
     setCards(filterData);
   };
 
@@ -309,7 +321,7 @@ export const AddCardState = (props) => {
         search,
         filterInput,
         productData,
-        menuItems,
+        menuItems
       }}
     >
       {props.children}

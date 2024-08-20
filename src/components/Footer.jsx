@@ -17,7 +17,7 @@ export const Footer = () => {
     <>
       <div className="flex justify-center items-center py-5 md:py-20 border-b  ">
         <div
-          className="container lg:flex-row gap-3 lg:gap-0"
+          className="container px-4 lg:flex-row gap-3 lg:gap-0"
           style={{
             display: "flex",
 
@@ -207,11 +207,11 @@ export const Footer = () => {
             </h1>
           </div>
           <div className="flex items-center gap-4 pt-5">
-            <FaSquareFacebook className="text-white text-2xl" />
-            <FaTwitterSquare className="text-white text-2xl" />
-            <TfiYoutube className="text-white text-2xl" />
-            <FcGoogle />
-            <FaInstagramSquare className="text-white text-2xl" />
+            <FaSquareFacebook className="text-blue-700 bg-white  text-2xl" />
+            <FaTwitterSquare className="text-blue-700 bg-white text-2xl" />
+            <TfiYoutube className="text-red-700 bg-white text-2xl p-[1px]" />
+            <FcGoogle className="bg-white"/>
+            <FaInstagramSquare className="text-pink-700 bg-white text-2xl" />
           </div>
         </div>
       </div>

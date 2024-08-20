@@ -5,27 +5,28 @@ import "swiper/css/effect-fade";
 import { EffectFade, Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BennerImage1, BennerImage2, BennerImage3 } from "../../assets";
-import "../../App.css"; // Make sure this imports the CSS with the Swiper container styles
+import "../../App.css";
+import "./Benner.css"
 
 export const Banner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Function to handle slide change
-  const handleSlideChange = (swiper) => {
-    setActiveIndex(swiper.activeIndex);
-  };
+ const handleSlideChange = (swiper) => {
+  console.log("Active Index:", swiper.activeIndex); 
+  setActiveIndex(swiper.activeIndex);
+};
 
   useEffect(() => {
-    // Remove animation class after animation ends
     const timer = setTimeout(() => {
       const elements = document.querySelectorAll(".animate-slide-in");
       elements.forEach((el) => {
         el.classList.remove("animate-slide-in");
       });
-    }, 1000); // Match this duration with your animation duration
-
+    }, 1000); // Ensure this matches the animation duration
+  
     return () => clearTimeout(timer);
   }, [activeIndex]);
+  
 
   return (
     <div className="swiper-container">
@@ -47,26 +48,26 @@ export const Banner = () => {
           />
           <div
             className={` w-2/5  absolute top-[8%] lg:top-[25%] lg:right-[5%] right-0 flex  flex-col delay-700 transform duration-700  -translate-x-[2%] ease-in-out  md:p-4 ${
-              activeIndex === 0 ? "animate-slide-in" : ""
+              activeIndex === 0 ? "animate-slideIn" : ""
             }`}
           >
-            <h1 className="font-mono text-white text-[10px] md:text-2xl">
+            <h1 className="font-mono text-white text-[10px] md:text-2xl 2xl:text-5xl">
               pandant light
             </h1>
-            <h1 className="text-white md:text-6xl  font-extrabold md:mt-5 ">
+            <h1 className="text-white md:text-6xl  font-extrabold md:mt-5 2xl:text-9xl ">
               Spring+
             </h1>
             <div className="flex md:mt-10">
-              <h1 className="lg:border-r-2 md:text-5xl font-bold border-amber-400 text-amber-400 pr-3">
+              <h1 className="lg:border-r-2 md:text-5xl font-bold border-amber-500 text-amber-500 pr-3 2xl:text-9xl">
                 Sale
               </h1>
-              <div className="md:px-2 text-white hidden lg:flex flex-col justify-start items-start">
+              <div className="md:px-2 text-white hidden lg:flex flex-col justify-start items-start 2xl:text-5xl">
                 <h1 className="">lorem ipsum eiusmod</h1>
                 <button className="">Shop Now</button>
               </div>
             </div>
             <div className="md:pt-5">
-              <button className="md:px-6 px-2 md:py-2 bg-amber-400 text-black font-bold text-[9px] md:text-xl">
+              <button className="md:px-6 px-2 md:py-2 bg-amber-500 text-black font-bold text-[9px] md:text-xl 2xl:text-5xl">
                 Save 20% OFF
               </button>
             </div>
@@ -80,26 +81,26 @@ export const Banner = () => {
           />
           <div
             className={` w-2/5  absolute top-[8%] lg:top-[25%] lg:right-[5%] right-0 flex  flex-col  delay-700 transform duration-700  -translate-x-[2%] ease-in-out md:p-4 ${
-              activeIndex === 1 ? "animate-slide-in" : ""
+              activeIndex === 1 ? "animate-slideIn" : ""
             }`}
           >
-            <h1 className="font-mono text-white text-[10px] md:text-2xl">
+            <h1 className="font-mono text-white text-[10px] md:text-2xl 2xl:text-5xl">
               pandant light
             </h1>
-            <h1 className="text-white md:text-6xl  font-extrabold md:mt-5 ">
+            <h1 className="text-white md:text-6xl  font-extrabold md:mt-5  2xl:text-9xl">
               Spring+
             </h1>
             <div className="flex md:mt-10">
-              <h1 className="lg:border-r-2 md:text-5xl font-bold border-amber-400 text-amber-400 pr-3">
+              <h1 className="lg:border-r-2 md:text-5xl font-bold border-amber-500 text-amber-500 pr-3 2xl:text-9xl">
                 Sale
               </h1>
-              <div className="md:px-2 text-white hidden lg:flex flex-col items-start">
+              <div className="md:px-2 text-white hidden lg:flex flex-col items-start 2xl:text-5xl">
                 <h1 className="">lorem ipsum eiusmod</h1>
                 <button className="">Shop Now</button>
               </div>
             </div>
             <div className="md:pt-5">
-              <button className="md:px-6 px-2 md:py-2 bg-amber-400 text-black font-bold text-[9px] md:text-xl">
+              <button className="md:px-6 px-2 md:py-2 bg-amber-500 text-black font-bold text-[9px] md:text-xl 2xl:text-5xl">
                 Save 20% OFF
               </button>
             </div>
@@ -113,26 +114,26 @@ export const Banner = () => {
           />
           <div
             className={` w-2/5  absolute top-[8%] lg:top-[25%] left-[10%]  flex  flex-col delay-700 transform duration-700  -translate-x-[2%] ease-in-out  md:p-4 ${
-              activeIndex === 2 ? "animate-slide-in" : ""
+              activeIndex === 2 ? "animate-slideIn" : ""
             }`}
           >
-            <h1 className="font-mono text-white text-[10px] md:text-2xl">
+            <h1 className="font-mono text-white text-[10px] md:text-2xl 2xl:text-5xl">
               pandant light
             </h1>
-            <h1 className="text-white md:text-6xl  font-extrabold md:mt-5 ">
+            <h1 className="text-white md:text-6xl  font-extrabold md:mt-5 2xl:text-9xl">
               Spring+
             </h1>
             <div className="flex md:mt-10">
-              <h1 className="lg:border-r-2 md:text-5xl font-bold border-amber-400 text-amber-400 pr-3">
+              <h1 className="lg:border-r-2 md:text-5xl font-bold border-amber-500 text-amber-500 pr-3 2xl:text-9xl">
                 Sale
               </h1>
-              <div className="md:px-2 text-white hidden lg:flex flex-col items-start">
+              <div className="md:px-2 text-white hidden lg:flex flex-col items-start 2xl:text-5xl">
                 <h1 className="">lorem ipsum eiusmod</h1>
                 <button className="">Shop Now</button>
               </div>
             </div>
             <div className="md:pt-5">
-              <button className="md:px-6 px-2 md:py-2 bg-amber-400 text-black font-bold text-[9px] md:text-xl">
+              <button className="md:px-6 px-2 md:py-2 bg-amber-500 text-black font-bold text-[9px] md:text-xl 2xl:text-5xl">
                 Save 20% OFF
               </button>
             </div>

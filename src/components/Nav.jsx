@@ -33,13 +33,13 @@ export const Nav = () => {
   const navigate = useNavigate();
 
   const handleMouseEnter = (menu) => {
-    if (size.width > 768) {
+    if (size.width > 1024) {
       setActiveDropdown(menu);
     }
   };
 
   const handleMouseLeave = () => {
-    if (size.width > 768) {
+    if (size.width > 1024) {
       setActiveDropdown(null);
     }
   };
@@ -201,11 +201,11 @@ export const Nav = () => {
     <nav className="fixed md:h-24 h-20 mx-auto  w-full bg-[#080808] text-white px-7 flex justify-center items-center z-50">
       <div className="w-[1280px] flex justify-between items-center h-full">
         <div className="flex items-center">
-          <div className="md:hidden block">
+          <div className="xl:hidden block">
             <div className=" flex items-center justify-center rounded-full bg-[#F99106]  h-8 w-8">
               <FaBars
                 onClick={toggleMobileMenu}
-                className="cursor-pointer block md:hidden text-xl text-[#080808]"
+                className="cursor-pointer block xl:hidden text-xl text-[#080808]"
               />
             </div>
           </div>
@@ -217,7 +217,7 @@ export const Nav = () => {
           />
         </div>
 
-        {size.width > 768 ? (
+        {size.width > 1024 ? (
           <ul className="flex justify-center space-x-3 text-md mx-auto">
             {menuItems.map((menu, index) => (
               <li
@@ -417,7 +417,7 @@ export const Nav = () => {
           </ul>
         ) : (
           mobileMenuOpen && (
-            <ul className="absolute top-full left-0 w-full bg-[#080808]  flex flex-col py-4">
+            <ul className="absolute top-full left-0 w-full bg-[#080808]  border-b-2  border-amber-500  opacity-90  flex flex-col py-4">
               {menuItems?.map((menu, index) => (
                 <li key={index} className="text-left">
                   <button
@@ -435,7 +435,7 @@ export const Nav = () => {
                       ))}
                   </button>
                   {activeMobileDropdown === menu.name && (
-                    <ul className="bg-[#080808]  text-gray-400 text-sm max-h-48 overflow-y-auto">
+                    <ul className="bg-[#080808]   text-gray-400 text-sm max-h-48 overflow-y-auto">
                       {menu.name === "Indore Lights" &&
                         menu.data.map((item, i) => (
                           <li
@@ -455,7 +455,7 @@ export const Nav = () => {
                                 <span className="text-white text-sm">
                                   {item.title}
                                 </span>
-                                <span className="text-white text-md font-semibold">
+                                <span className="text-amber-500 text-md font-semibold">
                                   {item.price}
                                 </span>
                               </div>
@@ -481,7 +481,7 @@ export const Nav = () => {
                                 <span className="text-white text-sm">
                                   {item.title}
                                 </span>
-                                <span className="text-white text-md font-semibold">
+                                <span className="text-amber-500 text-md font-semibold">
                                   {item.price}
                                 </span>
                               </div>
@@ -507,7 +507,7 @@ export const Nav = () => {
                                 <span className="text-white text-sm">
                                   {item.title}
                                 </span>
-                                <span className="text-white text-md font-semibold">
+                                <span className="text-amber-500 text-md font-semibold">
                                   {item.price}
                                 </span>
                               </div>
@@ -533,15 +533,26 @@ export const Nav = () => {
                                 <span className="text-white text-sm">
                                   {item.title}
                                 </span>
-                                <span className="text-white text-md font-semibold">
+                                <span className="text-amber-500 text-md font-semibold">
                                   {item.price}
                                 </span>
                               </div>
                             </a>
                           </li>
                         ))}
+                      <div className=" flex justify-center items-center">
+                        <button
+                          className="shop-button px-4 py-2 bg-[#F99106] text-black rounded-full"
+                          onClick={() =>
+                            cart.cardButton(menu.name.split(" ").join(""))
+                          }
+                        >
+                          <span className="text-black">More items</span>
+                        </button>
+                      </div>
                     </ul>
                   )}
+                
                 </li>
               ))}
             </ul>

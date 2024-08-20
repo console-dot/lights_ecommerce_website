@@ -42,17 +42,17 @@ export const ProductCard = ({ data, id }) => {
       >
         <div className="flex-col flex w-full h-full">
           <div
-            className="relative w-full "
+            className="relative w-full h-[80%] "
             onClick={() => navigate(`/productDetails/${id}`)}
           >
             <img
               src={data?.image}
-              className="relative inset-0 transition-opacity duration-300 group-hover:opacity-0"
+              className="relative w-full h-full inset-0 transition-opacity duration-300 group-hover:opacity-0"
               alt="Image 1"
             />
             <img
               src={data?.imageBackground}
-              className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+              className="absolute inset-0 w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-100"
               alt="Image 2"
             />
           </div>
@@ -137,16 +137,16 @@ export const ProductCard = ({ data, id }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="font-semibold md:py-2 text-amber-400">
+          <div className="flex flex-col justify-center items-center h-[20%]">
+            <h1 className="font-semibold md:py-2 text-white">
               {data?.name || data?.title}
             </h1>
-            <h1 className="font-semibold inline text-amber-400 ">
+            <h1 className="font-semibold inline  text-amber-500 ">
               {data?.price}
             </h1>
           </div>
           <dialog id="my_modal_1" className="modal flex items-end">
-            <ProductDetailsModal data={data}/>
+            <ProductDetailsModal data={data} />
           </dialog>
         </div>
       </div>
