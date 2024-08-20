@@ -27,7 +27,11 @@ export const CartModal = () => {
         </div>
       </div>
       <div className="mt-10">
-      {cart?.cartData?.length ===0 && <div className="w-full h-full flex justify-center items-center pt-28"><h1 className="text-[#CCCC] text-2xl">Empty Cart Items</h1></div>}
+        {cart?.cartData?.length === 0 && (
+          <div className="w-full h-full flex justify-center items-center pt-28">
+            <h1 className="text-[#CCCC] text-2xl">Empty Cart Items</h1>
+          </div>
+        )}
         {cart?.cartData?.map((i, index) => (
           <>
             <div className="pl-2 pt-2  ">
@@ -35,7 +39,7 @@ export const CartModal = () => {
                 <div className="w-[20%] h-full flex items-center gap-2">
                   <img src={i?.image} className="w-full h-full" />
                 </div>
-                <div className="w-[20%] text-xs md:text-base flex justify-center items-center text-amber-400">
+                <div className="w-[20%] text-xs md:text-base flex justify-center items-center text-amber-500">
                   {i?.name}
                 </div>
                 <div className=" justify-center items-center flex w-[20%] ">
@@ -50,7 +54,7 @@ export const CartModal = () => {
                     <input
                       type="text"
                       value={cart.quantity}
-                      className="h-full text-center p-0 xxs:w-6 w-5 bg-amber-400  border  "
+                      className="h-full text-center p-0 xxs:w-6 w-5 bg-amber-500  border  "
                       onChange={(e) => cart.onChange(e)}
                     />
                     <button className="md:text-2xl" onClick={cart.addQuantity}>
@@ -58,14 +62,14 @@ export const CartModal = () => {
                     </button>
                   </div>
                 </div>
-                <div className="w-[20%] flex justify-center items-center  text-amber-400">
+                <div className="w-[20%] flex justify-center items-center  text-amber-500">
                   {i?.price}
                 </div>
                 <div
                   className="w-[20%] flex justify-center items-center hover:cursor-pointer"
                   onClick={() => cart.deleteProduct(index)}
                 >
-                  <MdDeleteSweep className="text-2xl text-amber-400" />
+                  <MdDeleteSweep className="text-2xl text-amber-500" />
                 </div>
               </div>
             </div>

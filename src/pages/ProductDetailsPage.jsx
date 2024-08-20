@@ -81,7 +81,7 @@ export const ProductDetailsPage = () => {
   const [data, setData] = useState(productData[index]);
   return (
     <Layout >
-      <BreadCrumbsDetailPage />
+      <BreadCrumbsDetailPage data={data} />
       <div className="flex justify-center items-center pt-[20px] ">
         <div
           className="flex flex-col md:flex-row container"

@@ -7,17 +7,20 @@ import { Link, useParams } from "react-router-dom";
 
 export const AllProductCards = () => {
   const cart = useContext(AddCardContext);
-  const params = useParams()
+  const params = useParams();
   const name = params?.id;
   console.log(name);
   return (
     <div>
-      <ProductCardBanner  name={name} />
-      <div className="md:px-10 px-5 pt-5  md:pt-10">
-        <nav class="flex bg-transparent" aria-label="Breadcrumb">
+      <ProductCardBanner name={name} />
+      <div className="md:px-24 px-5 pt-5  md:pt-40 mt-10 md:mt-0">
+        <nav
+          class="flex bg-transparent py-5 justify-start items-center"
+          aria-label="Breadcrumb"
+        >
           <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
             <li class="inline-flex items-center">
-              <div class="inline-flex items-center text-sm font-medium text-gray-700 px-3 py-2 rounded-lg hover:text-white hover:bg-amber-500 dark:text-gray-400 dark:hover:text-white ">
+              <div class="inline-flex items-center text-sm font-medium text-white px-3 py-2 rounded-lg hover:text-white hover:bg-amber-500 dark:text-gray-400 dark:hover:text-white ">
                 <svg
                   class="w-3 h-3 me-2.5"
                   aria-hidden="true"
@@ -47,30 +50,33 @@ export const AllProductCards = () => {
                     d="m1 9 4-4-4-4"
                   />
                 </svg>
-                <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">
-                  Product
+                <span class="ms-1 text-sm font-medium text-amber-500 md:ms-2 dark:text-gray-400">
+                  Products
                 </span>
               </div>
             </li>
           </ol>
         </nav>
       </div>
-      <div className="p-4 flex justify-center items-center flex-col place-items-center">
+      <div className=" flex justify-center items-center flex-col place-items-center">
         {cart.menuItems.map((item) => (
           <div className="container p-4 md:p-5">
             <div className="xl:px-48 xl:pb-10  text-center">
               <div class="nine ">
-                <h1 class="text-center text-4xl md:text-5xl uppercase text-amber-400 tracking-wide font-playfair font-normal">
+                <h1 class="text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-normal">
                   {item.name}
                 </h1>
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 py-10 ">
-             { console.log(item.data)}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:p-5 p-2 gap-4 place-items-center">
+              {console.log(item.data)}
               {item.data
-                ?.filter((product) => product?.category === item.name)
-                .map((i) => (
-                  <ProductCard data={i} />
+                ?.filter(
+                  (product) =>
+                    product?.category === item.name.split(" ").join("")
+                )
+                .map((i, index) => (
+                  <ProductCard data={i} id={index} />
                 ))}
             </div>
           </div>

@@ -12,7 +12,7 @@ export const ProductDetailsModal = ({data}) => {
     <div className="w-full z-50 flex justify-center items-center flex-col relative">
       <div className="fixed z-50 top-12 right-[15%]">
         <form method="dialog" className="modal-backdrop">
-          <button className="border-none">
+          <button className="border-none focus:border-none">
             <ImCross className="text-[#b1b1b1]" />
           </button>
         </form>

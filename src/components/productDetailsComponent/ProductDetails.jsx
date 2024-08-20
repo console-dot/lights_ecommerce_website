@@ -110,7 +110,7 @@ console.log(id);
         </div>
       </div>
       <div className=" w-full flex justify-center gap-3  items-center flex-row pt-5  md:pt-14  ">
-        <div className="carousel carousel-center space-x-4 p-4 max-w-full md:max-w-full lg:max-w-sm touch-auto ">
+        <div className="carousel carousel-center space-x-4 p-4 max-w-full md:max-w-full lg:max-w-sm touch-pan-x ">
           {imageData?.map((item, index) => (
             <div
               key={index}

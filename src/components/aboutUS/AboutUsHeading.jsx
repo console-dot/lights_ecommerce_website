@@ -7,7 +7,7 @@ export const AboutUsHeading = () => {
         <div className="flex flex-col">
           <div>
             {" "}
-            <h1 className="text-center text-4xl md:text-5xl uppercase text-gray-800 tracking-wide font-playfair font-normal">
+            <h1 className="text-center text-3xl md:text-5xl uppercase text-gray-800 tracking-wide font-playfair font-normal">
               who We Are
             </h1>
           </div>

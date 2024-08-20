@@ -12,12 +12,12 @@ export const ProductCardBanner = ({ name }) => {
           className="w-full h-full flex flex-col justify-center items-center relative "
         >
           {/* products */}
-          <div className="bg-black opacity-90 w-1/2 flex flex-col justify-center items-center h-3/5 absolute top-[70%] rounded-lg">
+          <div className="bg-black opacity-90 w-4/5 md:w-1/2 flex flex-col justify-center items-center h-3/5 absolute top-[70%] rounded-lg p-2">
             {" "}
-            <h1 className="glow-text  text-center  text-4xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-semibold ">
+            <h1 className="glow-text  text-center  text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-semibold ">
              { name||"About Us"}
             </h1>
-            <p className="text-white text-center p-7">
+            <p className="text-white text-[10px] sm:text-base text-center p-2 md:p-7">
               Sharing your organisation’s story. Best practice for content
               creation. Calls to action. Using multimedia to bring your message
               to life.

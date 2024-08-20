@@ -7,9 +7,9 @@ export const CategoryCard = () => {
     setIsOpen(props);
   };
   return (
-    <div className="flex w-full justify-center items-center pb-10">
+    <div className="flex w-full justify-center items-center ">
       <div
-        className="container h-[330px]  xl:h-auto md:h-auto  gap-5 md:gap-10 flex-col md:flex-row"
+        className="container p-4 h-auto xl:h-auto md:h-auto  gap-5 md:gap-10 flex-col md:flex-row"
         style={{ display: "flex" }}
       >
         <div
@@ -21,7 +21,7 @@ export const CategoryCard = () => {
             <img src={categoryCardIamge} />
           </div>
           <div className=" absolute flex flex-col justify-center items-center top-6 md:top-10 xl:top-24  lg:top-14 left-5 md:left-10">
-            <h1 className="text-amber-400 lg:text-xl font-semibold">
+            <h1 className="text-amber-500 lg:text-xl font-semibold">
               Big Deals
             </h1>
             <h1 className="md:text-xl lg:text-3xl py-1  md:pb-2 font-semibold text-white lg:py-3 ">
@@ -46,7 +46,7 @@ export const CategoryCard = () => {
             <img src={categoryCardIamge1} />
           </div>
           <div className=" absolute flex flex-col justify-center items-center top-6 md:top-10 xl:top-24  lg:top-14 left-5 md:left-10">
-            <h1 className="text-amber-400 lg:text-2xl md:xl font-semibold">
+            <h1 className="text-amber-500 lg:text-2xl md:xl font-semibold">
               Ceiling Decore's
             </h1>
             <h1 className="lg:text-3xl md:xl font-semibold text-white lg:py-3 py-1 md:py-2  flex flex-col items-center justify-center">

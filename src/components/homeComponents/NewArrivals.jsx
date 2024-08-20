@@ -1,6 +1,13 @@
 import React from "react";
 import { ProductCard } from "../resuableComponents";
-import { BennerImage1, BennerImage2, light1, light1Bg, light2, light2Bg } from "../../assets";
+import {
+  BennerImage1,
+  BennerImage2,
+  light1,
+  light1Bg,
+  light2,
+  light2Bg,
+} from "../../assets";
 import { Link } from "react-router-dom";
 
 export const NewArrivals = () => {
@@ -72,17 +79,17 @@ export const NewArrivals = () => {
   ];
   return (
     <div div className="flex justify-center items-center">
-      <div className="container p-4 md:p-10">
+      <div className="container p-4 ">
         <div class="nine">
-          <h1 class="text-center text-4xl md:text-5xl uppercase text-amber-400 tracking-wide font-playfair font-normal">
+          <h1 class="text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-normal">
             New Arrivals
           </h1>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 md:p-5 p-2 gap-4 place-items-center pt-5 md:pt-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:p-5 p-2 gap-4 place-items-center">
           {newArrivalsData.map((item, index) => (
-            <div className="flex justify-start items-center">
-              <ProductCard data={item} />
-            </div>
+            // <div className="flex justify-start items-center w-full h-full">
+              <ProductCard data={item} id={index} />
+            // </div>
           ))}
         </div>
         <div className="flex justify-center items-center pt-10 ">

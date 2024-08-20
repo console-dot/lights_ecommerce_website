@@ -102,7 +102,7 @@ export const TestimonialsCard = () => {
               <div className="hidden md:block  w-[5%]">
                 <div className="bg-gray-700 rounded-full w-[1px] h-40 ">
                   <div className="w-12 h-12 rounded-full border-[1px] border-gray-700 flex justify-center bg-gray-800 relative right-6 top-14 ">
-                    <div className="rotate-180 flex justify-center  items-center text-4xl text-[#F99106]">
+                    <div className="rotate-180 flex justify-center  items-center text-3xl text-[#F99106]">
                       <MdFormatQuote />
                     </div>
                   </div>
