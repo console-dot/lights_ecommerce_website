@@ -36,7 +36,7 @@ export const ProductCard = ({ data, id }) => {
   return (
     <>
       <div
-        className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 relative lg:h-[470px] h-[300px] sm:h-[400px] md:[290px]"
+        className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 relative lg:h-[470px] h-[300px] sm:h-[400px] md:[290px] cursor-pointer"
         onMouseEnter={isMdOrLarger ? () => setImageIcon(true) : undefined}
         onMouseLeave={isMdOrLarger ? () => setImageIcon(false) : undefined}
       >
@@ -47,7 +47,7 @@ export const ProductCard = ({ data, id }) => {
           >
             <img
               src={data?.image}
-              className="relative w-full h-full inset-0 transition-opacity duration-300 group-hover:opacity-0"
+              className="relative w-full h-full inset-0 transition-opacity bg-[#DBD4D4] duration-300 group-hover:opacity-0"
               alt="Image 1"
             />
             <img
@@ -138,7 +138,7 @@ export const ProductCard = ({ data, id }) => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center h-[20%]">
-            <h1 className="font-semibold md:py-2 text-white">
+            <h1 className="font-semibold text-xl md:py-2 text-[#CCCCCC] heading">
               {data?.name || data?.title}
             </h1>
             <h1 className="font-semibold inline  text-amber-500 ">

@@ -228,7 +228,7 @@ export const Nav = () => {
               >
                 <button className="flex items-center h-24">
                   <div
-                    className="nav-link"
+                    className="nav-link heading"
                     onClick={() =>
                       cart.cardButton(menu.name.split(" ").join(""))
                     }
@@ -243,12 +243,14 @@ export const Nav = () => {
                 {/* Desktop dropdowns */}
                 {activeDropdown === menu.name &&
                   menu.name === "Indore Lights" && (
-                    <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+                    <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
+                      cart.cardButton(menu.name.split(" ").join(""))
+                    }>
                       <div className="w-[700px]  flex p-2 justify-around items-center">
                         {menu.data.map((item, k) => (
-                          <a
+                          <div
                             key={k}
-                            href="#"
+
                             className="block py-2 hover:text-white"
                           >
                             <img
@@ -264,7 +266,7 @@ export const Nav = () => {
                                 {item.price}
                               </span>
                             </div>
-                          </a>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -272,12 +274,14 @@ export const Nav = () => {
 
                 {activeDropdown === menu.name &&
                   menu.name === "Wall Lights" && (
-                    <div className="absolute top-full left-[-130%] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+                    <div className="absolute top-full left-[-130%] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
+                      cart.cardButton(menu.name.split(" ").join(""))
+                    }>
                       <div className="w-[700px] flex p-2 justify-around items-center">
                         {menu.data.map((item, k) => (
-                          <a
+                          <div
                             key={k}
-                            href="#"
+
                             className="block py-2 hover:text-white"
                           >
                             <img
@@ -293,7 +297,7 @@ export const Nav = () => {
                                 {item.price}
                               </span>
                             </div>
-                          </a>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -301,12 +305,14 @@ export const Nav = () => {
 
                 {activeDropdown === menu.name &&
                   menu.name === "Table Lamps" && (
-                    <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+                    <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
+                      cart.cardButton(menu.name.split(" ").join(""))
+                    }>
                       <div className="w-[700px] flex p-2 justify-around items-center">
                         {menu.data.map((item, k) => (
-                          <a
+                          <div
                             key={k}
-                            href="#"
+                          
                             className="block py-2 hover:text-white"
                           >
                             <img
@@ -322,7 +328,7 @@ export const Nav = () => {
                                 {item.price}
                               </span>
                             </div>
-                          </a>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -330,12 +336,14 @@ export const Nav = () => {
 
                 {activeDropdown === menu.name &&
                   menu.name === "Commercial Lights" && (
-                    <div className="absolute top-full right-[-300px] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+                    <div className="absolute top-full right-[-300px] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
+                      cart.cardButton(menu.name.split(" ").join(""))
+                    }>
                       <div className="w-[700px] flex p-2 justify-around items-center">
                         {menu.data.map((item, k) => (
-                          <a
+                          <div
                             key={k}
-                            href="#"
+                           
                             className="block py-2 hover:text-white"
                           >
                             <img
@@ -351,19 +359,21 @@ export const Nav = () => {
                                 {item.price}
                               </span>
                             </div>
-                          </a>
+                          </div>
                         ))}
                       </div>
                     </div>
                   )}
                 {activeDropdown === menu.name &&
                   menu.name === "Restaurant Lights" && (
-                    <div className="absolute top-full right-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+                    <div className="absolute top-full right-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
+                      cart.cardButton(menu.name.split(" ").join(""))
+                    }>
                       <div className="w-[700px] flex p-2 justify-around items-center">
                         {menu.data.map((item, k) => (
-                          <a
+                          <div
                             key={k}
-                            href="#"
+                           
                             className="block py-2 hover:text-white"
                           >
                             <img
@@ -379,19 +389,20 @@ export const Nav = () => {
                                 {item.price}
                               </span>
                             </div>
-                          </a>
+                          </div>
                         ))}
                       </div>
                     </div>
                   )}
                 {activeDropdown === menu.name &&
                   menu.name === "Multi Lights" && (
-                    <div className="absolute top-full right-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10">
+                    <div className="absolute top-full right-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
+                      cart.cardButton(menu.name.split(" ").join(""))
+                    }>
                       <div className="w-[700px] flex p-2 justify-around items-center">
                         {menu.data.map((item, k) => (
-                          <a
+                          <div
                             key={k}
-                            href="#"
                             className="block py-2 hover:text-white"
                           >
                             <img
@@ -407,7 +418,7 @@ export const Nav = () => {
                                 {item.price}
                               </span>
                             </div>
-                          </a>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -421,7 +432,7 @@ export const Nav = () => {
               {menuItems?.map((menu, index) => (
                 <li key={index} className="text-left">
                   <button
-                    className="flex justify-between items-center h-12 w-full px-4"
+                    className="flex justify-between items-center h-12 w-full px-4 heading"
                     onClick={() => toggleMobileDropdown(menu.name)}
                   >
                     {menu.name}
@@ -552,7 +563,7 @@ export const Nav = () => {
                       </div>
                     </ul>
                   )}
-                
+
                 </li>
               ))}
             </ul>
@@ -560,13 +571,13 @@ export const Nav = () => {
         )}
 
         <div className="flex items-center md:gap-6 gap-3 relative ">
-          <IoIosSearch className="md:text-2xl text-xl" />
-          <FaRegUser className="md:text-xl " />
+          <IoIosSearch className="md:text-2xl text-xl cursor-pointer" />
+          <FaRegUser className="md:text-xl cursor-pointer" onClick={()=>navigate(`/profile`)}/>
           <AiOutlineShoppingCart
             className="md:text-2xl text-xl cursor-pointer"
             onClick={() => setModal(!modal)}
           />
-          <div className="h-5 w-5 cursor-pointer rounded-full absolute top-[-5px] right-[-10px] bg-amber-500 flex justify-center items-center">
+          <div className="h-5 w-5 cursor-pointer rounded-full absolute top-[-5px] right-[-10px] bg-amber-500 flex justify-center items-center"onClick={() => setModal(!modal)}>
             <h1 className="text-white font-bold">{cart?.cartData?.length}</h1>
           </div>
         </div>

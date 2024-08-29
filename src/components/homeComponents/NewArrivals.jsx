@@ -81,7 +81,7 @@ export const NewArrivals = () => {
     <div div className="flex justify-center items-center">
       <div className="container p-4 ">
         <div class="nine">
-          <h1 class="text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-normal">
+          <h1 class="heading text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide ">
             New Arrivals
           </h1>
         </div>

@@ -21,10 +21,10 @@ export const CategoryCard = () => {
             <img src={categoryCardIamge} />
           </div>
           <div className=" absolute flex flex-col justify-center items-center top-6 md:top-10 xl:top-24  lg:top-14 left-5 md:left-10">
-            <h1 className="text-amber-500 lg:text-xl font-semibold">
+            <h1 className="text-amber-500 lg:text-xl font-semibold italic">
               Big Deals
             </h1>
-            <h1 className="md:text-xl lg:text-3xl py-1  md:pb-2 font-semibold text-white lg:py-3 ">
+            <h1 className="md:text-xl heading lg:text-3xl py-1  md:pb-2 font-semibold text-white lg:py-3 ">
               Desk lamps
             </h1>
             <button className="shop-button px-2 py-1 lg:px-4 lg:py-2 bg-[#F99106] text-black rounded-full flex justify-center items-center">
@@ -46,10 +46,10 @@ export const CategoryCard = () => {
             <img src={categoryCardIamge1} />
           </div>
           <div className=" absolute flex flex-col justify-center items-center top-6 md:top-10 xl:top-24  lg:top-14 left-5 md:left-10">
-            <h1 className="text-amber-500 lg:text-2xl md:xl font-semibold">
+            <h1 className="text-amber-500 italic lg:text-2xl md:xl font-semibold">
               Ceiling Decore's
             </h1>
-            <h1 className="lg:text-3xl md:xl font-semibold text-white lg:py-3 py-1 md:py-2  flex flex-col items-center justify-center">
+            <h1 className="lg:text-3xl md:xl heading font-semibold text-white lg:py-3 py-1 md:py-2  flex flex-col items-center justify-center">
               Decorating <span>Lamps</span>
             </h1>
           </div>

@@ -83,11 +83,11 @@ export const FutureProducts = () => {
       <div className="container   p-4">
         <div className="xl:px-48 xl:pb-10 flex justify-center items-center text-center flex-col">
           <div class="nine">
-            <h1 class="text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-normal">
+            <h1 class="heading text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide">
               Future Products
             </h1>
           </div>
-          <p className="py-4 md:text-lg  text-[10px] font-semibold text-white">
+          <p className="py-4 md:text-lg  text-[10px] font-normal text-[#CCCCCC] italic">
             Decorate your home with chic table lamps and floor lamps. Look for
             designs made of ultra-slim metal for a contemporary feel and designs
             with exposed bulbs for an industrial feel. Shop colourful hues and

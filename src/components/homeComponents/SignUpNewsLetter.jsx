@@ -12,13 +12,13 @@ export const SignUpNewsLetter = () => {
       </div>
       <div className="md:w-1/2 md:px-10  px-4 flex justify-center flex-col pt-5 ">
         <div className="flex flex-row lg:flex-col items-center lg:items-start gap-2">
-          <CiMail className="text-white text-3xl text-extrabold font-extrabold" />
-          <h1 className="text-white md:text-xl lg:text-3xl text-extrabold py-2">
+          <CiMail className="text-[#CCCCCC] text-3xl  font-extrabold " />
+          <h1 className="text-amber-500 heading  md:text-xl lg:text-3xl text-extrabold py-2">
             {" "}
             SIGN UP FOR NEWLETTER
           </h1>
         </div>
-        <h1 className="text-[#CCCCCC]  lg:text-xl">
+        <h1 className="text-[#CCCCCC] italic  ">
           Sign up with us and get latest deals, offers & updates about store
         </h1>
         <div className=" border-b border-white relative lg:pt-5 pt-2 pb-1">

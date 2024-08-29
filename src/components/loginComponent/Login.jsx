@@ -11,31 +11,33 @@ export const Login = () => {
       <div>
         {isModalOpen && (
           <dialog id="my_modal_1" className="modal w-full" open>
-            <div className="w-full h-full bg-black absolute opacity-50"></div>
-            <div className="modal-box relative z-50  bg-black rounded-none max-w-4xl h-[500px] border-[10px] p-2 md:p-5  border-[#232323]">
+            <div className="modal-box relative z-50  bg-black rounded-none max-w-4xl md:h-[500px] h-[450px] border-[10px] p-2 md:p-5  border-[#5a5656]">
+            <div className="w-full  top-0 right-0 flex justify-end absolute z-50  p-4">
+            <ImCross className="text-[#CCCCCC] cursor-pointer"  onClick={closeModal}/>
+            </div>
               <div className="w-full h-full flex relative">
                 <div className="w-full md:w-1/2 flex justify-center items-center">
                   <div className="w-full flex flex-col">
-                    <h1 className="text-3xl text-extrabold text-amber-500 text-center pb-5">
+                    <h1 className="heading text-4xl font-semibold text-amber-500 text-center pb-5">
                       LOGIN
                     </h1>
                     <div class=" xl:space-y-5">
                       <div class="md:space-y-5 space-y-2 pb-5">
-                        <label class="text-2xl font-semibold text-amber-500 tracking-wide">
+                        <label class="heading text-2xl font-semibold text-amber-500 tracking-wide">
                           Email
                         </label>
                         <input
-                          class=" w-full text-base px-4 py-3 border text-white  border-gray-300 placeholder:text-white rounded-lg bg-transparent focus:outline-none focus:border-amber-500"
+                          class=" w-full text-base px-4 py-3 border text-white  border-gray-300 placeholder:text-[#727272] rounded-lg bg-transparent focus:outline-none focus:border-amber-500"
                           type=""
                           placeholder="mail@gmail.com"
                         />
                       </div>
                       <div class="md:space-y-5 space-y-2 pb-5">
-                        <label class="md:mb-5 text-2xl font-semibold text-amber-500 tracking-wide">
+                        <label class="heading md:mb-5 text-2xl font-semibold text-amber-500 tracking-wide">
                           Password
                         </label>
                         <input
-                          class="w-full text-white content-center text-base px-4 py-3 border placeholder:text-white  border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 bg-transparent"
+                          class="w-full text-white content-center text-base px-4 py-3 border placeholder:text-[#727272]  border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 bg-transparent"
                           type=""
                           placeholder="Enter your password"
                         />
@@ -46,11 +48,11 @@ export const Login = () => {
                             id="remember_me"
                             name="remember_me"
                             type="checkbox"
-                            class="md:h-5 md:w-5 h-3 w-3  checked:bg-amber-500 border-gray-300 "
+                            class="md:h-5 cursor-pointer md:w-5 h-3 w-3  checked:bg-amber-500 border-gray-300 "
                           />
                           <label
                             for="remember_me"
-                            class="ml-2 block md:text-base text-[12px] text-amber-500"
+                            class="ml-2 cursor-pointer heading block md:text-base text-[12px] text-amber-500"
                           >
                             Remember me
                           </label>
@@ -58,7 +60,7 @@ export const Login = () => {
                         <div class="md:text-sm text-[12px] text-end">
                           <a
                             href="#"
-                            class=" font-semibold   tracking-wide text-amber-500"
+                            class=" font-semibold  heading tracking-wide text-amber-500"
                           >
                             Forgot password?
                           </a>
@@ -68,7 +70,7 @@ export const Login = () => {
                         <button
                           onClick={closeModal}
                           type="submit"
-                          class=" flex justify-center px-5 bg-amber-500    text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
+                          class=" flex justify-center px-5 bg-amber-500    text-gray-100 py-2 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
                         >
                           Login
                         </button>

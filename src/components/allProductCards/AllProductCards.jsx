@@ -63,7 +63,7 @@ export const AllProductCards = () => {
           <div className="container p-4 md:p-5">
             <div className="xl:px-48 xl:pb-10  text-center">
               <div class="nine ">
-                <h1 class="text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-normal">
+                <h1 class="text-center heading text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-normal">
                   {item.name}
                 </h1>
               </div>

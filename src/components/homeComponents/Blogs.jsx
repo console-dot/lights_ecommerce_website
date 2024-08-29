@@ -17,7 +17,7 @@ export const Blogs = () => {
     <div className="md:pb-10  flex justify-center items-center">
       <div className="container  p-4">
         <div className="flex justify-center items-center ">
-          <h1 className="text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-normal md:py-10">
+          <h1 className="heading text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide  md:py-10">
             Latest News
           </h1>
         </div>
@@ -63,12 +63,12 @@ export const Blogs = () => {
                 />
               </div>
               <div className="lg:absolute w-full lg:w-80 bottom-0 right-0 bg-black flex justify-center items-center flex-col py-3">
-                <h1 className="text-white text-lg font-semibold">
+                <h1 className="text-white text-lg font-semibold ">
                   How To Survive Air Travel With An
                 </h1>
                 <div className="flex justify-center items-center text-center">
                   {" "}
-                  <p className="text-[#CCCC] py-3">
+                  <p className="text-[#CCCC] py-3 italic">
                     Duis aute irure dolor in reprehenderit in voluptate velit
                     esse cillum dolore eu{" "}
                   </p>
@@ -86,10 +86,10 @@ export const Blogs = () => {
                 />
               </div>
               <div className="lg:absolute w-full lg:w-80 bottom-0 right-0 bg-black flex justify-center items-center flex-col py-3">
-                <h1 className="text-white text-lg font-semibold">
+                <h1 className="text-white text-lg font-semibold ">
                   How To Survive Air Travel With An
                 </h1>
-                <div className="flex justify-center items-center text-center">
+                <div className="flex justify-center items-center text-center italic">
                   {" "}
                   <p className="text-[#CCCC] py-3">
                     Duis aute irure dolor in reprehenderit in voluptate velit
@@ -109,10 +109,10 @@ export const Blogs = () => {
                 />
               </div>
               <div className="lg:absolute w-full lg:w-80 bottom-0 right-0 bg-black flex justify-center items-center flex-col py-3">
-                <h1 className="text-white text-lg font-semibold">
+                <h1 className="text-white text-lg font-semibold ">
                   How To Survive Air Travel With An
                 </h1>
-                <div className="flex justify-center items-center text-center">
+                <div className="flex justify-center items-center text-center italic">
                   {" "}
                   <p className="text-[#CCCC] py-3">
                     Duis aute irure dolor in reprehenderit in voluptate velit

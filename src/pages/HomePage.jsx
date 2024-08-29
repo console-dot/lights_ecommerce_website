@@ -10,6 +10,7 @@ import {
   Gellary,
   LightsHouse,
   Login,
+  LuxuryStylist,
   NewArrivals,
   OurBenefits,
   SignUpNewsLetter,
@@ -20,17 +21,18 @@ export const HomePage = () => {
   return (
     <Layout>
       <Banner />
-      <FutureProducts />
+      <LuxuryStylist/>
       <OurBenefits />
-      <NewArrivals />
-      <LightsHouse />
       <DecorateLight/>
+      <CategoryCard />
+      <LightsHouse />
+      <Blogs/>
       <DiscountOffer />
       <Testimonials />
-      <Gellary/>
-      <CategoryCard />
-      <Blogs/>
       <SignUpNewsLetter />
+      <Gellary/>
+      <FutureProducts />
+      <NewArrivals />
       <Login/>
     </Layout>
   );
