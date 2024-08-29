@@ -96,8 +96,8 @@ export const TestimonialsCard = () => {
                     alt={`${item.name}'s image`}
                   />
                 </div>
-                <h5 className="font-semibold">{item.name}</h5>
-                <p className="text-sm text-gray-2000">{item.designation}</p>
+                <h5 className="font-semibold text-amber-500 heading">{item.name}</h5>
+                <p className="text-sm text-[#CCCCCC] italic">{item.designation}</p>
               </div>
               <div className="hidden md:block  w-[5%]">
                 <div className="bg-gray-700 rounded-full w-[1px] h-40 ">
@@ -109,7 +109,7 @@ export const TestimonialsCard = () => {
                 </div>
               </div>
               <div className="md:w-[65%] w-full">
-                <p className="text-lg text-white md:text-start text-center">
+                <p className="text-lg text-[#CCCCCC] md:text-start text-center italic">
                   {item.feedback}
                 </p>
               </div>

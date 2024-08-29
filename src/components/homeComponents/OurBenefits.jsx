@@ -34,12 +34,12 @@ const BenefitCard = ({ icon, heading, description }) => (
       {icon}
     </div>
     <div>
-      <span className="text-lg group-hover:text-[#F99106]">
+      <span className="text-lg heading group-hover:text-[#F99106]">
         {heading}
       </span>
     </div>
     <div>
-      <span className="text-sm text-[#787878]">
+      <span className="text-sm italic text-[#CCCCCC]">
         {description}
       </span>
     </div>
@@ -77,7 +77,7 @@ export const OurBenefits = () => {
   }, [isMobile]);
 
   return (
-    <div className="bg-[#111111] md:py-28 py-6 text-white w-full  mx-auto">
+    <div className="bg-[#111111] md:pt-20 pt-48 text-white w-full  mx-auto">
       {isMobile ? (
         <div
           ref={scrollContainerRef}

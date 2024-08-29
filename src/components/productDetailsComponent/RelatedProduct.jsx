@@ -12,7 +12,7 @@ export const RelatedProduct = ({ productData }) => {
       <div className="container ">
         <div className="p-4 w-full">
           <div className="flex justify-center items-center">
-            <h1 className="text-3xl font-semibold text-white md:py-10">
+            <h1 className="text-3xl font-semibold text-amber-500 md:py-10 heading">
               Related Product
             </h1>
           </div>

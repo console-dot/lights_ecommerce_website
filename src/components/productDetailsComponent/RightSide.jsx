@@ -9,8 +9,8 @@ export const RightSide = ({ productData, data }) => {
     <>
       <div className=" w-full flex flex-col px-5">
         <div>
-          <h1 className="text-white font-semibold text-lg pb-2 border-b border-[#414141]">
-           { data?.name||"Name Light"}
+          <h1 className="text-amber-500 font-semibold text-xl pb-2 border-b border-[#414141] heading">
+            {data?.name || "Name Light"}
           </h1>
         </div>
         <div className="flex items-center gap-3 md:gap-5">
@@ -65,30 +65,32 @@ export const RightSide = ({ productData, data }) => {
               </div>
             </div>
           </div>
-          <h1 className="text-white text-[12px] md:text-base">0 reviews</h1>
-          <div className="flex items-center gap-2 cursor-pointer">
-            <MdModeEditOutline className="text-white" />
-            <h1 className="text-white text-[12px] md:text-base"> Write a review</h1>
-          </div>
+          <h1 className="text-white text-[12px] md:text-base italic">0 reviews</h1>
+          <a href="#review">
+            <div className="flex items-center gap-2 cursor-pointer">
+              <MdModeEditOutline className="text-white" />
+              <h1 className="text-white text-[12px] md:text-base italic"> Write a review</h1>
+            </div>
+          </a>
         </div>
         <div className="flex flex-col">
           <div className="flex flex-col border-y gap-5 py-5 border-[#414141]">
             {" "}
             <div className="flex  font-semibold ">
-              <h1 className="text-white w-32">Brand :</h1>
-              <h1 className="text-[#b1b1b1] md:px-10">Name</h1>
+              <h1 className="text-white w-32 heading">Brand :</h1>
+              <h1 className="text-[#b1b1b1] md:px-10 italic">Name</h1>
             </div>
             <div className="flex  font-semibold ">
-              <h1 className="text-white w-32">Prduct Code :</h1>
-              <h1 className="text-[#b1b1b1] md:px-10">Product 21</h1>
+              <h1 className="text-white w-32 heading">Prduct Code :</h1>
+              <h1 className="text-[#b1b1b1] md:px-10 italic">Product 21</h1>
             </div>
             <div className="flex  font-semibold ">
-              <h1 className="text-white w-32">SKU :</h1>
-              <h1 className="text-[#b1b1b1] md:px-10">test 1</h1>
+              <h1 className="text-white w-32 heading">SKU :</h1>
+              <h1 className="text-[#b1b1b1] md:px-10 italic">test 1</h1>
             </div>
             <div className="flex  font-semibold ">
-              <h1 className="text-white ">Product Availability In Stock:</h1>
-              <h1 className="text-[#b1b1b1] px-4">954</h1>
+              <h1 className="text-white w-32 heading">Availabel Stock :</h1>
+              <h1 className="text-[#b1b1b1] md:px-10 italic">954</h1>
             </div>
           </div>
 
@@ -96,12 +98,12 @@ export const RightSide = ({ productData, data }) => {
             <h1 className="flex text-white text-2xl font-bold py-2">
               <span>$</span>300<span>.00</span>
             </h1>
-            <h1 className="text-[#b1b1b1]">
+            <h1 className=" text-[#CCCCCC] italic">
               Ex Tax: <span>$100.00</span>
             </h1>
           </div>
           <div className="flex flex-col">
-            <h1 className="text-lg text-white font-semibold py-4">
+            <h1 className="text-lg text-[#CCCCCC] font-semibold py-4 italic">
               Available Options
             </h1>
             <h1 className="text-white text-lg font-semibold">Color</h1>
@@ -146,7 +148,7 @@ export const RightSide = ({ productData, data }) => {
               </button>
             </div>
             <div className="flex justify-center items-center">
-              <button className="shop-button px-4 py-3 bg-[#FFC000] text-black rounded-full"  onClick={() => cart.addToCart(data)}>
+              <button className="shop-button px-4 py-3 bg-[#FFC000] text-black rounded-full" onClick={() => cart.addToCart(data)}>
                 <span>Add to Cart</span>
               </button>
             </div>

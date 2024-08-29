@@ -3,7 +3,7 @@ import { decorateLight1, decorateLight2, dignoalLines } from "../../assets";
 
 export const DecorateLight = () => {
   return (
-    <div className="container mx-auto  p-4  md:mt-40 mt-10 w-[100%]">
+    <div className="container mx-auto  p-4  md:mt-20 mt-10 w-[100%]">
       <div className="flex flex-col lg:flex-row items-center lg:items-start  gap-4  text-white w-[100%]">
         {/* Right Image */}
         <div className="flex lg:w-[60%] w-full items-center justify-center flex-col  md:flex-row md:order-2 lg:order-none pt-20 gap-5 ">
@@ -16,12 +16,12 @@ export const DecorateLight = () => {
           </div>
           {/* Text Section */}
           <div className="relative w-full flex flex-col md:items-end items-start md:ml-0 px-6 md:w-[50%] ">
-            <h2 className="  md:text-5xl text-3xl md:text-end text-start tracking-tighter font-bold w-full ">
+            <h2 className="text-amber-500 heading md:text-5xl text-3xl md:text-end text-start tracking-tighter font-bold w-full ">
               DECORATE LIGHT
             </h2>
 
             <div className="md:w-[80%] w-[60%]  md:mt-0 mt-2 h-[1px] bg-gray-600 absolute md:left-[-25%] z-20  md:top-[13%] top-8 "></div>
-            <p className=" mt-6 text-lg md:text-end text-start w-full">
+            <p className=" mt-6 italic text-lg md:text-end text-start w-full">
               Lorem Ipsum Eiusmod Dolor Adi Iusmod Incididunt. Eiusmod Tempor
               Eiusmod Incididunt.
             </p>

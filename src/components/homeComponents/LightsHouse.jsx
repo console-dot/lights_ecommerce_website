@@ -25,12 +25,13 @@ export const LightsHouse = () => {
         <div className="flex lg:w-[60%] w-full items-center justify-center flex-col  md:flex-row md:order-2 lg:order-none pt-20 gap-5 ">
           {/* Text Section */}
           <div className="relative w-full flex flex-col md:items-end items-start md:ml-0 px-6 md:w-[50%] ">
-            <h2 className="  md:text-5xl text-3xl md:text-end text-start tracking-tighter font-bold w-full ">
+            
+            <h2 className="  md:text-5xl heading inline md:text-end text-start tracking-tighter font-bold w-full text-amber-500" style={{fontSize:"45px"}}>
               LIGHT HOUSE
             </h2>
-
+           
             <div className="md:w-[80%] w-[60%]  md:mt-0 mt-2 h-[1px] bg-gray-600 absolute md:right-[-25%] z-20 right-13 md:top-[13%] top-8 "></div>
-            <p className=" mt-6 text-lg md:text-end text-start w-full">
+            <p className="italic mt-6 text-lg  text-start w-full pl-4">
               Lorem Ipsum Eiusmod Dolor Adi Iusmod Incididunt. Eiusmod Tempor
               Eiusmod Incididunt.
             </p>

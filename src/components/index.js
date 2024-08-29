@@ -7,3 +7,5 @@ export * from './allProductCards'
 export * from "./allProductCategory"
 export * from "./aboutUS"
 export * from "./loginComponent"
+export * from "./ScrollTop"
+export * from "./profileComponents"

@@ -10,26 +10,26 @@ export const ProductDetailsModal = ({data}) => {
   
   return (
     <div className="w-full z-50 flex justify-center items-center flex-col relative">
-      <div className="fixed z-50 top-12 right-[15%]">
+      <div className="fixed z-50 top-32 right-[15%] ">
         <form method="dialog" className="modal-backdrop">
           <button className="border-none focus:border-none">
-            <ImCross className="text-[#b1b1b1]" />
+            <ImCross className="text-white" />
           </button>
         </form>
       </div>
       <div
         className="modal-box bg-black  rounded-none flex"
-        style={{ maxWidth: "70%" }}
+        style={{ maxWidth: "70%" , maxHeight:"calc(100vh - 10em)"}}
       >
-        <div className="w-1/2">
+        <div className=" w-3/5 xl:w-1/2">
           <img src={BennerImage1} className="h-[500px] px-2" />
         </div>
-        <div className="w-1/2 flex flex-col px-2">
+        <div className="w-2/5 xl:w-1/2 flex flex-col px-2">
           <div>
-            <h1 className="text-white font-semibold text-lg pb-2 border-b border-[#414141]">
-              {data?.name}
+            <h1 className="text-amber-500 heading font-semibold text-lg pb-2 border-b border-[#414141] ">
+              {data?.name|| data?.title}
             </h1>
-          </div>
+          </div> 
           <div className="flex flex-col">
             <div className="py-3">
               <div class="flex items-center mt-2.5 mb-5">
@@ -83,20 +83,20 @@ export const ProductDetailsModal = ({data}) => {
               </div>
             </div>
             <div className="flex  font-semibold py-1">
-              <h1 className="text-white">Brand :</h1>
-              <h1 className="text-[#b1b1b1] px-2">Name</h1>
+              <h1 className="text-white heading w-32 ">Brand :</h1>
+              <h1 className="text-[#b1b1b1] px-2 italic">Name</h1>
             </div>
             <div className="flex  font-semibold py-1">
-              <h1 className="text-white">Prduct Code :</h1>
-              <h1 className="text-[#b1b1b1] px-2">Product 21</h1>
+              <h1 className="text-white heading w-32">Prduct Code :</h1>
+              <h1 className="text-[#b1b1b1] px-2 italic">Product 21</h1>
             </div>
             <div className="flex  font-semibold py-1">
-              <h1 className="text-white">Reward Points :</h1>
-              <h1 className="text-[#b1b1b1] px-2">300</h1>
+              <h1 className="text-white heading w-32">Reward Points :</h1>
+              <h1 className="text-[#b1b1b1] px-2 italic">300</h1>
             </div>
             <div className="flex  font-semibold py-1">
-              <h1 className="text-white">Availability :</h1>
-              <h1 className="text-[#b1b1b1] px-2">In Stock</h1>
+              <h1 className="text-white heading w-32">Availability :</h1>
+              <h1 className="text-[#b1b1b1] px-2 italic">In Stock</h1>
             </div>
 
             <div className=" flex flex-col">
@@ -106,12 +106,12 @@ export const ProductDetailsModal = ({data}) => {
               <h1 className="text-[#b1b1b1]">
                 Ex Tax: <span>$100.00</span>
               </h1>
-              <h1 className="text-[#b1b1b1]">
+              <h1 className="text-[#b1b1b1] italic">
                 Price in reward points: <span>400</span>
               </h1>
             </div>
             <div className="flex flex-col">
-              <h1 className="text-lg text-white font-semibold py-4">
+              <h1 className="text-lg text-white font-semibold py-4 heading">
                 Available Options
               </h1>
               <h1 className="text-white text-lg font-semibold">Color</h1>
@@ -120,7 +120,7 @@ export const ProductDetailsModal = ({data}) => {
                 <div className="w-10 h-10 border-2 border-white rounded-full  bg-red-700"></div>
               </div>
             </div>
-            <div className="flex flex-col py-4">
+            <div className="flex flex-col py-4 italic">
               <h1 className="text-lg text-white font-semibold">
                 Delivery Date
               </h1>

@@ -15,12 +15,12 @@ export const AllCategroy = () => {
     <div className="">
       <ProductCardBanner name={name} />
       <div>
-        <div className="md:px-24  px-5 pt-5  md:pt-40  mt-10 md:mt-0">
+        <div className="md:px-24  px-5 pt-5  md:pt-40  mt-10 md:mt-0 ">
           <nav
-            class="flex bg-transparent py-5 justify-start items-center"
+            class="flex bg-transparent py-5 justify-start items-center "
             aria-label="Breadcrumb"
           >
-            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse cursor-pointer">
               <li class="inline-flex items-center">
                 <div class="inline-flex items-center text-sm font-medium  md:px-3 py-2 rounded-lg text-white hover:bg-amber-500 dark:text-gray-400 dark:hover:text-white ">
                   <svg

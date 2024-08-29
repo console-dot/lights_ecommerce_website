@@ -34,7 +34,7 @@ export const Gellary = () => {
     <div className="flex justify-center items-center md:py-10">
       <div className="container p-4">
         <div className="flex justify-center items-center">
-          <h1 className="text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide font-playfair font-normal py-10">
+          <h1 className="heading text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide py-10">
             Categories
           </h1>
         </div>
@@ -50,7 +50,7 @@ export const Gellary = () => {
                 alt={image.name}
                 className="w-full h-full mb-4 rounded-lg gellary transition-all ease-in-out overflow-hidden"
               />
-              <div className="image-name absolute bottom-0 left-0 w-full text-center text-black py-2">
+              <div className="image-name heading absolute bottom-0 left-0 w-full text-center text-black py-2">
                 {image.name}
               </div>
             </div>

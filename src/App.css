@@ -339,6 +339,15 @@ nav .flex {
   .watermark {
     position: absolute;
   }
-
-  
+}
+.paragraph {
+  font-family: "Kaushan Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.heading {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
 }

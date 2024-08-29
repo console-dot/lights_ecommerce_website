@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddCardContext from "./AddCardContext";
-import { BennerImage1, glowPlate1, glowPlate2, glowPlate3, glowPlate4, glowPlate5 } from "../../assets";
+import { BennerImage1, glowPlate1, glowPlate2, glowPlate3, glowPlate4, glowPlate5, wallLight, wallLight1, wallLight1bg, wallLightbg } from "../../assets";
 import { useNavigate } from "react-router-dom";
 export const AddCardState = (props) => {
   const navigate = useNavigate();
@@ -104,14 +104,16 @@ export const AddCardState = (props) => {
 
   const glowPlateData = [
     {
-      image: glowPlate1,
+      image: wallLight,
+      imageBackground:wallLightbg,
       title: "Black Festive",
       price: "$3,600",
       category:"WallLights"
 
     },
     {
-      image: glowPlate2,
+      image: wallLight1,
+      imageBackground:wallLight1bg,
       title: "Black Festive",
       price: "$3,600",
       category:"WallLights"
@@ -276,7 +278,10 @@ export const AddCardState = (props) => {
     setQuantity(parseInt(quantity) + 1);
   };
   const subtractQuantity = () => {
-    setQuantity(quantity - 1);
+    if(quantity> 1){
+      setQuantity(quantity - 1);
+    }
+    
   };
   const onChange = (e) => {
     setQuantity(e.target.value);

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const BreadCrumbsDetailPage = ({data}) => {
   return (
     <div className="">
-      <div className="flex justify-center items-center bg-transparent  h-24">
+      <div className="flex justify-center items-center bg-transparent  h-24 cursor-pointer">
         <div className="container flex-row  justify-start  px-5"style={{alignItems:'start'}}>
           <div className="">
             <nav class="flex bg-transparent items-start justify-start" aria-label="Breadcrumb">

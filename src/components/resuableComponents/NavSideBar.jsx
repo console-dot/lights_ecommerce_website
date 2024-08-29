@@ -13,8 +13,8 @@ export const NavSideBar = () => {
     setIsOpen(prop);
   };
   return (
-    <div className="relative lg:hidden">
-      <div className="w-64 bg-gray-800 text-white h-screen p-4 z-40 fixed overflow-y-auto top-[68px]">
+    <div className="relative w-full">
+      <div className="w-64 bg-gray-800 text-white h-screen p-4 z-40 fixed overflow-y-auto top-[96px]">
         <ul>
           <li onClick={() => navigate(`/home`)} className="px-1">
             Home
