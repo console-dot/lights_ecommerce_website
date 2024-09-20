@@ -42,13 +42,13 @@ export const Gellary = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              className="w-full relative overflow-hidden border border-black gallery-item"
+              className="w-full relative  mb-4 overflow-hidden border border-black gallery-item"
               style={{ height: getRandomHeight() }}
             >
               <img
                 src={image.src}
                 alt={image.name}
-                className="w-full h-full mb-4 rounded-lg gellary transition-all ease-in-out overflow-hidden"
+                className="w-full h-full rounded-lg gellary transition-all ease-in-out overflow-hidden"
               />
               <div className="image-name heading absolute bottom-0 left-0 w-full text-center text-black py-2">
                 {image.name}

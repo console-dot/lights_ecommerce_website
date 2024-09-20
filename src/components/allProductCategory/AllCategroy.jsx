@@ -15,7 +15,7 @@ export const AllCategroy = () => {
     <div className="">
       <ProductCardBanner name={name} />
       <div>
-        <div className="md:px-24  px-5 pt-5  md:pt-40  mt-10 md:mt-0 ">
+        <div className="md:px-24  px-5 pt-5  md:pt-32  mt-10 md:mt-0 ">
           <nav
             class="flex bg-transparent py-5 justify-start items-center "
             aria-label="Breadcrumb"

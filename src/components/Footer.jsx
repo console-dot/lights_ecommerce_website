@@ -203,7 +203,7 @@ export const Footer = () => {
         <div className="container">
           <div>
             <h1 className="text-[#CCCC] text-center ">
-              Powered By OpenCart Ceiling - Lighting Store © 2024
+              Powered By ConsoleDot - Lighting Store © 2024
             </h1>
           </div>
           <div className="flex items-center gap-4 pt-5">
