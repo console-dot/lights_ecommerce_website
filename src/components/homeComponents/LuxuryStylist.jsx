@@ -22,12 +22,11 @@ export const LuxuryStylist = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='md:w-1/2 w-full order-1 md:order-none'>
+                    <div className=' hidden md:flex   md:w-1/2 w-full order-1 md:order-none'>
                         <img src={blog1} className='w-full h-full' />
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

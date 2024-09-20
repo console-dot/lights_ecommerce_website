@@ -38,7 +38,7 @@ export const Gellary = () => {
             Categories
           </h1>
         </div>
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 overflow-hidden">
+        <div className="columns-1  sm:columns-2 md:columns-3 lg:columns-4 gap-4 overflow-hidden">
           {images.map((image, index) => (
             <div
               key={index}
@@ -56,6 +56,13 @@ export const Gellary = () => {
             </div>
           ))}
         </div>
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {images.map((image, index) => (
+        <div className="grid gap-4" key={index}>
+          <img className="h-auto w-full object-cover rounded-lg" src={image.src} alt={`Gallery image ${index + 1}`} />
+        </div>
+      ))}
+    </div> */}
       </div>
     </div>
   );

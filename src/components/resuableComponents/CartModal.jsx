@@ -4,12 +4,14 @@ import { MdDeleteSweep } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 import { GrFormSubtract } from "react-icons/gr";
 
-export const CartModal = ({setModal}) => {
+export const CartModal = ({ setModal }) => {
   const cart = useContext(AddCardContext);
   console.log(cart);
   return (
-    <div className="fixed w-full h-full z-10  top-[96px] " onClick={()=>setModal(false)}>
-      <div className=" lg:w-[30%] w-full sm:w-3/5 md:1/2  min-h-80 bg-black h-96  absolute  md:right-10 right-0   overflow-y-scroll border-t-[2px] border-t-[#F99106] shadow-lg z-40">
+    <div className="absolute w-full">
+      <div className="fixed w-full h-screen z-10  top-0 left-0 " onClick={() => setModal(false)}>
+      </div>
+      <div className=" lg:w-[30%] top-[45px] w-full sm:w-3/5 md:1/2  min-h-80 bg-black h-96  absolute  md:right-10 right-0   overflow-y-scroll border-t-[2px] border-t-[#F99106] shadow-lg z-50">
         <div className="p-2 fixed lg:w-[30%] w-full sm:w-3/5 md:1/2 ">
           <div className="flex px-2 justify-between ">
             <h1 className="w-[20%]  heading flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">

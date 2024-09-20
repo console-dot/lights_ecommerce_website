@@ -2,6 +2,7 @@ import { useState } from "react";
 import AddCardContext from "./AddCardContext";
 import { BennerImage1, glowPlate1, glowPlate2, glowPlate3, glowPlate4, glowPlate5, wallLight, wallLight1, wallLight1bg, wallLightbg } from "../../assets";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 export const AddCardState = (props) => {
   const navigate = useNavigate();
   const [filterInput, setFilterInput] = useState("");
@@ -271,7 +272,10 @@ export const AddCardState = (props) => {
   const [quantity, setQuantity] = useState(1);
 
   const addToCart = (obj) => {
-    setCartData([...cartData, obj]);
+
+    setCartData([...cartData, obj])
+    toast("add product in cart")
+
   };
 
   const addQuantity = () => {
@@ -292,6 +296,7 @@ export const AddCardState = (props) => {
     console.log(index);
     updateCart.splice(index, 1);
     setCartData(updateCart);
+    toast("delete product in cart")
   };
   const cardButton = (name) => {
     navigate(`/product/${name}`);
