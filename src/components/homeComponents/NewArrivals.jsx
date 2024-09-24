@@ -1,8 +1,6 @@
 import React from "react";
 import { ProductCard } from "../resuableComponents";
 import {
-  BennerImage1,
-  BennerImage2,
   light1,
   light1Bg,
   light2,
@@ -76,16 +74,32 @@ export const NewArrivals = () => {
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
     },
+    {
+      image: light2,
+      imageBackground: light2Bg,
+      name: "wood",
+      description:
+        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+      price: 3500,
+    },
+    {
+      image: light2,
+      imageBackground: light2Bg,
+      name: "wood",
+      description:
+        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
+      price: 3500,
+    },
   ];
   return (
     <div div className="flex justify-center items-center">
       <div className="container p-4 ">
         <div class="nine">
-          <h1 class="heading text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide ">
+          <h1 class="heading text-center mb-10 text-3xl md:text-5xl uppercase text-amber-500 tracking-wide ">
             New Arrivals
           </h1>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:p-5 p-2 gap-4 place-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 md:p-0 p-2 gap-4 place-items-center">
           {newArrivalsData.map((item, index) => (
             // <div className="flex justify-start items-center w-full h-full">
               <ProductCard data={item} id={index} />

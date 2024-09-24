@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const apiRequest = async ({ method, url, data = {}, headers = {}, params = {} }) => {
     try {
       const response = await axios({

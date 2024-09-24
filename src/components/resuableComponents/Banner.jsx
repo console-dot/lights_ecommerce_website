@@ -12,7 +12,6 @@ export const Banner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
  const handleSlideChange = (swiper) => {
-  console.log("Active Index:", swiper.activeIndex); 
   setActiveIndex(swiper.activeIndex);
 };
 
@@ -47,7 +46,7 @@ export const Banner = () => {
             alt="Banner"
           />
           <div
-            className={` w-2/5  absolute top-[15%] lg:top-[25%] lg:right-[5%] right-0 flex  flex-col delay-700 transform duration-700  -translate-x-[2%] ease-in-out  md:p-4 ${
+            className={` w-2/5  absolute top-[15%] lg:top-[20%] lg:right-[5%] right-0 flex  flex-col delay-700 transform duration-700  -translate-x-[2%] ease-in-out  md:p-4 ${
               activeIndex === 0 ? "animate-slideIn" : ""
             }`}
           >
@@ -80,7 +79,7 @@ export const Banner = () => {
             alt="Banner"
           />
           <div
-            className={` w-2/5  absolute top-[15%] lg:top-[25%] lg:right-[5%] right-0 flex  flex-col  delay-700 transform duration-700  -translate-x-[2%] ease-in-out md:p-4 ${
+            className={` w-2/5  absolute top-[15%] lg:top-[20%] lg:right-[5%] right-0 flex  flex-col  delay-700 transform duration-700  -translate-x-[2%] ease-in-out md:p-4 ${
               activeIndex === 1 ? "animate-slideIn" : ""
             }`}
           >
@@ -113,7 +112,7 @@ export const Banner = () => {
             alt="Banner"
           />
           <div
-            className={` w-2/5  absolute top-[15%] lg:top-[25%] left-[10%]  flex  flex-col delay-700 transform duration-700  -translate-x-[2%] ease-in-out  md:p-4 ${
+            className={` w-2/5  absolute top-[15%] lg:top-[20%] left-[10%]  flex  flex-col delay-700 transform duration-700  -translate-x-[2%] ease-in-out  md:p-4 ${
               activeIndex === 2 ? "animate-slideIn" : ""
             }`}
           >
