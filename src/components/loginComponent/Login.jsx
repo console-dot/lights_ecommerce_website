@@ -1,10 +1,30 @@
 import React, { useState } from "react";
 import { decorateLight2, dignoalLines, logo } from "../../assets";
 import { ImCross } from "react-icons/im";
+import { toast } from "react-toastify";
+import { userLogin } from "../../api/user";
 export const Login = () => {
+  const [fromdata, setFromdata] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const closeModal = () => {
-    setIsModalOpen(false);
+
+  const login = async () => {
+    if (fromdata) {
+      const res = await userLogin({ fromdata });
+      if (res) {
+        console.log(res);
+        setFromdata({
+          email: " ",
+          password: " ",
+        });
+        console.log("sucess", res?.data?.access_token);
+        setIsModalOpen(false);
+        toast("Login sucessfully");
+        localStorage.setItem("access_token", res?.data?.access_token);
+      } else {
+        toast(res?.response?.data?.message);
+        console.log(res?.response?.data?.message);
+      }
+    }
   };
   return (
     <>
@@ -12,9 +32,9 @@ export const Login = () => {
         {isModalOpen && (
           <dialog id="my_modal_1" className="modal w-full" open>
             <div className="modal-box relative z-50  bg-black rounded-none max-w-4xl md:h-[500px] h-[450px] border-[10px] p-2 md:p-5  border-[#5a5656]">
-            <div className="w-full  top-0 right-0 flex justify-end absolute z-50  p-4">
-            <ImCross className="text-[#CCCCCC] cursor-pointer"  onClick={closeModal}/>
-            </div>
+              <div className="w-full  top-0 right-0 flex justify-end absolute z-50  p-4">
+                <ImCross className="text-[#CCCCCC] cursor-pointer" onClick={()=>setIsModalOpen(false)} />
+              </div>
               <div className="w-full h-full flex relative">
                 <div className="w-full md:w-1/2 flex justify-center items-center">
                   <div className="w-full flex flex-col">
@@ -28,6 +48,13 @@ export const Login = () => {
                         </label>
                         <input
                           class=" w-full text-base px-4 py-3 border text-white  border-gray-300 placeholder:text-[#727272] rounded-lg bg-transparent focus:outline-none focus:border-amber-500"
+                          name="email"
+                          onChange={(e) =>
+                            setFromdata({
+                              ...fromdata,
+                              [e.target.name]: e.target.value,
+                            })
+                          }
                           type=""
                           placeholder="mail@gmail.com"
                         />
@@ -38,6 +65,13 @@ export const Login = () => {
                         </label>
                         <input
                           class="w-full text-white content-center text-base px-4 py-3 border placeholder:text-[#727272]  border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 bg-transparent"
+                          name="password"
+                          onChange={(e) =>
+                            setFromdata({
+                              ...fromdata,
+                              [e.target.name]: e.target.value,
+                            })
+                          }
                           type=""
                           placeholder="Enter your password"
                         />
@@ -68,7 +102,7 @@ export const Login = () => {
                       </div>
                       <div className="w-full flex justify-center items-center mt-2 ">
                         <button
-                          onClick={closeModal}
+                          onClick={login}
                           type="submit"
                           class=" flex justify-center px-5 bg-amber-500    text-gray-100 py-2 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
                         >

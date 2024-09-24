@@ -4,8 +4,10 @@ import { user1, user2, user3 } from "../../assets";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdFormatQuote } from "react-icons/md";
+import { getTestimonial } from "../../api/testmonials";
 
 export const TestimonialsCard = () => {
+
   const data = [
     {
       img: user1,
@@ -96,8 +98,12 @@ export const TestimonialsCard = () => {
                     alt={`${item.name}'s image`}
                   />
                 </div>
-                <h5 className="font-semibold text-amber-500 heading">{item.name}</h5>
-                <p className="text-sm text-[#CCCCCC] italic">{item.designation}</p>
+                <h5 className="font-semibold text-amber-500 heading">
+                  {item.name}
+                </h5>
+                <p className="text-sm text-[#CCCCCC] italic">
+                  {item.designation}
+                </p>
               </div>
               <div className="hidden md:block  w-[5%]">
                 <div className="bg-gray-700 rounded-full w-[1px] h-40 ">

@@ -3,7 +3,7 @@ import { decorateLight1, decorateLight2, dignoalLines } from "../../assets";
 
 export const DecorateLight = () => {
   return (
-    <div className="container mx-auto  p-4  md:mt-20 mt-10 w-[100%]">
+    <div className="container mx-auto  p-4  md:mt-20 w-[100%]">
       <div className="flex flex-col lg:flex-row items-center lg:items-start  gap-4  text-white w-[100%]">
         {/* Right Image */}
         <div className="flex lg:w-[60%] w-full items-center justify-center flex-col  md:flex-row md:order-2 lg:order-none pt-20 gap-5 ">

@@ -95,7 +95,7 @@ export const FutureProducts = () => {
             tone for a look that will never go out of style.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:p-5 p-2 gap-4 place-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 md:p-0 p-2 gap-4 place-items-center">
           {productData.map((i, index) => (
             <ProductCard data={i} id={index} />
           ))}

@@ -77,7 +77,7 @@ export const OurBenefits = () => {
   }, [isMobile]);
 
   return (
-    <div className="bg-[#111111] md:pt-20 pt-48 text-white w-full  mx-auto">
+    <div className="bg-[#111111] md:pt-20 pt-10 text-white w-full  mx-auto">
       {isMobile ? (
         <div
           ref={scrollContainerRef}

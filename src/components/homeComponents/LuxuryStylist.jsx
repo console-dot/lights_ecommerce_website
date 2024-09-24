@@ -4,10 +4,10 @@ import { blog1 } from '../../assets'
 export const LuxuryStylist = () => {
     return (
         <div className='w-full flex justify-center items-center '>
-            <div className='container h-[400px]'>
+            <div className='container h-[300px] sm:h-[400px]'>
                 <div className='w-full h-full flex md:flex-row flex-col'>
                     <div className='md:w-1/2 w-full h-full flex flex-col items-center justify-center bg-[#171717] order-2 md:order-none py-4 md:py-0'>
-                        <div className='w-full lg:w-[70%] flex flex-col items-start justify-center px-10'>
+                        <div className='w-full lg:w-[70%] flex flex-col items-start justify-center px-5 sm:px-10'>
                             <div>
                                 <h1 className='text-white heading text-2xl md:text-5xl'>Our luxury Stylist</h1>
                             </div>

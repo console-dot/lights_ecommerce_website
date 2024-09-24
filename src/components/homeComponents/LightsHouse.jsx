@@ -1,5 +1,5 @@
 import React from "react";
-import { dignoalLines, lightHouse, lightHouse2 } from "../../assets";
+import { decorateLight1, dignoalLines, lightHouse, lightHouse2 } from "../../assets";
 
 export const LightsHouse = () => {
   return (
@@ -43,7 +43,7 @@ export const LightsHouse = () => {
 
           <div className="md:w-[50%] w-full">
             <img
-              src={lightHouse}
+              src={decorateLight1}
               alt="Light House 2"
               className=" relative md:top-[-50px] top-0 w-full  h-full hover:scale-105 transform transition-transform duration-500"
             />
