@@ -29,7 +29,7 @@ export const Banner = () => {
   
 
   return (
-    <div className="swiper-container">
+    <div className="swiper-container md:h-[500px]">
       <Swiper
         effect="fade"
         autoplay={{
@@ -37,7 +37,7 @@ export const Banner = () => {
         }}
         speed={1000}
         modules={[EffectFade, Autoplay, Navigation, Pagination]}
-        className="mySwiper"
+        className="mySwiper w-full h-[100%]"
         onSlideChange={handleSlideChange}
       >
         <SwiperSlide className="relative w-full h-full">

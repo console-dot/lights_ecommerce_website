@@ -38,17 +38,17 @@ export const Gellary = () => {
             Categories
           </h1>
         </div>
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 overflow-hidden">
+        <div className="columns-1  sm:columns-2 md:columns-3 lg:columns-4 gap-4 overflow-hidden">
           {images.map((image, index) => (
             <div
               key={index}
-              className="w-full relative overflow-hidden border border-black gallery-item"
+              className="w-full relative  mb-4 overflow-hidden border border-black gallery-item"
               style={{ height: getRandomHeight() }}
             >
               <img
                 src={image.src}
                 alt={image.name}
-                className="w-full h-full mb-4 rounded-lg gellary transition-all ease-in-out overflow-hidden"
+                className="w-full h-full rounded-lg gellary transition-all ease-in-out overflow-hidden"
               />
               <div className="image-name heading absolute bottom-0 left-0 w-full text-center text-black py-2">
                 {image.name}
@@ -56,6 +56,13 @@ export const Gellary = () => {
             </div>
           ))}
         </div>
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {images.map((image, index) => (
+        <div className="grid gap-4" key={index}>
+          <img className="h-auto w-full object-cover rounded-lg" src={image.src} alt={`Gallery image ${index + 1}`} />
+        </div>
+      ))}
+    </div> */}
       </div>
     </div>
   );

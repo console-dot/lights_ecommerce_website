@@ -581,7 +581,7 @@ export const Nav = () => {
             <h1 className="text-white font-bold">{cart?.cartData?.length}</h1>
           </div>
         </div>
-        {modal && <CartModal />}
+        {modal && <CartModal setModal={setModal} />}
       </div>
     </nav>
   );
