@@ -20,13 +20,13 @@ export const DecorateLight = () => {
               DECORATE LIGHT
             </h2>
 
-            <div className="md:w-[80%] w-[60%]  md:mt-0 mt-2 h-[1px] bg-gray-600 absolute md:left-[-25%] z-20  md:top-[13%] top-8 "></div>
+            <div className="md:w-[80%] w-[60%]  md:mt-0 mt-1 h-[1px] bg-gray-600 absolute md:left-[-25%] z-20  md:top-[13%] top-8 "></div>
             <p className=" mt-6 italic text-lg md:text-end text-start w-full">
               Lorem Ipsum Eiusmod Dolor Adi Iusmod Incididunt. Eiusmod Tempor
               Eiusmod Incididunt.
             </p>
             <div className="md:h-16 h-8  w-[1px] my-4   bg-gray-600 md:mr-6 mr-0 md:ml-0 ml-6"></div>
-            <button className="shop-button1  w-28 px-2 py-3 bg-white text-black rounded-full md:mb-0 mb-4">
+            <button className="shop-button  w-28 px-2 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full md:mb-0 mb-4">
               <span>Shop Now</span>
             </button>
           </div>

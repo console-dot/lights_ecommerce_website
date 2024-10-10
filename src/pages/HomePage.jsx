@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Layout } from "../themes";
 import {
   Banner,
@@ -16,8 +16,13 @@ import {
   SignUpNewsLetter,
   Testimonials,
 } from "../components";
+import AddCardContext from "../context/addCart/AddCardContext";
 
 export const HomePage = () => {
+  const data = useContext(AddCardContext)
+  useEffect(()=>{
+    data.setActiveButton(" ")
+  },[data.activeButton])
   return (
     <Layout>
       <Banner />

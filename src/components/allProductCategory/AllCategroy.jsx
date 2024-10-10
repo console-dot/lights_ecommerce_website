@@ -15,7 +15,7 @@ export const AllCategroy = () => {
     <div className="">
       <ProductCardBanner name={name} />
       <div>
-        <div className="md:px-24  px-5 pt-5  md:pt-32  mt-10 md:mt-0 ">
+        <div className="md:px-4  px-5 pt-5  md:pt-32  mt-10 md:mt-0 ">
           <nav
             class="flex bg-transparent py-5 justify-start items-center "
             aria-label="Breadcrumb"
@@ -84,7 +84,7 @@ export const AllCategroy = () => {
         </div>
         <div className="flex justify-center items-center">
         <div className="container p-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:p-5 p-2 gap-4 place-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-4  p-2 gap-4 place-items-center">
           {cart?.cards[0]?.data?.map((i, index) => (
             <ProductCard data={i} id={index} />
           ))}

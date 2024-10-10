@@ -21,17 +21,15 @@
   
   .image-name {
     position: absolute;
-    bottom: -50px; /* Start below the visible area */
+    bottom: -40px; /* Start below the visible area */
     left: 0;
     width: 100%;
-    color: white;
-    font-size: 1.25rem;
     transition: bottom 0.5s ease-in-out;
     z-index: 20; /* Ensure it appears above the ::after */
   }
   
   .gallery-item:hover .image-name {
-    bottom: 50%; /* Move up into the visible area */
+    bottom: 40%; /* Move up into the visible area */
   }
 
   

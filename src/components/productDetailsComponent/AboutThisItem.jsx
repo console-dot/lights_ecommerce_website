@@ -58,7 +58,7 @@ export const AboutThisItem = ({ data }) => {
             </div>
           </div>
           <div className="py-5 flex justify-start w-full "id="review">
-            <button className="shop-button px-4 py-3 bg-[#FFC000] text-black rounded-full">
+            <button className="shop-button px-4 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full">
               <span>Review (0)</span>
             </button>
           </div>
@@ -150,7 +150,7 @@ export const AboutThisItem = ({ data }) => {
             />
           </div>
           <div className="w-full flex justify-end">
-            <button className="shop-button px-4 py-2 bg-[#FFC000] text-black rounded-full">
+            <button className="shop-button px-4 py-2  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full">
               <span>Continue</span>
             </button>
           </div>
