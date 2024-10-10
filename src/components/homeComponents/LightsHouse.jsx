@@ -3,7 +3,7 @@ import { decorateLight1, dignoalLines, lightHouse, lightHouse2 } from "../../ass
 
 export const LightsHouse = () => {
   return (
-    <div className="container mxauto  mx-auto  p-4 md:mt-0  pt-20">
+    <div className="container mxauto  mx-auto  p-4 md:mt-0  pt-5 md:pt-20">
       <div className="flex p-4 flex-col lg:flex-row items-center lg:items-start  gap-4  text-white w-[100%]">
         <div className="relative lg:w-[40%] w-full md:order-1 lg:order-none">
           <div className="absolute w-full h-full flex items-center justify-center ">
@@ -22,7 +22,7 @@ export const LightsHouse = () => {
           </div>
         </div>
         {/* Right Image with Diagonal Lines */}
-        <div className="flex lg:w-[60%] w-full items-center justify-center flex-col  md:flex-row md:order-2 lg:order-none pt-20 gap-5 ">
+        <div className="flex lg:w-[60%] w-full items-center justify-center flex-col  md:flex-row md:order-2 lg:order-none pt-5 gap-5 ">
           {/* Text Section */}
           <div className="relative w-full flex flex-col md:items-end items-start md:ml-0 px-6 md:w-[50%] ">
             
@@ -30,13 +30,13 @@ export const LightsHouse = () => {
               LIGHT HOUSE
             </h2>
            
-            <div className="md:w-[80%] w-[60%]  md:mt-0 mt-2 h-[1px] bg-gray-600 absolute md:right-[-25%] z-20 right-13 md:top-[13%] top-8 "></div>
+            <div className="md:w-[80%] w-[60%]  md:mt-0 mt-2 h-[1px] bg-gray-600 absolute md:right-[-25%] z-20 right-13 md:top-[14%] top-12 "></div>
             <p className="italic mt-6 text-lg  text-start w-full pl-4">
               Lorem Ipsum Eiusmod Dolor Adi Iusmod Incididunt. Eiusmod Tempor
               Eiusmod Incididunt.
             </p>
             <div className="md:h-16 h-8  w-[1px] my-4   bg-gray-600 md:mr-6 mr-0 md:ml-0 ml-6"></div>
-            <button className="shop-button1  w-28 px-2 py-3 bg-white text-black rounded-full md:mb-0 mb-4">
+            <button className="shop-button  w-28 px-2 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full md:mb-0 mb-4">
               <span>Shop Now</span>
             </button>
           </div>
@@ -45,7 +45,7 @@ export const LightsHouse = () => {
             <img
               src={decorateLight1}
               alt="Light House 2"
-              className=" relative md:top-[-50px] top-0 w-full  h-full hover:scale-105 transform transition-transform duration-500"
+              className=" relative  top-0 w-full  h-full hover:scale-105 transform transition-transform duration-500"
             />
           </div>
         </div>

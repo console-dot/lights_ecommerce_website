@@ -17,7 +17,6 @@ export const ProductDetails = ({ data }) => {
     { image: BennerImage3 },
     { image: BennerImage3 },
   ];
-
   const cart = useContext(AddCardContext);
 
   const [showImage, setShowImage] = useState();
@@ -29,8 +28,8 @@ export const ProductDetails = ({ data }) => {
   };
 
   useEffect(() => {
-    setShowImage(imageData[currentImage]?.image || data.image);
-  }, [currentImage, data.image]);
+    setShowImage(data?.imageBackground);
+  }, [currentImage, data?.image]);
 
   const params = useParams();
   const id = params?.id;

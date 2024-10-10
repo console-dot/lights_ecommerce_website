@@ -13,7 +13,7 @@ export const AllProductCards = () => {
   return (
     <div>
       <ProductCardBanner name={name} />
-      <div className="md:px-24 px-5 pt-5  md:pt-32 mt-10 md:mt-0">
+      <div className="md:px-5 px-5 pt-5  md:pt-32 mt-10 md:mt-0">
         <nav
           class="flex bg-transparent py-5 justify-start items-center"
           aria-label="Breadcrumb"
@@ -68,7 +68,7 @@ export const AllProductCards = () => {
                 </h1>
               </div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:p-5 p-2 gap-4 place-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  p-2 gap-4 place-items-center">
               {console.log(item.data)}
               {item.data
                 ?.filter(

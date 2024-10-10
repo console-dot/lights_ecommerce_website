@@ -23,7 +23,7 @@ export const DiscountOffer = () => {
             DEAL THIS WEEKEND
           </p>
           <div className="flex justify-center">
-            <button className="shop-button mt-6 w-28 px-2 py-3 bg-[#F99106] text-black rounded-full">
+            <button className="shop-button mt-6 w-28 px-2 py-3   bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white  rounded-full">
               <span>Shop Now</span>
             </button>
           </div>

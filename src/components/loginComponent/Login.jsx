@@ -1,39 +1,53 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { decorateLight2, dignoalLines, logo } from "../../assets";
 import { ImCross } from "react-icons/im";
 import { toast } from "react-toastify";
 import { userLogin } from "../../api/user";
+import { getTestimonial } from "../../api/testmonials";
+import AddCardContext from "../../context/addCart/AddCardContext";
 export const Login = () => {
   const [fromdata, setFromdata] = useState({});
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const data = useContext(AddCardContext);
 
   const login = async () => {
     if (fromdata) {
-      const res = await userLogin({ fromdata });
-      if (res) {
-        console.log(res);
-        setFromdata({
-          email: " ",
-          password: " ",
-        });
-        console.log("sucess", res?.data?.access_token);
-        setIsModalOpen(false);
-        toast("Login sucessfully");
-        localStorage.setItem("access_token", res?.data?.access_token);
-      } else {
-        toast(res?.response?.data?.message);
-        console.log(res?.response?.data?.message);
+      try {
+        const res = await userLogin({ fromdata });
+        if (res) {
+          console.log(res);
+          setFromdata({
+            email: " ",
+            password: " ",
+          });
+          data?.setCheckProfile(true)
+          data?.setIsModalOpen(false);
+          toast("Login successfully");
+          localStorage.setItem("access_token", res?.access_token);
+          console.log("success", res?.data?.access_token);
+        } else {
+          toast(res?.response?.data?.message);
+          console.log(res?.response?.data?.message);
+        }
+      } catch (error) {
+        console.error("Error during login or fetching testimonials:", error);
+        toast("An error occurred during login or fetching testimonials.");
       }
     }
   };
+
+
+
   return (
     <>
       <div>
-        {isModalOpen && (
+        {data.isModalOpen && (
           <dialog id="my_modal_1" className="modal w-full" open>
             <div className="modal-box relative z-50  bg-black rounded-none max-w-4xl md:h-[500px] h-[450px] border-[10px] p-2 md:p-5  border-[#5a5656]">
               <div className="w-full  top-0 right-0 flex justify-end absolute z-50  p-4">
-                <ImCross className="text-[#CCCCCC] cursor-pointer" onClick={()=>setIsModalOpen(false)} />
+                <ImCross
+                  className="text-[#CCCCCC] cursor-pointer"
+                  onClick={() => data.setIsModalOpen(false)}
+                />
               </div>
               <div className="w-full h-full flex relative">
                 <div className="w-full md:w-1/2 flex justify-center items-center">

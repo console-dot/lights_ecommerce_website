@@ -81,7 +81,7 @@ export const RightSide = ({ productData, data }) => {
               <h1 className="text-[#b1b1b1] md:px-10 italic">Name</h1>
             </div>
             <div className="flex  font-semibold ">
-              <h1 className="text-white w-32 heading">Prduct Code :</h1>
+              <h1 className="text-white w-32 heading">Product Code :</h1>
               <h1 className="text-[#b1b1b1] md:px-10 italic">Product 21</h1>
             </div>
             <div className="flex  font-semibold ">
@@ -102,16 +102,17 @@ export const RightSide = ({ productData, data }) => {
               Ex Tax: <span>$100.00</span>
             </h1>
           </div>
-          <div className="flex flex-col">
+           <div className="flex flex-col">
             <h1 className="text-lg text-[#CCCCCC] font-semibold py-4 italic">
               Available Options
             </h1>
-            <h1 className="text-white text-lg font-semibold">Color</h1>
+            </div> 
+            {/* <h1 className="text-white text-lg font-semibold">Color</h1>
             <div className="flex gap-4  py-2">
               <div className="w-10 h-10 border-2 border-white rounded-full  bg-black"></div>
               <div className="w-10 h-10 border-2 border-white rounded-full  bg-red-700"></div>
-            </div>
-          </div>
+            </div> */}
+          
           {/* <div className="flex flex-col py-4">
             <h1 className="text-lg text-white font-semibold">Delivery Date</h1>
             <div className="py-4">
@@ -148,7 +149,7 @@ export const RightSide = ({ productData, data }) => {
               </button>
             </div>
             <div className="flex justify-center items-center">
-              <button className="shop-button px-4 py-3 bg-[#FFC000] text-black rounded-full" onClick={() => cart.addToCart(data)}>
+              <button className="shop-button px-4 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full" onClick={() => cart.addToCart(data)}>
                 <span>Add to Cart</span>
               </button>
             </div>
@@ -161,9 +162,7 @@ export const RightSide = ({ productData, data }) => {
               </div>{" "}
               Add to list{" "}
             </div>
-            <div className=" hover:border-b-2 py-2 text-white">
-              Add to registry
-            </div>
+        
           </div>
         </div>
       </div>

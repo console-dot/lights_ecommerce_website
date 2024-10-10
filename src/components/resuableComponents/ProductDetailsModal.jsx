@@ -10,7 +10,7 @@ export const ProductDetailsModal = ({data}) => {
   
   return (
     <div className="w-full z-50 flex justify-center items-center flex-col relative">
-      <div className="fixed z-50 top-32 right-[15%] ">
+      <div className="fixed z-50 top-36 right-[16%] ">
         <form method="dialog" className="modal-backdrop">
           <button className="border-none focus:border-none">
             <ImCross className="text-white" />
@@ -19,7 +19,7 @@ export const ProductDetailsModal = ({data}) => {
       </div>
       <div
         className="modal-box bg-black  rounded-none flex"
-        style={{ maxWidth: "70%" , maxHeight:"calc(100vh - 10em)"}}
+        style={{ maxWidth: "70%" ,height:"calc(100vh - 8rem)"}}
       >
         <div className=" w-3/5 xl:w-1/2">
           <img src={BennerImage1} className="h-[500px] px-2" />
@@ -114,11 +114,11 @@ export const ProductDetailsModal = ({data}) => {
               <h1 className="text-lg text-white font-semibold py-4 heading">
                 Available Options
               </h1>
-              <h1 className="text-white text-lg font-semibold">Color</h1>
+              {/* <h1 className="text-white text-lg font-semibold">Color</h1>
               <div className="flex gap-4  py-2">
                 <div className="w-10 h-10 border-2 border-white rounded-full  bg-black"></div>
                 <div className="w-10 h-10 border-2 border-white rounded-full  bg-red-700"></div>
-              </div>
+              </div> */}
             </div>
             <div className="flex flex-col py-4 italic">
               <h1 className="text-lg text-white font-semibold">
@@ -140,7 +140,7 @@ export const ProductDetailsModal = ({data}) => {
                   <input
                     datepicker
                     id="default-datepicker"
-                    type="text"
+                    type="date"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Select date"
                   />
@@ -158,7 +158,7 @@ export const ProductDetailsModal = ({data}) => {
                 </button>
               </div>
               <div className="flex justify-center items-center">
-                <button className="shop-button   px-4 py-3 bg-[#F99106] text-black rounded-full" onClick={() => cart.addToCart(data)}  >
+                <button className="shop-button   px-4 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full" onClick={() => cart.addToCart(data)}  >
                   <span>Add to Cart</span>
                 </button>
               </div>
@@ -171,9 +171,7 @@ export const ProductDetailsModal = ({data}) => {
                 </div>{" "}
                 Add to list{" "}
               </div>
-              <div className=" hover:border-b-2 py-2 text-white">
-                Add to registry
-              </div>
+         
             </div>
           </div>
         </div>

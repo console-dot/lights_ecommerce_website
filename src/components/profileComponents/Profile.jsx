@@ -11,10 +11,10 @@ export const Profile = () => {
             <div className='w-full flex justify-between'>
                 <h1 className='heading text-white text-2xl'>Profile Setting</h1>
                 <div>
-                    <button className={`shop-button1 px-4 py-2 font-semibold hover:text-white bg-white text-black rounded-full md:mb-0 mb-4 ${edit ? "flex" : "hidden"}`} onClick={() => setEdit(false)} z>
+                    <button className={` px-4 py-2 font-semibold hover:text-white bg-white text-black rounded-full md:mb-0 mb-4 ${edit ? "flex" : "hidden"}`} onClick={() => setEdit(false)} z>
                         <span>Save</span>
                     </button>
-                    <button className={`shop-button1  px-6 py-2 hover:text-white font-semibold bg-white text-black rounded-full md:mb-0 mb-4  ${edit ? "hidden" : "flex"}`} onClick={() => setEdit(true)}>
+                    <button className={`shop-button  px-6 py-2 bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white font-semibold  rounded-full md:mb-0 mb-4  ${edit ? "hidden" : "flex"}`} onClick={() => setEdit(true)}>
                         <span>Edit</span>
                     </button>
                 </div>

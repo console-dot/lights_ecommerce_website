@@ -1,95 +1,114 @@
 import React from "react";
 import { ProductCard } from "../resuableComponents";
 import {
+  indoorLight,
+  indoorLightbg,
   light1,
   light1Bg,
   light2,
   light2Bg,
+  multiLight,
+  multiLightbg,
+  restaurantLight,
+  restaurantLight1,
+  restaurantLight1bg,
+  restaurantLightbg,
+  table,
+  table1,
+  table1bg,
+  table2,
+  table2bg,
+  table3,
+  table3bg,
+  tablebg,
+  wallLight,
+  wallLight1,
+  wallLight1bg,
+  wallLightbg,
 } from "../../assets";
 import { Link } from "react-router-dom";
 
 export const NewArrivals = () => {
   const newArrivalsData = [
     {
-      image: light1,
-      imageBackground: light1Bg,
-      name: "wood",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
+      image: table,
+      imageBackground:tablebg,
+      title: "Glimmering ",
+      price: "$3,600",
+      category: "IndoreLights",
+      productName: "new",
     },
     {
-      image: light2,
-      imageBackground: light2Bg,
-      name: "wood",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
+      image: wallLight,
+      imageBackground: wallLightbg,
+      title: "Wall Mount Light",
+      price: "$3,600",
+      category: "IndoreLights",
+      productName: "new",
     },
     {
-      image: light1,
-      imageBackground: light1Bg,
-      name: "wood",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
+      image: wallLight1,
+      imageBackground: wallLight1bg,
+      title: "Wire Design ",
+      price: "$3,600",
+      category: "IndoreLights",
+      productName: "new",
     },
     {
-      image: light2,
-      imageBackground: light2Bg,
+      image: table1,
+      imageBackground:table1bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
+      productName: "new",
     },
     {
-      image: light1,
-      imageBackground: light1Bg,
+      image: multiLight,
+      imageBackground: multiLightbg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
+      productName: "new",
     },
     {
-      image: light2,
-      imageBackground: light2Bg,
+      image: restaurantLight,
+      imageBackground: restaurantLightbg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
+      productName: "new",
     },
     {
-      image: light1,
-      imageBackground: light1Bg,
+      image: restaurantLight1,
+      imageBackground: restaurantLight1bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
+      productName: "new",
     },
     {
-      image: light2,
-      imageBackground: light2Bg,
+      image: table2,
+      imageBackground:table2bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
+      productName: "new",
     },
     {
-      image: light2,
-      imageBackground: light2Bg,
+      image: table3,
+      imageBackground: table3bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
+      productName: "new",
     },
-    {
-      image: light2,
-      imageBackground: light2Bg,
-      name: "wood",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
-    },
+
   ];
   return (
     <div div className="flex justify-center items-center">
@@ -107,8 +126,9 @@ export const NewArrivals = () => {
           ))}
         </div>
         <div className="flex justify-center items-center pt-10 ">
-          <button className="px-7 py-3 bg-[#fa9105] border-[#fa9105] hover:bg-white hover:text-[#fa9105] font-semibold  border text-white  rounded-lg">
-            <Link to="/product">Veiw All Products</Link>
+          <button className="shop-button1 px-7 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white  rounded-lg">
+            
+            <span><Link to="/product">Veiw All Products</Link></span>
           </button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import AddCardContext from "../../context/addCart/AddCardContext";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegEye, FaShoppingCart } from "react-icons/fa";
 import { ProductDetailsModal } from "./ProductDetailsModal";
+import { useIsMobile } from "../../hooks/useIsMobile";
 
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(window.matchMedia(query).matches);
@@ -33,26 +34,30 @@ export const ProductCard = ({ data, id }) => {
     }
   }, [isMdOrLarger]);
 
+  const isMobile = useIsMobile();
+
   return (
     <>
       <div
-        className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 relative lg:h-[470px] h-[300px] sm:h-[400px] md:[290px] cursor-pointer"
+        className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 md:p-1 relative lg:h-[470px] h-[300px] sm:h-[400px] md:[290px] cursor-pointer"
         onMouseEnter={isMdOrLarger ? () => setImageIcon(true) : undefined}
         onMouseLeave={isMdOrLarger ? () => setImageIcon(false) : undefined}
       >
         <div className="flex-col flex w-full h-full">
           <div
             className="relative w-full h-[80%] "
-            onClick={() => navigate(`/productDetails/${id}`)}
+            onClick={() =>
+              navigate(`/productDetails/${data.productName}/${id}`)
+            }
           >
             <img
               src={data?.image}
-              className="relative w-full h-full inset-0 transition-opacity bg-[#DBD4D4] duration-300 group-hover:opacity-0"
+              className="relative w-full h-full inset-0 transition-opacity ease-in-out bg-[#e0dddd] duration-1000 group-hover:opacity-0"
               alt="Image 1"
             />
             <img
               src={data?.imageBackground}
-              className="absolute inset-0 w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+              className="absolute inset-0 w-full h-full transition-opacity ease-in-out duration-1000  opacity-0 group-hover:opacity-100"
               alt="Image 2"
             />
           </div>
@@ -72,11 +77,11 @@ export const ProductCard = ({ data, id }) => {
                   <div className="bg-black md:w-10 w-8 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-amber-600">
                     <FaHeart className="text-white" />
                   </div>
-                  <div className="bg-black md:w-10 w-8 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-amber-600">
-                    <FaShoppingCart
-                      className="text-white"
-                      onClick={() => cart.addToCart(data)}
-                    />
+                  <div
+                    className="bg-black md:w-10 w-8 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-amber-600"
+                    onClick={() => cart.addToCart(data)}
+                  >
+                    <FaShoppingCart className="text-white" />
                   </div>
                 </div>
               </div>
@@ -138,8 +143,10 @@ export const ProductCard = ({ data, id }) => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center h-[20%]">
-            <h1 className="font-semibold text-xl md:py-2 text-[#CCCCCC] heading">
-              {data?.name || data?.title}
+            <h1 className="font-semibold md:text-xl md:py-2 text-[#CCCCCC] heading">
+              {isMobile
+                ? data?.name || data?.title.substring(0, 10)
+                : data?.name || data?.title}
             </h1>
             <h1 className="font-semibold inline  text-amber-500 ">
               {data?.price}

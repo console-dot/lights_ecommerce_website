@@ -2,10 +2,24 @@ import React from "react";
 import {
   BennerImage1,
   BennerImage11,
+  commercialLight,
+  commercialLightbg,
+  indoorLight,
+  indoorLightbg,
   light1,
   light1Bg,
   light2,
   light2Bg,
+  multiLight,
+  multiLightbg,
+  restaurantLight,
+  restaurantLight1,
+  restaurantLight1bg,
+  restaurantLightbg,
+  wallLight,
+  wallLight1,
+  wallLight1bg,
+  wallLightbg,
 } from "../../assets";
 import { ProductCard } from "../resuableComponents";
 import { Link } from "react-router-dom";
@@ -13,74 +27,69 @@ import { Link } from "react-router-dom";
 export const FutureProducts = () => {
   const productData = [
     {
-      image: light1,
-      imageBackground: light1Bg,
-      name: "wood",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
+      image: commercialLight,
+      imageBackground: commercialLightbg,
+      title: "Black Festive",
+      price: "$3,600",
+      category: "TableLights",
+      productName: "future",
     },
     {
-      image: light2,
-      imageBackground: light2Bg,
-      name: "wood",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
+      image: indoorLight,
+      imageBackground: indoorLightbg,
+      title: "Glimmering ",
+      price: "$3,600",
+      category: "IndoreLights",
+      productName: "future",
     },
     {
-      image: light1,
-      imageBackground: light1Bg,
-      name: "wood",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
+      image: wallLight,
+      imageBackground: wallLightbg,
+      title: "Wall Mount Light",
+      price: "$3,600",
+      category: "IndoreLights",
+      productName: "future",
     },
     {
-      image: light2,
-      imageBackground: light2Bg,
-      name: "wood",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
+      image: wallLight1,
+      imageBackground: wallLight1bg,
+      title: "Wire Design ",
+      price: "$3,600",
+      category: "IndoreLights",
+      productName: "future",
     },
     {
-      image: light1,
-      imageBackground: light1Bg,
+      image: multiLight,
+      imageBackground: multiLightbg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
+      productName: "future",
     },
     {
-      image: light2,
-      imageBackground: light2Bg,
+      image: restaurantLight,
+      imageBackground: restaurantLightbg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
+      productName: "future",
     },
     {
-      image: light1,
-      imageBackground: light1Bg,
+      image: restaurantLight1,
+      imageBackground: restaurantLight1bg,
       name: "wood",
       description:
         "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
       price: 3500,
-    },
-    {
-      image: light2,
-      imageBackground: light2Bg,
-      name: "wood",
-      description:
-        "img elements must have an alt prop, either with meaningful text, or an empty string for decorative images",
-      price: 3500,
+      productName: "future",
     },
   ];
 
   return (
     <div className="flex justify-center items-center">
-      <div className="container   p-4">
+      <div className="container p-4">
         <div className="xl:px-48 xl:pb-10 flex justify-center items-center text-center flex-col">
           <div class="nine">
             <h1 class="heading text-center text-3xl md:text-5xl uppercase text-amber-500 tracking-wide">
@@ -102,8 +111,12 @@ export const FutureProducts = () => {
         </div>
 
         <div className="flex justify-center items-center pt-10 ">
-          <button className="px-7 py-3 bg-[#fa9105] border-[#fa9105] hover:bg-white hover:text-[#fa9105] font-semibold  border text-white  rounded-lg">
-            <Link to={`/${"Products"}`}>Veiw All Products</Link>
+          <button className="shop-button1 px-7 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white  rounded-lg">
+            <span>
+              <Link className="hover:text-white" to={`/${"Products"}`}>
+                Veiw All Products
+              </Link>
+            </span>
           </button>
         </div>
       </div>

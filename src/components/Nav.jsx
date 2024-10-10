@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   FaBars,
   FaChevronCircleDown,
@@ -43,6 +43,9 @@ export const Nav = () => {
       setActiveDropdown(null);
     }
   };
+  useEffect(() => {
+    console.log(cart.activeButton);
+  }, [cart.activeButton]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -198,27 +201,27 @@ export const Nav = () => {
   ];
 
   return (
-    <nav className="fixed md:h-24 h-20 mx-auto  w-full bg-[#080808] text-white px-7 flex justify-center items-center z-50">
+    <nav className="fixed h-[80px] mx-auto  w-full bg-[#080808] text-white px-7 flex justify-center items-center z-50">
       <div className="w-[1280px] flex justify-between items-center h-full">
         <div className="flex items-center">
-          <div className="xl:hidden block">
-            <div className=" flex items-center justify-center rounded-full bg-[#F99106]  h-8 w-8">
+          <div className="lg:hidden block">
+            <div className=" flex items-center justify-center rounded-full   h-8 w-8">
               <FaBars
                 onClick={toggleMobileMenu}
-                className="cursor-pointer block xl:hidden text-xl text-[#080808]"
+                className="cursor-pointer block xl:hidden text-xl text-[#F99106]"
               />
             </div>
           </div>
           <img
             src={logo}
             alt="Logo"
-            className="md:h-10 md:w-auto h-7 w-32 ml-4 cursor-pointer"
+            className="md:h-[60px] md:w-[200px] h-7 w-32 ml-4 cursor-pointer"
             onClick={() => navigate(`/`)}
           />
         </div>
 
         {size.width > 1024 ? (
-          <ul className="flex justify-center space-x-3 text-md mx-auto">
+          <ul className="flex justify-center space-x-10 text-md mx-auto">
             {menuItems.map((menu, index) => (
               <li
                 key={index}
@@ -226,24 +229,24 @@ export const Nav = () => {
                 onMouseEnter={() => handleMouseEnter(menu.name)}
                 onMouseLeave={handleMouseLeave}
               >
-                <button className="flex items-center h-24">
+                <button className="flex items-center h-[70px]">
                   <div
-                    className="nav-link heading"
-                    onClick={() =>
-                      cart.cardButton(menu.name.split(" ").join(""))
-                    }
+                    className={`nav-link navHeading text-sm ${
+                      cart.activeButton === menu.name ? "text-amber-400" : "text-white"
+                    }`}
+                    onClick={() => cart.cardButton(menu.name)}
                   >
-                    {menu.name}
+                    <h1>{menu.name}</h1>
                   </div>
-                  {menu.data && menu.data.length > 0 && (
+                  {/* {menu.data && menu.data.length > 0 && (
                     <RiArrowDropDownLine size={20} className="ml-1" />
-                  )}
+                  )} */}
                 </button>
 
                 {/* Desktop dropdowns */}
-                {activeDropdown === menu.name &&
+                {/* {activeDropdown === menu.name &&
                   menu.name === "Indore Lights" && (
-                    <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
+                    <div className="absolute cursor-pointer top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
                       cart.cardButton(menu.name.split(" ").join(""))
                     }>
                       <div className="w-[700px]  flex p-2 justify-around items-center">
@@ -274,7 +277,7 @@ export const Nav = () => {
 
                 {activeDropdown === menu.name &&
                   menu.name === "Wall Lights" && (
-                    <div className="absolute top-full left-[-130%] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
+                    <div className="absolute cursor-pointer top-full left-[-130%] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
                       cart.cardButton(menu.name.split(" ").join(""))
                     }>
                       <div className="w-[700px] flex p-2 justify-around items-center">
@@ -422,7 +425,7 @@ export const Nav = () => {
                         ))}
                       </div>
                     </div>
-                  )}
+                  )} */}
               </li>
             ))}
           </ul>
@@ -432,7 +435,7 @@ export const Nav = () => {
               {menuItems?.map((menu, index) => (
                 <li key={index} className="text-left">
                   <button
-                    className="flex justify-between items-center h-12 w-full px-4 heading"
+                    className="flex justify-between items-center h-12 w-full px-4 navHeading text-sm"
                     onClick={() => toggleMobileDropdown(menu.name)}
                   >
                     {menu.name}
@@ -445,8 +448,8 @@ export const Nav = () => {
                         <FaChevronCircleDown />
                       ))}
                   </button>
-                  {activeMobileDropdown === menu.name && (
-                    <ul className="bg-[#080808]   text-gray-400 text-sm max-h-48 overflow-y-auto">
+                  {/* {activeMobileDropdown === menu.name && (
+                    <ul className="bg-[#080808]  cursor-pointer text-gray-400 text-sm max-h-48 overflow-y-auto">
                       {menu.name === "Indore Lights" &&
                         menu.data.map((item, i) => (
                           <li
@@ -562,8 +565,7 @@ export const Nav = () => {
                         </button>
                       </div>
                     </ul>
-                  )}
-
+                  )} */}
                 </li>
               ))}
             </ul>
@@ -572,12 +574,18 @@ export const Nav = () => {
 
         <div className="flex items-center md:gap-6 gap-3 relative ">
           <IoIosSearch className="md:text-2xl text-xl cursor-pointer" />
-          <FaRegUser className="md:text-xl cursor-pointer" onClick={()=>navigate(`/profile`)}/>
+          <FaRegUser
+            className="md:text-xl cursor-pointer"
+            onClick={() => navigate(`/profile`)}
+          />
           <AiOutlineShoppingCart
             className="md:text-2xl text-xl cursor-pointer"
             onClick={() => setModal(!modal)}
           />
-          <div className="h-5 w-5 cursor-pointer rounded-full absolute top-[-5px] right-[-10px] bg-amber-500 flex justify-center items-center"onClick={() => setModal(!modal)}>
+          <div
+            className="h-5 w-5 cursor-pointer rounded-full absolute top-[-5px] right-[-10px] bg-[#ffad2a] flex justify-center items-center"
+            onClick={() => setModal(!modal)}
+          >
             <h1 className="text-white font-bold">{cart?.cartData?.length}</h1>
           </div>
         </div>
