@@ -20,7 +20,7 @@ const useMediaQuery = (query) => {
   return matches;
 };
 
-export const ProductCard = ({ data, id }) => {
+export const ProductCard = ({ data }) => {
   const [productDetail, setProductDetail] = useState(false);
   const isMdOrLarger = useMediaQuery("(min-width: 768px)");
   const [imageIcon, setImageIcon] = useState(false);
@@ -35,7 +35,6 @@ export const ProductCard = ({ data, id }) => {
   }, [isMdOrLarger]);
 
   const isMobile = useIsMobile();
-
   return (
     <>
       <div
@@ -46,12 +45,10 @@ export const ProductCard = ({ data, id }) => {
         <div className="flex-col flex w-full h-full">
           <div
             className="relative w-full h-[80%] "
-            onClick={() =>
-              navigate(`/productDetails/${data.productName}/${id}`)
-            }
+            onClick={() => navigate(`/productDetails/${data?._id}`)}
           >
             <img
-              src={data?.image}
+              src={`data:image/png;base64,${data?.avatar?.image}`}
               className="relative w-full h-full inset-0 transition-opacity ease-in-out bg-[#e0dddd] duration-1000 group-hover:opacity-0"
               alt="Image 1"
             />

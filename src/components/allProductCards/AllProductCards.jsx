@@ -1,15 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BennerImage1 } from "../../assets";
 import { FaGreaterThan } from "react-icons/fa";
 import { ProductCard, ProductCardBanner } from "../resuableComponents";
 import AddCardContext from "../../context/addCart/AddCardContext";
 import { Link, useParams } from "react-router-dom";
+import { getProductCategory } from "../../api/productCategory";
 
 export const AllProductCards = () => {
+  const [productCategoryData, setProductCategoryData] = useState();
   const cart = useContext(AddCardContext);
   const params = useParams();
   const name = params?.id;
   console.log(name);
+  const getCategoryCall = async () => {
+    const res = await getProductCategory();
+    setProductCategoryData(res?.data);
+  };
+
+  useEffect(() => {
+    getCategoryCall();
+  }, []);
   return (
     <div>
       <ProductCardBanner name={name} />
@@ -59,7 +69,7 @@ export const AllProductCards = () => {
         </nav>
       </div>
       <div className=" flex justify-center items-center flex-col place-items-center">
-        {cart.menuItems.map((item) => (
+        {productCategoryData?.map((item) => (
           <div className="container p-4 md:p-5">
             <div className="xl:px-48 xl:pb-10  text-center">
               <div class="nine ">
@@ -69,11 +79,11 @@ export const AllProductCards = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  p-2 gap-4 place-items-center">
-              {console.log(item.data)}
-              {item.data
+              {console.log(item)}
+              {cart?.productsData
                 ?.filter(
                   (product) =>
-                    product?.category === item.name.split(" ").join("")
+                    product?.categoryId?._id === item._id.split(" ").join("")
                 )
                 .map((i, index) => (
                   <ProductCard data={i} id={index} />

@@ -21,11 +21,12 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import AddCardContext from "../context/addCart/AddCardContext";
 import { CartModal } from "./resuableComponents";
+import { getProductCategory } from "../api/productCategory";
 
 export const Nav = () => {
   const cart = useContext(AddCardContext);
   const [modal, setModal] = useState(false);
-
+  const [productCategoryData, setProductCategoryData] = useState();
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
   const size = useWindowSize();
@@ -54,152 +55,15 @@ export const Nav = () => {
   const toggleMobileDropdown = (menu) => {
     setActiveMobileDropdown(activeMobileDropdown === menu ? null : menu);
   };
+  const getCategoryCall = async () => {
+    const res = await getProductCategory();
+    setProductCategoryData(res?.data);
+  };
 
-  const torchesData = [
-    {
-      img: glowPlate2,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate3,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate4,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate5,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-  ];
-
-  const glowPlateData = [
-    {
-      img: glowPlate2,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate3,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate4,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate5,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-  ];
-
-  const nightLampData = [
-    {
-      img: glowPlate2,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate3,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate4,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate5,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-  ];
-
-  const spotlightData = [
-    {
-      img: glowPlate2,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate3,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate4,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate5,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-  ];
-  const restaurantlightData = [
-    {
-      img: glowPlate2,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate3,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate4,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate5,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-  ];
-  const multiplylightData = [
-    {
-      img: glowPlate2,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate3,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate4,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-    {
-      img: glowPlate5,
-      title: "Black Festive",
-      price: "$3,600",
-    },
-  ];
-
-  const menuItems = [
-    { name: "Indore Lights", data: torchesData },
-    { name: "Wall Lights", data: glowPlateData },
-    { name: "Table Lamps", data: nightLampData },
-    { name: "Commercial Lights", data: spotlightData },
-    { name: "Restaurant Lights", data: restaurantlightData },
-    { name: "Multi Lights", data: multiplylightData },
-  ];
-
+  useEffect(() => {
+    getCategoryCall();
+  }, []);
+  console.log(cart.activeButton);
   return (
     <nav className="fixed h-[80px] mx-auto  w-full bg-[#080808] text-white px-7 flex justify-center items-center z-50">
       <div className="w-[1280px] flex justify-between items-center h-full">
@@ -222,7 +86,7 @@ export const Nav = () => {
 
         {size.width > 1024 ? (
           <ul className="flex justify-center space-x-10 text-md mx-auto">
-            {menuItems.map((menu, index) => (
+            {productCategoryData?.map((menu, index) => (
               <li
                 key={index}
                 className="relative"
@@ -232,11 +96,13 @@ export const Nav = () => {
                 <button className="flex items-center h-[70px]">
                   <div
                     className={`nav-link navHeading text-sm ${
-                      cart.activeButton === menu.name ? "text-amber-400" : "text-white"
+                      cart.activeButton === menu.name
+                        ? "text-amber-400"
+                        : "text-white"
                     }`}
-                    onClick={() => cart.cardButton(menu.name)}
+                    onClick={() => cart.cardButton(menu?.name, menu?._id)}
                   >
-                    <h1>{menu.name}</h1>
+                    <h1>{menu.name.toUpperCase()}</h1>
                   </div>
                   {/* {menu.data && menu.data.length > 0 && (
                     <RiArrowDropDownLine size={20} className="ml-1" />
@@ -432,7 +298,7 @@ export const Nav = () => {
         ) : (
           mobileMenuOpen && (
             <ul className="absolute top-full left-0 w-full bg-[#080808]  border-b-2  border-amber-500  opacity-90  flex flex-col py-4">
-              {menuItems?.map((menu, index) => (
+              {productCategoryData?.map((menu, index) => (
                 <li key={index} className="text-left">
                   <button
                     className="flex justify-between items-center h-12 w-full px-4 navHeading text-sm"

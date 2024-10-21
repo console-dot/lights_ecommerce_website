@@ -9,8 +9,10 @@ export const CartModal = ({ setModal }) => {
   console.log(cart);
   return (
     <div className="absolute w-full">
-      <div className="fixed w-full h-screen z-10  top-0 left-0 " onClick={() => setModal(false)}>
-      </div>
+      <div
+        className="fixed w-full h-screen z-10  top-0 left-0 "
+        onClick={() => setModal(false)}
+      ></div>
       <div className=" lg:w-[30%] top-[45px] w-full sm:w-3/5 md:1/2  min-h-80 bg-black h-96  absolute  md:right-10 right-0   overflow-y-scroll border-t-[2px] border-t-[#F99106] shadow-lg z-50">
         <div className="p-2 fixed lg:w-[30%] w-full sm:w-3/5 md:1/2 ">
           <div className="flex px-2 justify-between ">
@@ -42,7 +44,10 @@ export const CartModal = ({ setModal }) => {
               <div className="pl-2 pt-2  ">
                 <div className="flex justify-between items-center bg-black  p-2 w-full h-16 md:h-20">
                   <div className="w-[20%] h-full flex items-center gap-2">
-                    <img src={i?.image} className="w-full h-full bg-[#DBD4D4] heading" />
+                    <img
+                      src={`data:image/png;base64,${i?.avatar?.image}`}
+                      className="w-full h-full bg-[#DBD4D4] heading"
+                    />
                   </div>
                   <div className="w-[20%] text-center text-xs md:text-base flex justify-center items-center text-amber-500">
                     {i?.name || i?.title}
