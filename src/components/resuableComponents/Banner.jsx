@@ -6,14 +6,16 @@ import { EffectFade, Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BennerImage1, BennerImage2, BennerImage3 } from "../../assets";
 import "../../App.css";
-import "./Benner.css"
+import "./Benner.css";
+import { getBanner } from "../../api/banner";
 
 export const Banner = () => {
+  const [bannerData, setBannerData] = useState();
   const [activeIndex, setActiveIndex] = useState(0);
 
- const handleSlideChange = (swiper) => {
-  setActiveIndex(swiper.activeIndex);
-};
+  const handleSlideChange = (swiper) => {
+    setActiveIndex(swiper.activeIndex);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,10 +24,18 @@ export const Banner = () => {
         el.classList.remove("animate-slide-in");
       });
     }, 1000); // Ensure this matches the animation duration
-  
+
     return () => clearTimeout(timer);
   }, [activeIndex]);
-  
+
+  const getBannerCall = async () => {
+    const res = await getBanner();
+    setBannerData(res?.data);
+    console.log(res);
+  };
+  useEffect(() => {
+    getBannerCall();
+  }, []);
 
   return (
     <div className="swiper-container md:h-[500px]">
@@ -39,105 +49,52 @@ export const Banner = () => {
         className="mySwiper w-full h-[100%]"
         onSlideChange={handleSlideChange}
       >
-        <SwiperSlide className="relative w-full h-full">
-          <img
-            className="w-full h-full object-cover"
-            src={BennerImage1}
-            alt="Banner"
-          />
-          <div
-            className={` w-2/5  absolute top-[15%] lg:top-[20%] lg:right-[5%] right-0 flex  flex-col delay-700 transform duration-700  -translate-x-[2%] ease-in-out  md:p-4 ${
-              activeIndex === 0 ? "animate-slideIn" : ""
-            }`}
-          >
-            <h1 className="font-mono text-white text-[10px] md:text-2xl 2xl:text-5xl italic">
-              pandant light
-            </h1>
-            <h1 className="text-white md:text-6xl  font-extrabold md:mt-5 2xl:text-9xl heading">
-              Spring+
-            </h1>
-            <div className="flex md:mt-6">
-              <h1 className="lg:border-r-2 heading md:text-5xl font-bold border-amber-500 text-amber-500 pr-3 2xl:text-9xl">
-                Sale
-              </h1>
-              <div className="md:px-2 text-white hidden lg:flex flex-col justify-start items-start 2xl:text-5xl">
-                <h1 className="italic">lorem ipsum eiusmod</h1>
-                <button className="italic">Shop Now</button>
+        {bannerData?.map((i, index) => (
+          <SwiperSlide className="relative flex w-full bg-[#162528] h-[500px]">
+            <div className=" flex w-full h-full">
+              <div
+                className={`w-1/2 ${
+                  index / 2 === 0 ? "order-2" : ""
+                } flex justify-start items-center`}
+              >
+                <img
+                  className="w-[90%] h-[90%] object-center"
+                  src={`data:image/png;base64,${i.imageId?.image}`}
+                  alt="Banner"
+                />
+              </div>
+              <div
+                className={` w-1/2   justify-center  flex  ${
+                  index / 2 === 0 ? " order-1" : "  "
+                } lg:top-[20%] flex  flex-col delay-700 transform duration-700  -translate-x-[2%] ease-in-out  md:p-4 ${
+                  activeIndex === index ? "animate-slideIn" : ""
+                }`}
+              >
+                <div className="flex flex-col ml-[15%]">
+                  <h1 className="font-mono text-white text-[10px] md:text-2xl 2xl:text-5xl italic">
+                    {i?.bannerh1}
+                  </h1>
+                  <h1 className="text-white md:text-6xl  font-extrabold md:mt-5 2xl:text-9xl heading">
+                    {i?.bannerh2}
+                  </h1>
+                  <div className="flex md:mt-6">
+                    <h1 className="lg:border-r-2 heading md:text-5xl font-bold border-amber-500 text-amber-500 pr-3 2xl:text-9xl">
+                      Sale
+                    </h1>
+                    <div className="md:px-2 text-white hidden lg:flex flex-col justify-start items-start 2xl:text-5xl">
+                      <h1 className="italic">{i.bannerh3}</h1>
+                    </div>
+                  </div>
+                  <div className="md:pt-5">
+                    <button className="md:px-6 px-2 italic md:py-2 bg-amber-500 text-black font-bold text-[9px] md:text-xl 2xl:text-5xl">
+                      {i.bannerh4}
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="md:pt-5">
-              <button className="md:px-6 px-2 italic md:py-2 bg-amber-500 text-black font-bold text-[9px] md:text-xl 2xl:text-5xl">
-                Save 20% OFF
-              </button>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <img
-            className="w-full h-full object-cover"
-            src={BennerImage2}
-            alt="Banner"
-          />
-          <div
-            className={` w-2/5  absolute top-[15%] lg:top-[20%] lg:right-[5%] right-0 flex  flex-col  delay-700 transform duration-700  -translate-x-[2%] ease-in-out md:p-4 ${
-              activeIndex === 1 ? "animate-slideIn" : ""
-            }`}
-          >
-            <h1 className="font-mono text-white text-[10px] md:text-2xl 2xl:text-5xl italic">
-              pandant light
-            </h1>
-            <h1 className="text-white md:text-6xl heading font-extrabold md:mt-5  2xl:text-9xl">
-              Spring+
-            </h1>
-            <div className="flex md:mt-6">
-              <h1 className="lg:border-r-2 md:text-5xl font-bold heading border-amber-500 text-amber-500 pr-3 2xl:text-9xl">
-                Sale
-              </h1>
-              <div className="md:px-2 text-white hidden lg:flex flex-col items-start 2xl:text-5xl">
-                <h1 className="italic">lorem ipsum eiusmod</h1>
-                <button className="italic">Shop Now</button>
-              </div>
-            </div>
-            <div className="md:pt-5">
-              <button className="md:px-6 px-2 italic md:py-2 bg-amber-500 text-black font-bold text-[9px] md:text-xl 2xl:text-5xl">
-                Save 20% OFF
-              </button>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <img
-            className="w-full h-full object-cover"
-            src={BennerImage3}
-            alt="Banner"
-          />
-          <div
-            className={` w-2/5  absolute top-[15%] lg:top-[20%] left-[10%]  flex  flex-col delay-700 transform duration-700  -translate-x-[2%] ease-in-out  md:p-4 ${
-              activeIndex === 2 ? "animate-slideIn" : ""
-            }`}
-          >
-            <h1 className="font-mono text-white text-[10px] md:text-2xl 2xl:text-5xl italic">
-              pandant light
-            </h1>
-            <h1 className="heading text-white md:text-6xl  font-extrabold md:mt-5 2xl:text-9xl">
-              Spring+
-            </h1>
-            <div className="flex md:mt-6">
-              <h1 className="lg:border-r-2 heading md:text-5xl font-bold border-amber-500 text-amber-500 pr-3 2xl:text-9xl">
-                Sale
-              </h1>
-              <div className="md:px-2 text-white hidden lg:flex flex-col items-start 2xl:text-5xl">
-                <h1 className="italic">lorem ipsum eiusmod</h1>
-                <button className="italic">Shop Now</button>
-              </div>
-            </div>
-            <div className="md:pt-5">
-              <button className="md:px-6 italic px-2 md:py-2 bg-amber-500 text-black font-bold text-[9px] md:text-xl 2xl:text-5xl">
-                Save 20% OFF
-              </button>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

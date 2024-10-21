@@ -35,34 +35,7 @@ import { useIsMobile } from "../../hooks/useIsMobile";
 
 export const Gellary = () => {
   const isMobileView = useIsMobile();
-  const images = [
-    {
-      image: restaurantLight,
-      name: "Restaurant Light",
-      backgroundImage: restaurantLightbg,
-    },
-    {
-      image: restaurantLight1,
-      name: "Restaurant Lights",
-      backgroundImage: restaurantLight1bg,
-    },
-    { image: table, name: "Table Lamps", backgroundImage: tablebg },
-    { image: multiLight, name: "Multi Light", backgroundImage: multiLightbg },
-    { image: wallLight, name: "Wall Light", backgroundImage: wallLightbg },
-    {
-      image: commercialLight,
-      name: "Commercial Light",
-      backgroundImage: commercialLightbg,
-    },
-    { image: table6, name: "Table Light", backgroundImage: table6bg },
-    {
-      image: indoorLight,
-      name: "Indore Lights",
-      backgroundImage: indoorLightbg,
-    },
-    { image: wallLight1, name: "Wall Light", backgroundImage: wallLight1bg },
-    { image: table4, name: "Table Light", backgroundImage: table4bg },
-  ];
+
   const cart = useContext(AddCardContext);
   const getRandomHeight = () => {
     const minHeight = 250;
@@ -80,13 +53,16 @@ export const Gellary = () => {
         </div>
         <div className="columns-1  sm:columns-2 md:columns-3 lg:columns-4  gap-4 overflow-hidden">
           {isMobileView
-            ? images.map((image, index) => (
+            ? cart?.productsData?.slice(0, 13).map((image, index) => (
                 <div
                   key={index}
                   className="w-full relative border-none  mb-4 overflow-hidden border  rounded-xl bg-[#E0DDDD]"
                   style={{ height: getRandomHeight() }}
                   onClick={() =>
-                    cart.cardButton(image.name.split(" ").join(""))
+                    cart.cardButton(
+                      image.categoryId.name.split(" ").join(""),
+                      image.categoryId?._id
+                    )
                   }
                 >
                   <img
@@ -107,17 +83,20 @@ export const Gellary = () => {
                   </div>
                 </div>
               ))
-            : images.map((image, index) => (
+            : cart?.productsData?.map((image, index) => (
                 <div
                   key={index}
                   className="w-full relative border-none  mb-4 overflow-hidden border group gallery-item  rounded-xl bg-[#E0DDDD] cursor-pointer"
                   style={{ height: getRandomHeight() }}
                   onClick={() =>
-                    cart.cardButton(image.name.split(" ").join(""))
+                    cart.cardButton(
+                      image.categoryId.name.split(" ").join(""),
+                      image.categoryId?._id
+                    )
                   }
                 >
                   <img
-                    src={image.image}
+                    src={`data:image/png;base64,${image?.avatar?.image}`}
                     alt={image.name}
                     className="w-full h-full rounded-lg gellary transition-all ease-in-out overflow-hidden"
                   />
@@ -128,19 +107,12 @@ export const Gellary = () => {
                   />
                   <div className="image-name heading  absolute bottom-0 left-0  text-amber-500 w-full text-center justify-center flex items-center py-2 font-bold text-xl">
                     <h1 className="flex justify-center items-center text-center">
-                      {image.name}
+                      {image.categoryId?.name}
                     </h1>
                   </div>
                 </div>
               ))}
         </div>
-        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {images.map((image, index) => (
-        <div className="grid gap-4" key={index}>
-          <img className="h-auto w-full object-cover rounded-lg" src={image.src} alt={`Gallery image ${index + 1}`} />
-        </div>
-      ))}
-    </div> */}
       </div>
     </div>
   );

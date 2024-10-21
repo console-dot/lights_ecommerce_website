@@ -11,16 +11,14 @@ import {
 import { AddCardState } from "./context";
 import { ScrollTop } from "./components";
 
-
-
 function App() {
   return (
     // <Nav />
     <AddCardState>
-      <ScrollTop/>
+      <ScrollTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/productDetails/:name/:id" element={<ProductDetailsPage />} />
+        <Route path="/productDetails/:id" element={<ProductDetailsPage />} />
         <Route path="/:id" element={<AllProductCardsPage />} />
         <Route path="/product/:id" element={<AllProductCategory />} />
         <Route path="/about" element={<AboutUsPage />} />

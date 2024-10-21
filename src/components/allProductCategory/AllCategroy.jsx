@@ -83,13 +83,13 @@ export const AllCategroy = () => {
           </nav>
         </div>
         <div className="flex justify-center items-center">
-        <div className="container p-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-4  p-2 gap-4 place-items-center">
-          {cart?.cards[0]?.data?.map((i, index) => (
-            <ProductCard data={i} id={index} />
-          ))}
-        </div>
-        </div>
+          <div className="container p-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-4  p-2 gap-4 place-items-center">
+              {cart?.cards?.map((i) => (
+                <ProductCard data={i} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
