@@ -4,6 +4,7 @@ import {
   AboutUsPage,
   AllProductCardsPage,
   AllProductCategory,
+  CheckOutPage,
   HomePage,
   ProductDetailsPage,
   ProfilePage,
@@ -23,6 +24,7 @@ function App() {
         <Route path="/product/:id" element={<AllProductCategory />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/check-out" element={<CheckOutPage />} />
       </Routes>
     </AddCardState>
   );

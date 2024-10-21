@@ -19,10 +19,11 @@ export const Login = () => {
             email: " ",
             password: " ",
           });
-          data?.setCheckProfile(true)
+          data?.setCheckProfile(true);
           data?.setIsModalOpen(false);
           toast("Login successfully");
           localStorage.setItem("access_token", res?.access_token);
+          localStorage.setItem("user_Id", res?.user?._id);
           console.log("success", res?.data?.access_token);
         } else {
           toast(res?.response?.data?.message);
@@ -34,8 +35,6 @@ export const Login = () => {
       }
     }
   };
-
-
 
   return (
     <>

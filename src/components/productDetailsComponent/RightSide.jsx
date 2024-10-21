@@ -3,7 +3,7 @@ import AddCardContext from "../../context/addCart/AddCardContext";
 import { FaRegHeart } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
 
-export const RightSide = ({ productData, data }) => {
+export const RightSide = ({ data }) => {
   const cart = useContext(AddCardContext);
   return (
     <>
@@ -65,11 +65,16 @@ export const RightSide = ({ productData, data }) => {
               </div>
             </div>
           </div>
-          <h1 className="text-white text-[12px] md:text-base italic">0 reviews</h1>
+          <h1 className="text-white text-[12px] md:text-base italic">
+            0 reviews
+          </h1>
           <a href="#review">
             <div className="flex items-center gap-2 cursor-pointer">
               <MdModeEditOutline className="text-white" />
-              <h1 className="text-white text-[12px] md:text-base italic"> Write a review</h1>
+              <h1 className="text-white text-[12px] md:text-base italic">
+                {" "}
+                Write a review
+              </h1>
             </div>
           </a>
         </div>
@@ -102,42 +107,11 @@ export const RightSide = ({ productData, data }) => {
               Ex Tax: <span>$100.00</span>
             </h1>
           </div>
-           <div className="flex flex-col">
+          <div className="flex flex-col">
             <h1 className="text-lg text-[#CCCCCC] font-semibold py-4 italic">
               Available Options
             </h1>
-            </div> 
-            {/* <h1 className="text-white text-lg font-semibold">Color</h1>
-            <div className="flex gap-4  py-2">
-              <div className="w-10 h-10 border-2 border-white rounded-full  bg-black"></div>
-              <div className="w-10 h-10 border-2 border-white rounded-full  bg-red-700"></div>
-            </div> */}
-          
-          {/* <div className="flex flex-col py-4">
-            <h1 className="text-lg text-white font-semibold">Delivery Date</h1>
-            <div className="py-4">
-              <div class="relative max-w-sm">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                  <svg
-                    class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                  </svg>
-                </div>
-                <input
-                  datepicker
-                  id="default-datepicker"
-                  type="text"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Select date"
-                />
-              </div>
-            </div>
-          </div> */}
+          </div>
           <div className="flex items-center justify-start gap-5 pt-5 ">
             <div>
               <button className="bg-white flex gap-4 p-3 text-xl ">
@@ -149,7 +123,10 @@ export const RightSide = ({ productData, data }) => {
               </button>
             </div>
             <div className="flex justify-center items-center">
-              <button className="shop-button px-4 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full" onClick={() => cart.addToCart(data)}>
+              <button
+                className="shop-button px-4 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full"
+                onClick={() => cart.addToCart(data)}
+              >
                 <span>Add to Cart</span>
               </button>
             </div>
@@ -162,7 +139,6 @@ export const RightSide = ({ productData, data }) => {
               </div>{" "}
               Add to list{" "}
             </div>
-        
           </div>
         </div>
       </div>
