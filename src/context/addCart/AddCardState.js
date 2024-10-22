@@ -3,6 +3,7 @@ import AddCardContext from "./AddCardContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getProduct } from "../../api/products";
+import { createCarts } from "../../api/cart";
 export const AddCardState = (props) => {
   const navigate = useNavigate();
   const [checkProfile, setCheckProfile] = useState();
@@ -13,6 +14,7 @@ export const AddCardState = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [activeButton, setActiveButton] = useState();
+  const [addcartData, setAddCartData] = useState();
 
   const [productsData, setProductsData] = useState();
 
@@ -24,8 +26,21 @@ export const AddCardState = (props) => {
     getProductCall();
   }, []);
 
-  const addToCart = (obj) => {
+  const createCartsCall = async () => {
+    const token = localStorage.getItem("access_token");
+    console.log(addcartData);
+    setQuantity(1);
+    const res = await createCarts({ cartData: addcartData, token });
+    console.log(res);
+  };
+
+  const addToCart = async (obj) => {
     if (checkProfile) {
+      setAddCartData((prevData) => ({
+        ...prevData,
+        userId: localStorage.getItem("user_Id"),
+        product: { ["productId"]: obj?._id, ["quantity"]: quantity },
+      }));
       console.log(obj);
       setCartData([...cartData, obj]);
       toast("add product in cart");
@@ -33,6 +48,12 @@ export const AddCardState = (props) => {
       setIsModalOpen(true);
     }
   };
+  useEffect(() => {
+    console.log(addcartData);
+    if (addcartData) {
+      createCartsCall();
+    }
+  }, [addcartData]);
 
   const addQuantity = () => {
     setQuantity(parseInt(quantity) + 1);
@@ -55,7 +76,7 @@ export const AddCardState = (props) => {
   };
   const cardButton = (name, id) => {
     setActiveButton(name);
-    navigate(`/product/${name.split(" ").join("").toUpperCase()}`);
+    navigate(`/product/${name.split(" ").join("")}`);
     if (name) {
       console.log("menu", productsData);
       console.log(name);
