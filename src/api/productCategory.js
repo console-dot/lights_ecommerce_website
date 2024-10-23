@@ -6,6 +6,5 @@ export const getProductCategory = async () => {
     url: "http://localhost:5000/category",
     // data: fromdata,
   });
-  console.log(res);
   return res;
 };

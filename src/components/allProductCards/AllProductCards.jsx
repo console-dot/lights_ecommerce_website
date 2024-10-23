@@ -11,7 +11,6 @@ export const AllProductCards = () => {
   const cart = useContext(AddCardContext);
   const params = useParams();
   const name = params?.id;
-  console.log(name);
   const getCategoryCall = async () => {
     const res = await getProductCategory();
     setProductCategoryData(res?.data);
@@ -79,7 +78,6 @@ export const AllProductCards = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  p-2 gap-4 place-items-center">
-              {console.log(item)}
               {cart?.productsData
                 ?.filter(
                   (product) =>

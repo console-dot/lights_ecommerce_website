@@ -5,7 +5,6 @@ export const useIsMobile = (breakpoint = 768) => {
 
   useEffect(() => {
     const handleResize = () => {
-      console.log("Current width:", window.innerWidth); // Debugging log
       setIsMobile(window.innerWidth < breakpoint);
     };
 

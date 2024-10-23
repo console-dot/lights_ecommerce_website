@@ -6,6 +6,5 @@ export const getBlogs = async () => {
     url: "http://localhost:5000/blogs",
     // data: fromdata,
   });
-  console.log(res);
   return res;
 };

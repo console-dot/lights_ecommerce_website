@@ -14,20 +14,17 @@ export const Login = () => {
       try {
         const res = await userLogin({ fromdata });
         if (res) {
-          console.log(res);
           setFromdata({
             email: " ",
             password: " ",
           });
-          data?.setCheckProfile(true);
+          // data?.setCheckProfile(true);
           data?.setIsModalOpen(false);
           toast("Login successfully");
-          localStorage.setItem("access_token", res?.access_token);
+          localStorage.setItem("access_token", res?.refreshToken);
           localStorage.setItem("user_Id", res?.user?._id);
-          console.log("success", res?.data?.access_token);
         } else {
           toast(res?.response?.data?.message);
-          console.log(res?.response?.data?.message);
         }
       } catch (error) {
         console.error("Error during login or fetching testimonials:", error);

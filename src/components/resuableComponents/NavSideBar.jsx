@@ -9,7 +9,6 @@ export const NavSideBar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState("");
   const handleToggle = (prop) => {
-    console.log(prop);
     setIsOpen(prop);
   };
   return (

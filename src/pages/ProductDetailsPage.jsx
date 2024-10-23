@@ -24,7 +24,6 @@ export const ProductDetailsPage = () => {
   const getSingleProductCall = async () => {
     const id = params?.id;
     const res = await getSingleProduct({ id });
-    console.log(res);
     setData(res?.data);
   };
 

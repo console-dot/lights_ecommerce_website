@@ -6,6 +6,5 @@ export const getBanner = async () => {
     url: "http://localhost:5000/banner",
     // data: fromdata,
   });
-  console.log(res);
   return res;
 };

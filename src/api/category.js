@@ -6,6 +6,5 @@ export const getCategoryCardDesign= async () => {
     url: "http://localhost:5000/categoryCardDesign",
     // data: fromdata,
   });
-  console.log(res);
   return res;
 };

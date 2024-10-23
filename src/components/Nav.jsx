@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 import AddCardContext from "../context/addCart/AddCardContext";
 import { CartModal } from "./resuableComponents";
 import { getProductCategory } from "../api/productCategory";
+import { getUser } from "../api/user";
 
 export const Nav = () => {
   const cart = useContext(AddCardContext);
@@ -44,9 +45,7 @@ export const Nav = () => {
       setActiveDropdown(null);
     }
   };
-  useEffect(() => {
-    console.log(cart.activeButton);
-  }, [cart.activeButton]);
+  useEffect(() => {}, [cart.activeButton]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -63,7 +62,18 @@ export const Nav = () => {
   useEffect(() => {
     getCategoryCall();
   }, []);
-  console.log(cart.activeButton);
+
+  const getProfile = async () => {
+    console.log(1);
+    const userId = localStorage.getItem("user_Id");
+    const token = localStorage.getItem("access_token");
+    const res = await getUser({ id: userId, token });
+    console.log(res);
+    if (res) {
+      navigate(`/profile`);
+    }
+  };
+
   return (
     <nav className="fixed h-[80px] mx-auto  w-full bg-[#080808] text-white px-7 flex justify-center items-center z-50">
       <div className="w-[1280px] flex justify-between items-center h-full">
@@ -104,194 +114,7 @@ export const Nav = () => {
                   >
                     <h1>{menu.name.toUpperCase()}</h1>
                   </div>
-                  {/* {menu.data && menu.data.length > 0 && (
-                    <RiArrowDropDownLine size={20} className="ml-1" />
-                  )} */}
                 </button>
-
-                {/* Desktop dropdowns */}
-                {/* {activeDropdown === menu.name &&
-                  menu.name === "Indore Lights" && (
-                    <div className="absolute cursor-pointer top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
-                      cart.cardButton(menu.name.split(" ").join(""))
-                    }>
-                      <div className="w-[700px]  flex p-2 justify-around items-center">
-                        {menu.data.map((item, k) => (
-                          <div
-                            key={k}
-
-                            className="block py-2 hover:text-white"
-                          >
-                            <img
-                              src={item.img}
-                              alt={item.title}
-                              className="h-[150px] w-[120px]"
-                            />
-                            <div className="flex flex-col justify-center items-center mt-2">
-                              <span className="text-white text-md">
-                                {item.title}
-                              </span>
-                              <span className="text-[#F99106] text-lg font-semibold">
-                                {item.price}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                {activeDropdown === menu.name &&
-                  menu.name === "Wall Lights" && (
-                    <div className="absolute cursor-pointer top-full left-[-130%] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
-                      cart.cardButton(menu.name.split(" ").join(""))
-                    }>
-                      <div className="w-[700px] flex p-2 justify-around items-center">
-                        {menu.data.map((item, k) => (
-                          <div
-                            key={k}
-
-                            className="block py-2 hover:text-white"
-                          >
-                            <img
-                              src={item.img}
-                              alt={item.title}
-                              className="h-[150px] w-[120px]"
-                            />
-                            <div className="flex flex-col justify-center items-center mt-2">
-                              <span className="text-white text-md">
-                                {item.title}
-                              </span>
-                              <span className="text-[#F99106] text-lg font-semibold">
-                                {item.price}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                {activeDropdown === menu.name &&
-                  menu.name === "Table Lamps" && (
-                    <div className="absolute top-full left-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
-                      cart.cardButton(menu.name.split(" ").join(""))
-                    }>
-                      <div className="w-[700px] flex p-2 justify-around items-center">
-                        {menu.data.map((item, k) => (
-                          <div
-                            key={k}
-                          
-                            className="block py-2 hover:text-white"
-                          >
-                            <img
-                              src={item.img}
-                              alt={item.title}
-                              className="h-[150px] w-[120px]"
-                            />
-                            <div className="flex flex-col justify-center items-center mt-2">
-                              <span className="text-white text-md">
-                                {item.title}
-                              </span>
-                              <span className="text-[#F99106] text-lg font-semibold">
-                                {item.price}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                {activeDropdown === menu.name &&
-                  menu.name === "Commercial Lights" && (
-                    <div className="absolute top-full right-[-300px] bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
-                      cart.cardButton(menu.name.split(" ").join(""))
-                    }>
-                      <div className="w-[700px] flex p-2 justify-around items-center">
-                        {menu.data.map((item, k) => (
-                          <div
-                            key={k}
-                           
-                            className="block py-2 hover:text-white"
-                          >
-                            <img
-                              src={item.img}
-                              alt={item.title}
-                              className="h-[150px] w-[120px]"
-                            />
-                            <div className="flex flex-col justify-center items-center mt-2">
-                              <span className="text-white text-md">
-                                {item.title}
-                              </span>
-                              <span className="text-[#F99106] text-lg font-semibold">
-                                {item.price}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                {activeDropdown === menu.name &&
-                  menu.name === "Restaurant Lights" && (
-                    <div className="absolute top-full right-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
-                      cart.cardButton(menu.name.split(" ").join(""))
-                    }>
-                      <div className="w-[700px] flex p-2 justify-around items-center">
-                        {menu.data.map((item, k) => (
-                          <div
-                            key={k}
-                           
-                            className="block py-2 hover:text-white"
-                          >
-                            <img
-                              src={item.img}
-                              alt={item.title}
-                              className="h-[150px] w-[120px]"
-                            />
-                            <div className="flex flex-col justify-center items-center mt-2">
-                              <span className="text-white text-md">
-                                {item.title}
-                              </span>
-                              <span className="text-[#F99106] text-lg font-semibold">
-                                {item.price}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                {activeDropdown === menu.name &&
-                  menu.name === "Multi Lights" && (
-                    <div className="absolute top-full right-0 bg-[#080808] border-t-[2px] border-t-[#F99106] shadow-lg z-10" onClick={() =>
-                      cart.cardButton(menu.name.split(" ").join(""))
-                    }>
-                      <div className="w-[700px] flex p-2 justify-around items-center">
-                        {menu.data.map((item, k) => (
-                          <div
-                            key={k}
-                            className="block py-2 hover:text-white"
-                          >
-                            <img
-                              src={item.img}
-                              alt={item.title}
-                              className="h-[150px] w-[120px]"
-                            />
-                            <div className="flex flex-col justify-center items-center mt-2">
-                              <span className="text-white text-md">
-                                {item.title}
-                              </span>
-                              <span className="text-[#F99106] text-lg font-semibold">
-                                {item.price}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )} */}
               </li>
             ))}
           </ul>
@@ -307,131 +130,12 @@ export const Nav = () => {
                     {menu.name}
                     {menu.data &&
                       menu.data.length > 0 &&
-                      // menu.name !== "Restaurant Lights" &&
                       (activeMobileDropdown === menu.name ? (
                         <FaChevronUp />
                       ) : (
                         <FaChevronCircleDown />
                       ))}
                   </button>
-                  {/* {activeMobileDropdown === menu.name && (
-                    <ul className="bg-[#080808]  cursor-pointer text-gray-400 text-sm max-h-48 overflow-y-auto">
-                      {menu.name === "Indore Lights" &&
-                        menu.data.map((item, i) => (
-                          <li
-                            key={i}
-                            className="px-4 py-2 border-t border-gray-700"
-                          >
-                            <a
-                              href="#"
-                              className=" hover:text-white flex items-center"
-                            >
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className="h-[100px] w-[80px] mr-2"
-                              />
-                              <div className="flex flex-col">
-                                <span className="text-white text-sm">
-                                  {item.title}
-                                </span>
-                                <span className="text-amber-500 text-md font-semibold">
-                                  {item.price}
-                                </span>
-                              </div>
-                            </a>
-                          </li>
-                        ))}
-                      {menu.name === "Wall Lights" &&
-                        menu.data.map((item, k) => (
-                          <li
-                            key={k}
-                            className="px-4 py-2 border-t border-gray-700"
-                          >
-                            <a
-                              href="#"
-                              className=" hover:text-white flex items-center"
-                            >
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className="h-[100px] w-[80px] mr-2"
-                              />
-                              <div className="flex flex-col">
-                                <span className="text-white text-sm">
-                                  {item.title}
-                                </span>
-                                <span className="text-amber-500 text-md font-semibold">
-                                  {item.price}
-                                </span>
-                              </div>
-                            </a>
-                          </li>
-                        ))}
-                      {menu.name === "Table Lamps" &&
-                        menu.data.map((item, l) => (
-                          <li
-                            key={l}
-                            className="px-4 py-2 border-t border-gray-700"
-                          >
-                            <a
-                              href="#"
-                              className=" hover:text-white flex items-center"
-                            >
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className="h-[100px] w-[80px] mr-2"
-                              />
-                              <div className="flex flex-col">
-                                <span className="text-white text-sm">
-                                  {item.title}
-                                </span>
-                                <span className="text-amber-500 text-md font-semibold">
-                                  {item.price}
-                                </span>
-                              </div>
-                            </a>
-                          </li>
-                        ))}
-                      {menu.name === "Commercial Lights" &&
-                        menu.data.map((item, m) => (
-                          <li
-                            key={m}
-                            className="px-4 py-2 border-t border-gray-700"
-                          >
-                            <a
-                              href="#"
-                              className=" hover:text-white flex items-center"
-                            >
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className="h-[100px] w-[80px] mr-2"
-                              />
-                              <div className="flex flex-col">
-                                <span className="text-white text-sm">
-                                  {item.title}
-                                </span>
-                                <span className="text-amber-500 text-md font-semibold">
-                                  {item.price}
-                                </span>
-                              </div>
-                            </a>
-                          </li>
-                        ))}
-                      <div className=" flex justify-center items-center">
-                        <button
-                          className="shop-button px-4 py-2 bg-[#F99106] text-black rounded-full"
-                          onClick={() =>
-                            cart.cardButton(menu.name.split(" ").join(""))
-                          }
-                        >
-                          <span className="text-black">More items</span>
-                        </button>
-                      </div>
-                    </ul>
-                  )} */}
                 </li>
               ))}
             </ul>
@@ -442,7 +146,7 @@ export const Nav = () => {
           <IoIosSearch className="md:text-2xl text-xl cursor-pointer" />
           <FaRegUser
             className="md:text-xl cursor-pointer"
-            onClick={() => navigate(`/profile`)}
+            onClick={getProfile}
           />
           <AiOutlineShoppingCart
             className="md:text-2xl text-xl cursor-pointer"

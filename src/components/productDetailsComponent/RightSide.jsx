@@ -117,7 +117,7 @@ export const RightSide = ({ data }) => {
               <button className="bg-white flex gap-4 p-3 text-xl ">
                 <h1 onClick={cart.subtractQuantity}>-</h1>
                 <h1 className="">{cart.quantity}</h1>
-                <h1 className="" onClick={cart.addQuantity}>
+                <h1 className="" onClick={cart?.addQuantity}>
                   +
                 </h1>
               </button>
