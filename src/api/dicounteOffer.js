@@ -6,6 +6,5 @@ export const getDiscounteOffer = async () => {
     url: "http://localhost:5000/discountOffer",
     // data: fromdata,
   });
-  console.log(res);
   return res;
 };

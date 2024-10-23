@@ -9,8 +9,6 @@ export const AllCategroy = () => {
   const cart = useContext(AddCardContext);
   const params = useParams();
   const name = params?.id;
-  console.log(name);
-  console.log(cart?.cards);
   return (
     <div className="">
       <ProductCardBanner name={name} />

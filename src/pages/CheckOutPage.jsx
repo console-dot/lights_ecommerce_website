@@ -7,6 +7,9 @@ import {
 
 export const CheckOutPage = () => {
   const [step, setStep] = useState("1");
+  const [checkOutData, setCheckOutData] = useState();
+  const [fromdata, setFromData] = useState();
+  console.log(checkOutData);
   return (
     <>
       <div className="h-screen">
@@ -36,9 +39,24 @@ export const CheckOutPage = () => {
           </ul>
         </div>
 
-        {step === "1" && <Step1Component setStep={setStep} />}
-        {step === "2" && <Step2Component setStep={setStep} />}
-        {step === "3" && <Step3Component setStep={setStep} />}
+        {step === "1" && (
+          <Step1Component
+            setStep={setStep}
+            setFromData={setFromData}
+            fromdata={fromdata}
+          />
+        )}
+        {step === "2" && (
+          <Step2Component
+            setStep={setStep}
+            fromdata={fromdata}
+            setFromData={setFromData}
+            setCheckOutData={setCheckOutData}
+          />
+        )}
+        {step === "3" && (
+          <Step3Component setStep={setStep} checkOutData={checkOutData} />
+        )}
       </div>
     </>
   );

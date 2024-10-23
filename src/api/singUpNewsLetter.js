@@ -5,6 +5,5 @@ export const getSignUpNewsLetter = async () => {
     method: "GET",
     url: "http://localhost:5000/signUpNewLetter",
   });
-  console.log(res);
   return res;
 };

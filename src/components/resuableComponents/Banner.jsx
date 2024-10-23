@@ -31,7 +31,6 @@ export const Banner = () => {
   const getBannerCall = async () => {
     const res = await getBanner();
     setBannerData(res?.data);
-    console.log(res);
   };
   useEffect(() => {
     getBannerCall();

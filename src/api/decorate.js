@@ -6,6 +6,5 @@ export const getDecorate = async () => {
     url: "http://localhost:5000/decorateLight",
     // data: fromdata,
   });
-  console.log(res);
   return res;
 };

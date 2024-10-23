@@ -10,7 +10,6 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useParams } from "react-router-dom";
 export const Footer = () => {
   const [isProfile, setIsProfile] = useState(true);
-  console.log(window.location.href);
 
   const showProfile = window.location.href 
   useEffect(()=>{
@@ -20,11 +19,9 @@ export const Footer = () => {
     }
   },[])
  
-  console.log(showProfile);
 
   const [isOpen, setIsOpen] = useState("");
   const handleToggle = (prop) => {
-    console.log(prop);
     setIsOpen(prop);
   };
   return (

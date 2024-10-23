@@ -26,7 +26,6 @@ export const ProductDetails = ({ data }) => {
 
   const params = useParams();
   const id = params?.id;
-  console.log(id);
 
   return (
     <div>

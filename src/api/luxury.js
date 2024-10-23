@@ -6,6 +6,5 @@ export const getLuxury = async () => {
     url: "http://localhost:5000/luxury",
     // data: fromdata,
   });
-  console.log(res);
   return res;
 };

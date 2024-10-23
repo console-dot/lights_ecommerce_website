@@ -5,7 +5,6 @@ export const getProduct = async () => {
     method: "GET",
     url: "http://localhost:5000/product",
   });
-  console.log(res);
   return res;
 };
 export const getSingleProduct = async ({ id }) => {
@@ -13,6 +12,5 @@ export const getSingleProduct = async ({ id }) => {
     method: "GET",
     url: `http://localhost:5000/product/${id}`,
   });
-  console.log(res);
   return res;
 };
