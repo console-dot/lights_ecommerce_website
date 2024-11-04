@@ -12,8 +12,27 @@ export const AboutThisItem = ({ data }) => {
   return (
     <>
       {/* About this item */}
-     
-      <div className=" flex justify-center items-center  md:pt-10">
+      <div className="w-full flex-col md:flex-row flex mt-10 md:mt-20 md:px-10">
+        <div className="md:w-1/2 flex flex-col  ">
+          <h1 className=" text-2xl heading md:text-3xl  text-amber-500">
+            Free Shipping Forever
+          </h1>
+          <h1 className="text-[#b1b1b1] mt-2 tex-lg italic">
+            We believe in hassle-free shopping, which is why all orders come
+            with free shipping, always.
+          </h1>
+        </div>
+        <div className="md:w-1/2 flex flex-col md:pl-10 pt-10 md:pt-0">
+          <h1 className=" text-2xl heading md:text-3xl  text-amber-500">
+            Exchange Made Easy
+          </h1>
+          <h1 className="text-[#b1b1b1] mt-2 tex-lg italic">
+            Our easy exchange policy ensures that you can shop with peace of
+            mind. No fuss, no hassle.
+          </h1>
+        </div>
+      </div>
+      {/* <div className=" flex justify-center items-center  md:pt-10">
         <div className="container p-5">
           <div className="flex justify-center items-center border-b border-[#414141] w-full">
             <h1 className="text-3xl font-semibold p-5 text-amber-500 heading">
@@ -155,8 +174,7 @@ export const AboutThisItem = ({ data }) => {
             </button>
           </div>
         </div>
-      </div>
-     
+      </div> */}
     </>
   );
 };

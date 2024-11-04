@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import AddCardContext from "../../context/addCart/AddCardContext";
 import { FaArrowLeft } from "react-icons/fa";
 import { createCheckOut } from "../../api/checkOut";
+import { toast } from "react-toastify";
 
 export const Step2Component = ({
   setStep,
@@ -12,20 +13,26 @@ export const Step2Component = ({
   const cart = useContext(AddCardContext);
   let result;
 
-  console.log(fromdata);
-
   useEffect(() => {
     const userId = localStorage.getItem("user_Id");
     setFromData({ ...fromdata, userId: userId });
   }, []);
 
   const createCheckOutFun = async () => {
+    delete fromdata.__v;
+    delete fromdata._id;
+
     const token = localStorage.getItem("access_token");
     const res = await createCheckOut({ fromdata, token });
     console.log(res);
     if (res.status === 200) {
+      // localStorage.removeItem("cartId");
       setCheckOutData(res?.data);
       setStep("3");
+    }
+    if (res.status === 401) {
+      toast("section are expire");
+      localStorage.clear();
     }
   };
   return (
@@ -44,7 +51,7 @@ export const Step2Component = ({
               <hr className="border-[#232323] border mt-1 " />
               <div className="mt-2">
                 <h1>
-                  {fromdata.firstName}&{fromdata.lastName}
+                  {fromdata.firstName} {fromdata.lastName}
                 </h1>
                 <h1>{fromdata.address}</h1>
                 <h1>{fromdata.phone}</h1>

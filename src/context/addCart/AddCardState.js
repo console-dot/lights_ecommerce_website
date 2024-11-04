@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import AddCardContext from "./AddCardContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getProduct } from "../../api/products";
 import { createCarts, deleteCarts, getCarts } from "../../api/cart";
+import { getProductCategory } from "../../api/productCategory";
 export const AddCardState = (props) => {
-  const paramas = window.location
- const name= paramas?.pathname?.split("/")[2]
-  console.log(name)
+  const categoryLocation = window.location;
+  const categoryName = categoryLocation?.pathname?.split("/")[2];
   const navigate = useNavigate();
-  const [checkProfile, setCheckProfile] = useState();
+  const [checkProfile, setCheckProfile] = useState(false);
   const [filterInput, setFilterInput] = useState("");
   const [search, setSearch] = useState();
   const [cards, setCards] = useState();
@@ -19,49 +18,84 @@ export const AddCardState = (props) => {
   const [activeButton, setActiveButton] = useState();
   const [addcartData, setAddCartData] = useState();
   const [productsData, setProductsData] = useState();
-  const getProductCall = async () => {
-    const res = await getProduct();
-    setProductsData(res?.data);
+  const [signUpModal, setSignUpModal] = useState(false);
+  const [productCategoryData, setProductCategoryData] = useState();
+  const [isForgetModal, setIsFrogetModal] = useState(false);
+  const [selectedComponent, setSelectedComponent] = useState("");
+  const handleComponentChange = (component) => {
+    setSelectedComponent(component);
+    navigate(`/userDetails/${component}`); // Navigate to the new route
+  };
+
+  const getCategoryCall = async () => {
+    const res = await getProductCategory();
+    setProductCategoryData(res?.data);
   };
   useEffect(() => {
-    getProductCall();
+    if (localStorage.getItem("user_Id")) {
+      setIsModalOpen(false);
+    }
   }, []);
-
+  useEffect(() => {
+    getCategoryCall();
+  }, []);
   const getCartsCall = async (id) => {
-    const token = localStorage.getItem("access_token");
     const res = await getCarts({ id });
     setCartData(res?.data?.products);
+    if (res.status === 404) {
+      localStorage.removeItem("cartId");
+    }
   };
-
+  useEffect(() => {
+    setActiveButton(categoryName);
+    if (categoryName) {
+      const filterData = productsData?.filter((item) =>
+        item?.categoryId?.name
+          .split(" ")
+          .join("")
+          .toLowerCase()
+          .includes(categoryName)
+      );
+      setCards(filterData);
+    }
+  }, [categoryName, productsData]);
   const createCartsCall = async () => {
     const token = localStorage.getItem("access_token");
     setQuantity(1);
     const res = await createCarts({ cartData: addcartData, token });
-    if (res?.data?.userId) {
-      getCartsCall(res?.data?.userId);
+    if (res.error === 401) {
+      toast("section are expire");
+      localStorage.clear();
+      navigate(`/`);
+    }
+    if (res.status === 200) {
+      toast("add product in cart", { autoClose: 1000 });
+      localStorage.setItem("cartId", res?.data?._id);
+      const id = localStorage.getItem("cartId");
+      if (id) {
+        getCartsCall(id);
+      }
     }
   };
 
   const addToCart = async (obj) => {
-    if (localStorage.getItem("user_Id").length > 0) {
+    if (localStorage.getItem("user_Id")?.length > 0) {
       setAddCartData((prevData) => ({
         ...prevData,
         userId: localStorage.getItem("user_Id"),
+        cartId: localStorage.getItem("cartId"),
         product: { ["productId"]: obj?._id, ["quantity"]: quantity },
       }));
       // setCartData([...cartData, obj]);
-      toast("add product in cart");
     } else {
       setIsModalOpen(true);
     }
   };
 
   const addQuantity = () => {
-    console.log(1);
     setQuantity(quantity + 1);
   };
   const subtractQuantity = () => {
-    console.log(1);
     setQuantity(quantity - 1);
   };
 
@@ -78,30 +112,32 @@ export const AddCardState = (props) => {
   const deleteCartFun = async (id) => {
     let formData = {};
     const obj = cartData.find((item) => item.productId._id === id);
-    formData["userId"] = localStorage.getItem("user_Id");
+    formData["cartId"] = localStorage.getItem("cartId");
     formData["productId"] = id;
     const token = localStorage.getItem("access_token");
     const res = await deleteCarts({ cartData: formData, token });
-    console.log(res);
+    if (res.error === 401) {
+      toast("section are expire");
+      localStorage.clear();
+      navigate(`/`);
+    }
     if (res.status === 200) {
-      const cartUserId = localStorage.getItem("user_Id");
+      const cartUserId = localStorage.getItem("cartId");
       getCartsCall(cartUserId);
       toast(" delete cart item");
     }
   };
 
   useEffect(() => {
-    const cartUserId = localStorage.getItem("user_Id");
-    if (cartUserId.length > 0) {
+    const cartUserId = localStorage.getItem("cartId");
+    if (cartUserId?.length > 0) {
       getCartsCall(cartUserId);
     }
-  }, []);
+  }, [checkProfile]);
 
   const cardButton = (name, id) => {
-    localStorage.setItem("categoryId",id)
-    localStorage.setItem("name",name)
     setActiveButton(name);
-    navigate(`/product/${name?.split(" ").join("")}`);
+    navigate(`/product/${name?.split(" ").join("").toLowerCase()}`);
     if (name) {
       const filterData = productsData?.filter((item) =>
         item?.categoryId?._id.includes(id)
@@ -109,11 +145,6 @@ export const AddCardState = (props) => {
       setCards(filterData);
     }
   };
-  useEffect(()=>{
-
-
-  },[])
-
 
   const handleSearch = (e) => {
     setFilterInput(e.target.value);
@@ -127,6 +158,9 @@ export const AddCardState = (props) => {
     <AddCardContext.Provider
       value={{
         addToCart,
+        productCategoryData,
+        setProductCategoryData,
+        setProductsData,
         cartData,
         setCartData,
         quantity,
@@ -147,6 +181,14 @@ export const AddCardState = (props) => {
         setActiveButton,
         productsData,
         subtractQuantity,
+        setSignUpModal,
+        signUpModal,
+        getCartsCall,
+        setSelectedComponent,
+        selectedComponent,
+        handleComponentChange,
+        isForgetModal,
+        setIsFrogetModal,
       }}
     >
       {props.children}

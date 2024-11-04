@@ -7,7 +7,6 @@ import { ImCross } from "react-icons/im";
 
 export const ProductDetailsModal = ({data}) => {
   const cart = useContext(AddCardContext);
-  
   return (
     <div className="w-full z-50 flex justify-center items-center flex-col relative">
       <div className="fixed z-50 top-36 right-[16%] ">

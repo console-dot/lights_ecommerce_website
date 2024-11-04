@@ -1,36 +1,43 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Layout } from '../themes'
-import { Order, Profile, SideComponent } from '../components'
-import AddCardContext from '../context/addCart/AddCardContext'
-
-
+import React, { useContext, useEffect, useState } from "react";
+import { Layout } from "../themes";
+import { Order, Profile, SideComponent } from "../components";
+import AddCardContext from "../context/addCart/AddCardContext";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 export const ProfilePage = () => {
-  const [selectedComponent,setSelectedComponent]= useState('profile')
-  const data = useContext(AddCardContext)
-  useEffect(()=>{
-    data.setActiveButton(" ")
-  },[data.activeButton])
+  const data = useContext(AddCardContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    data.setActiveButton(" ");
+  }, [data.activeButton]);
+
   return (
     <Layout>
-       <div className='flex justify-center  '>
-            <div className="container h-screen px-10 gap-5" style={{
-                display: 'flex',
-                flexDirection: "row",
-                alignItems:"start"
-            }}>
-                <div className='w-1/5  text-white'>
-                    <SideComponent setSelectedComponent={setSelectedComponent}/>
-                </div>
-                <div className='  w-4/5 '>
-                   {selectedComponent==="profile"?<Profile/>:""}
-                   {selectedComponent==="order"?<Order/>:""}
-                </div>
-            </div>
+      <div className="relative flex justify-center flex-col">
+        <div className=" pl-10 pt-2">
+          <FaArrowLeft
+            className=" text-amber-500 text-3xl cursor-pointer"
+            onClick={() =>navigate(`/`)}
+          />
         </div>
-    
+        <div
+          className="container h-screen px-10 pt-5 gap-5"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "start",
+          }}
+        >
+          <div className="w-1/5  text-white">
+            <SideComponent />
+          </div>
+          <div className="  w-4/5 ">
+            {data.selectedComponent === "profile" ? <Profile /> : ""}
+            {data.selectedComponent === "order" ? <Order /> : ""}
+          </div>
+        </div>
+      </div>
     </Layout>
-  )
-}
-
-
+  );
+};

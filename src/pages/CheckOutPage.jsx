@@ -9,7 +9,6 @@ export const CheckOutPage = () => {
   const [step, setStep] = useState("1");
   const [checkOutData, setCheckOutData] = useState();
   const [fromdata, setFromData] = useState();
-  console.log(checkOutData);
   return (
     <>
       <div className="h-screen">

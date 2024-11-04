@@ -1,19 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { user1, user2, user3 } from "../../assets";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdFormatQuote } from "react-icons/md";
-import AddCardContext from "../../context/addCart/AddCardContext";
-import { getAllFile } from "../../api/file";
 import { getTestimonial } from "../../api/testmonials";
+import { toast } from "react-toastify";
 
 export const TestimonialsCard = () => {
-  const [allFile, setAllFile] = useState();
   const [testimonialData, setTestmonialsData] = useState();
 
   useEffect(() => {
-    const token = localStorage.getItem("access_token");
     getTestimonial().then((res) => {
       if (res) {
         setTestmonialsData(res?.data);
@@ -72,7 +68,6 @@ export const TestimonialsCard = () => {
       },
     ],
   };
-  console.log(testimonialData);
   return (
     <div className="w-full h-auto p-5 cursor-pointer">
       <Slider {...settings}>

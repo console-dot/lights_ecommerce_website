@@ -6,6 +6,7 @@ import { GrFormSubtract } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import { TiTick } from "react-icons/ti";
 import { createCarts, deleteCarts } from "../../api/cart";
+import { toast } from "react-toastify";
 
 export const CartModal = ({ setModal }) => {
   const [updateQuantity, setUpdateQuantity] = useState();
@@ -14,7 +15,6 @@ export const CartModal = ({ setModal }) => {
   const cart = useContext(AddCardContext);
   const changeAddQuantity = (product) => {
     setIsUpdate(product.productId?._id);
-    console.log(product);
     cart.setCartData((prevCartData) =>
       prevCartData.map((item) =>
         item.productId._id === product.productId?._id
@@ -37,6 +37,7 @@ export const CartModal = ({ setModal }) => {
     let formData = {};
     const obj = cart.cartData.find((item) => item.productId._id === id);
     formData["userId"] = localStorage.getItem("user_Id");
+    formData["cartId"] = localStorage.getItem("cartId");
     formData["product"] = { productId: id, quantity: obj?.quantity };
     const token = localStorage.getItem("access_token");
     const res = await createCarts({ cartData: formData, token });
@@ -44,6 +45,19 @@ export const CartModal = ({ setModal }) => {
       setIsUpdate(false);
     } else {
       cart.setIsModalOpen(true);
+    }
+    if (res.error === 401) {
+      toast("section are expire");
+      localStorage.clear();
+      navigate(`/`);
+    }
+  };
+
+  const goToCheckOutPage = () => {
+    if (cart?.cartData?.length > 0) {
+      navigate(`/check-out`)
+    }else{
+      toast("add item in cart")
     }
   };
 
@@ -96,7 +110,7 @@ export const CartModal = ({ setModal }) => {
                     />
                   </div>
                   <div className="w-[20%] text-center text-xs md:text-base flex justify-center items-center text-amber-500">
-                    {product?.productId?.name || product?.title}
+                    {product?.productId?.name.substring(0, 10)}
                   </div>
                   <div className=" justify-center items-center flex w-[20%] ">
                     <div className=" justify-center items-center flex gap-1 xxs:gap-2 md:gap-1">
@@ -150,9 +164,10 @@ export const CartModal = ({ setModal }) => {
           ))}
         </div>
         <div className="w-full flex justify-center py-2 underline ">
-          <button className="text-white" onClick={() => navigate(`/check-out`)}>
-            Check Out
+          <button className="text-white" onClick={ goToCheckOutPage}>
+            Check
           </button>
+          Out
         </div>
       </div>
     </div>

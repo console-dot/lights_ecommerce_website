@@ -17,11 +17,11 @@ export const SignUpNewsLetter = () => {
   return (
     <div className="flex justify-center items-center ">
       <div className="container p-4 ">
-        <div className="flex justify-center items-center flex-col md:flex-row w-full  bg-[#171717] overflow-hidden ">
-          <div className="md:w-1/2 overflow-hidden">
+        <div className="flex justify-center items-center flex-col md:flex-row w-full  bg-[#171717] overflow-hidden h-[350px] ">
+          <div className="md:w-1/2 overflow-hidden h-full">
             <img
               src={`data:image/png;base64,${signUpNewsLetterData?.imageId?.image}`}
-              className="hover:scale-110 transition hover:ease-in ease-out w-full duration-500  overflow-hidden cursor-pointer"
+              className="hover:scale-110 transition hover:ease-in ease-out w-full duration-500  overflow-hidden h-full cursor-pointer"
             />
           </div>
           <div className="md:w-1/2 md:px-10  px-4 flex justify-center flex-col pt-5 ">

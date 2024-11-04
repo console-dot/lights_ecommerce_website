@@ -10,8 +10,8 @@ export const AllCategroy = () => {
   const params = useParams();
   const name = params?.id;
   return (
-    <div className="">
-      <ProductCardBanner name={name} />
+    <div className="min-h-screen">
+      <ProductCardBanner />
       <div>
         <div className="md:px-4  px-5 pt-5  md:pt-32  mt-10 md:mt-0 ">
           <nav

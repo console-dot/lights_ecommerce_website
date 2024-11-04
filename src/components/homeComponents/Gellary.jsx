@@ -1,34 +1,4 @@
 import React, { useContext } from "react";
-import {
-  BennerImage1,
-  BennerImage2,
-  BennerImage3,
-  categoryCardIamge,
-  categoryCardIamge1,
-  commercialLight,
-  commercialLightbg,
-  indoorLight,
-  indoorLightbg,
-  light1,
-  light2,
-  lightHouse,
-  multiLight,
-  multiLightbg,
-  restaurantLight,
-  restaurantLight1,
-  restaurantLight1bg,
-  restaurantLightbg,
-  table,
-  table4,
-  table4bg,
-  table6,
-  table6bg,
-  tablebg,
-  wallLight,
-  wallLight1,
-  wallLight1bg,
-  wallLightbg,
-} from "../../assets";
 import "./Gellary.css";
 import AddCardContext from "../../context/addCart/AddCardContext";
 import { useIsMobile } from "../../hooks/useIsMobile";
@@ -66,7 +36,7 @@ export const Gellary = () => {
                   }
                 >
                   <img
-                    src={image?.backgroundImage}
+                    src={`data:image/png;base64,${image?.bgImage?.image}`}
                     className=" inset-0 w-full h-full transition-opacity ease-in-out duration-1000 rounded-lg 
                  "
                     alt="Image 2"
@@ -83,35 +53,36 @@ export const Gellary = () => {
                   </div>
                 </div>
               ))
-            : cart?.productsData?.map((image, index) => (
-                <div
-                  key={index}
-                  className="w-full relative border-none  mb-4 overflow-hidden border group gallery-item  rounded-xl bg-[#E0DDDD] cursor-pointer"
-                  style={{ height: getRandomHeight() }}
-                  onClick={() =>
-                    cart.cardButton(
-                      image.categoryId.name.split(" ").join(""),
-                      image.categoryId?._id
-                    )
-                  }
-                >
-                  <img
-                    src={`data:image/png;base64,${image?.avatar?.image}`}
-                    alt={image.name}
-                    className="w-full h-full rounded-lg gellary transition-all ease-in-out overflow-hidden"
-                  />
-                  <img
-                    src={image?.backgroundImage}
-                    className="absolute inset-0 w-full h-full transition-opacity ease-in-out duration-1000 rounded-lg opacity-0 group-hover:opacity-100"
-                    alt="Image 2"
-                  />
-                  <div className="image-name heading  absolute bottom-0 left-0  text-amber-500 w-full text-center justify-center flex items-center py-2 font-bold text-xl">
-                    <h1 className="flex justify-center items-center text-center">
-                      {image.categoryId?.name}
-                    </h1>
+            : cart?.productsData
+                ?.filter((item) => item.categoryId !== null)
+                .map((image, index) => (
+                  <div
+                    key={index}
+                    className="w-full relative border-none  mb-4 overflow-hidden border group gallery-item  rounded-xl bg-[#E0DDDD] cursor-pointer"
+                    style={{ height: getRandomHeight() }}
+                    onClick={() =>
+                      cart.cardButton(
+                        image?.categoryId?.name.split(" ").join(""),
+                        image?.categoryId?._id
+                      )
+                    }
+                  >
+                    <img
+                      src={`data:image/png;base64,${image?.avatar?.image}`}
+                      className="w-full h-full rounded-lg gellary transition-all ease-in-out overflow-hidden"
+                    />
+                    <img
+                      src={`data:image/png;base64,${image?.bgImage?.image}`}
+                      className="absolute inset-0 w-full h-full transition-opacity ease-in-out duration-1000 rounded-lg opacity-0 group-hover:opacity-100"
+                      alt="Image 2"
+                    />
+                    <div className="image-name heading  absolute bottom-0 left-0  text-amber-500 w-full text-center justify-center flex items-center py-2 font-bold text-xl">
+                      <h1 className="flex justify-center items-center text-center">
+                        {image.categoryId?.name}
+                      </h1>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
         </div>
       </div>
     </div>

@@ -7,13 +7,19 @@ export const RightSide = ({ data }) => {
   const cart = useContext(AddCardContext);
   return (
     <>
-      <div className=" w-full flex flex-col px-5">
+      <div className=" w-full flex flex-col md:px-5 sticky">
         <div>
-          <h1 className="text-amber-500 font-semibold text-xl pb-2 border-b border-[#414141] heading">
+          {" "}
+          <h1 className="text-[#BFBFBF] text-lg">
+            {data?.categoryId?.name}
+          </h1>{" "}
+        </div>
+        <div>
+          <h1 className="text-amber-500 text-3xl pb-2  heading">
             {data?.name || "Name Light"}
           </h1>
         </div>
-        <div className="flex items-center gap-3 md:gap-5">
+        {/* <div className="flex items-center gap-3 md:gap-5">
           <div className="py-3">
             <div class="flex items-center mt-2.5 mb-2.5">
               <div class="flex items-center space-x-1 rtl:space-x-reverse">
@@ -77,29 +83,58 @@ export const RightSide = ({ data }) => {
               </h1>
             </div>
           </a>
-        </div>
+        </div> */}
         <div className="flex flex-col">
-          <div className="flex flex-col border-y gap-5 py-5 border-[#414141]">
+          <div className="flex flex-col  gap-5 py-5 ">
             {" "}
             <div className="flex  font-semibold ">
-              <h1 className="text-white w-32 heading">Brand :</h1>
-              <h1 className="text-[#b1b1b1] md:px-10 italic">Name</h1>
+              <h1 className="text-white  text-4xl flex gap-2">
+                <span className="heading ">Rs.</span>
+                {data?.price}
+              </h1>
             </div>
             <div className="flex  font-semibold ">
-              <h1 className="text-white w-32 heading">Product Code :</h1>
-              <h1 className="text-[#b1b1b1] md:px-10 italic">Product 21</h1>
+              <h1 className="text-[#b1b1b1] w-32 heading">Availabel Stock :</h1>
+              <h1 className="text-[#b1b1b1] md:px-10 italic">
+                {data?.inStock?.toString()}
+              </h1>
             </div>
-            <div className="flex  font-semibold ">
-              <h1 className="text-white w-32 heading">SKU :</h1>
-              <h1 className="text-[#b1b1b1] md:px-10 italic">test 1</h1>
+            {/* <div>
+              <button className="bg-white flex gap-4 p-3 text-xl ">
+                <h1 onClick={cart.subtractQuantity}>-</h1>
+                <h1 className="">{cart.quantity}</h1>
+                <h1 className="" onClick={cart?.addQuantity}>
+                  +
+                </h1>
+              </button>
+            </div> */}
+            <div className="flex justify-start items-center">
+              <button
+                className="shop-button px-4 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full"
+                onClick={() => cart.addToCart(data)}
+              >
+                <span>Add to Cart</span>
+              </button>
             </div>
-            <div className="flex  font-semibold ">
-              <h1 className="text-white w-32 heading">Availabel Stock :</h1>
-              <h1 className="text-[#b1b1b1] md:px-10 italic">954</h1>
+            <div className="flex   ">
+              <h1 className="text-[#b1b1b1] text-lg italic">
+                {data?.description}
+              </h1>
+            </div>
+            <div className="flex flex-col font-semibold mt-3">
+              <h1 className="text-amber-500 text-xl heading ">
+                Shipping & Retrun
+              </h1>
+              <h1 className="text-[#b1b1b1] mt-2">
+                🚚 Delivery in Lahore: Free Shipping! For other cities, enjoy
+                our reliable shipping service with a client fee of RS 10,000.
+                Your order will be delivered within 10 to 14 days. Shop now and
+                experience convenience at your doorstep! 🌟
+              </h1>
             </div>
           </div>
 
-          <div className=" flex flex-col">
+          {/* <div className=" flex flex-col">
             <h1 className="flex text-white text-2xl font-bold py-2">
               <span>$</span>300<span>.00</span>
             </h1>
@@ -112,25 +147,7 @@ export const RightSide = ({ data }) => {
               Available Options
             </h1>
           </div>
-          <div className="flex items-center justify-start gap-5 pt-5 ">
-            <div>
-              <button className="bg-white flex gap-4 p-3 text-xl ">
-                <h1 onClick={cart.subtractQuantity}>-</h1>
-                <h1 className="">{cart.quantity}</h1>
-                <h1 className="" onClick={cart?.addQuantity}>
-                  +
-                </h1>
-              </button>
-            </div>
-            <div className="flex justify-center items-center">
-              <button
-                className="shop-button px-4 py-3  bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full"
-                onClick={() => cart.addToCart(data)}
-              >
-                <span>Add to Cart</span>
-              </button>
-            </div>
-          </div>
+          <div className="flex items-center justify-start gap-5 pt-5 "></div>
           <div className="flex py-2 justify-start items-center gap-5 ">
             <div className="flex justify-center items-center py-2 hover:border-b-2  gap-3 text-white">
               {" "}
@@ -139,7 +156,7 @@ export const RightSide = ({ data }) => {
               </div>{" "}
               Add to list{" "}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

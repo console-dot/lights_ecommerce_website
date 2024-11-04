@@ -1,31 +1,6 @@
 import React, { useContext } from "react";
 import { ProductCard } from "../resuableComponents";
-import {
-  indoorLight,
-  indoorLightbg,
-  light1,
-  light1Bg,
-  light2,
-  light2Bg,
-  multiLight,
-  multiLightbg,
-  restaurantLight,
-  restaurantLight1,
-  restaurantLight1bg,
-  restaurantLightbg,
-  table,
-  table1,
-  table1bg,
-  table2,
-  table2bg,
-  table3,
-  table3bg,
-  tablebg,
-  wallLight,
-  wallLight1,
-  wallLight1bg,
-  wallLightbg,
-} from "../../assets";
+
 import { Link } from "react-router-dom";
 import AddCardContext from "../../context/addCart/AddCardContext";
 
@@ -121,6 +96,7 @@ export const NewArrivals = () => {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 md:p-0 p-2 gap-4 place-items-center">
           {cart.productsData
+            ?.filter((item) => item.categoryId !== null)
             ?.filter((item) => item.section === "new_arrivals")
             ?.map((i, index) => (
               <ProductCard data={i} id={index} />

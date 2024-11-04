@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
-import { decorateLight2, dignoalLines, logo } from "../../assets";
+import React, { useContext, useState } from "react";
+import { decorateLight2, dignoalLines } from "../../assets";
 import { ImCross } from "react-icons/im";
 import { toast } from "react-toastify";
 import { userLogin } from "../../api/user";
-import { getTestimonial } from "../../api/testmonials";
 import AddCardContext from "../../context/addCart/AddCardContext";
+import { forgetPassword } from "../../api/resetPassword";
 export const Login = () => {
   const [fromdata, setFromdata] = useState({});
+  const [resetdata, setResetdata] = useState({});
   const data = useContext(AddCardContext);
 
   const login = async () => {
@@ -18,21 +19,38 @@ export const Login = () => {
             email: " ",
             password: " ",
           });
-          // data?.setCheckProfile(true);
+          if (res.status === 200) {
+            toast("Login successfully");
+            data?.setCheckProfile(true);
+          }
           data?.setIsModalOpen(false);
-          toast("Login successfully");
-          localStorage.setItem("access_token", res?.refreshToken);
+          localStorage.setItem("access_token", res?.accessToken);
+          localStorage.setItem("refreshToken", res?.refreshToken);
           localStorage.setItem("user_Id", res?.user?._id);
+
+          if (res?.user?.cartId) {
+            localStorage.setItem("cartId", res?.user?.cartId);
+          }
         } else {
           toast(res?.response?.data?.message);
         }
       } catch (error) {
-        console.error("Error during login or fetching testimonials:", error);
-        toast("An error occurred during login or fetching testimonials.");
+        console.error("login error:", error);
+        toast(`${error.response.data.message}`);
       }
     }
   };
 
+  const forgetPasswordCall = () => {
+    data?.setIsFrogetModal(true);
+    data?.setIsModalOpen(false);
+  };
+
+  const frogetPasswordFun = async () => {
+    const res = await forgetPassword({ fromdata: resetdata });
+    console.log(res);
+  };
+  console.log(data.isForgetModal);
   return (
     <>
       <div>
@@ -102,12 +120,12 @@ export const Login = () => {
                           </label>
                         </div>
                         <div class="md:text-sm text-[12px] text-end">
-                          <a
-                            href="#"
-                            class=" font-semibold  heading tracking-wide text-amber-500"
+                          <div
+                            onClick={forgetPasswordCall}
+                            class=" font-semibold cursor-pointer  heading tracking-wide text-amber-500"
                           >
                             Forgot password?
-                          </a>
+                          </div>
                         </div>
                       </div>
                       <div className="w-full flex justify-center items-center mt-2 ">
@@ -137,6 +155,55 @@ export const Login = () => {
                         alt="Light House 1"
                         className=" hover:scale-105 w-full h-full transform transition-transform duration-500"
                       />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </dialog>
+        )}
+        {data.isForgetModal && (
+          <dialog id="my_modal_1" className="modal w-full" open>
+            <div className="modal-box relative z-50  bg-black rounded-none max-w-4xl md:h-[300px] h-[450px] border-[10px] p-2 md:p-5  border-[#5a5656] w-2/5">
+              <div className="w-full  top-0 right-0 flex justify-end absolute z-50  p-4">
+                <ImCross
+                  className="text-[#CCCCCC] cursor-pointer"
+                  onClick={() => data.setIsFrogetModal(false)}
+                />
+              </div>
+              <div className="w-full h-full flex relative">
+                <div className="w-full flex justify-center items-center">
+                  <div className="w-full flex flex-col">
+                    <h1 className="heading text-4xl font-semibold text-amber-500 text-center pb-5">
+                      Reset Password
+                    </h1>
+                    <div class=" xl:space-y-5">
+                      <div class="md:space-y-5 space-y-2 pb-5">
+                        <label class="heading text-2xl font-semibold text-amber-500 tracking-wide">
+                          Email
+                        </label>
+                        <input
+                          class=" w-full text-base px-4 py-3 border text-white  border-gray-300 placeholder:text-[#727272] rounded-lg bg-transparent focus:outline-none focus:border-amber-500"
+                          name="email"
+                          onChange={(e) =>
+                            setResetdata({
+                              ...resetdata,
+                              [e.target.name]: e.target.value,
+                            })
+                          }
+                          type=""
+                          placeholder="mail@gmail.com"
+                        />
+                      </div>
+                      <div className="w-full flex justify-center items-center mt-2 ">
+                        <button
+                          onClick={frogetPasswordFun}
+                          type="submit"
+                          class=" flex justify-center px-3 bg-amber-500    text-gray-100 py-3 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
+                        >
+                          Reset Password
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
