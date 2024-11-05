@@ -13,6 +13,7 @@ import {
   LuxuryStylist,
   NewArrivals,
   OurBenefits,
+  SignUp,
   SignUpNewsLetter,
   Testimonials,
 } from "../components";
@@ -39,6 +40,7 @@ export const HomePage = () => {
       <FutureProducts />
       <NewArrivals />
       <Login/>
+      <SignUp/>
     </Layout>
   );
 };

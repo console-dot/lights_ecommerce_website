@@ -49,12 +49,12 @@ export const ProductCard = ({ data }) => {
           >
             <img
               src={`data:image/png;base64,${data?.avatar?.image}`}
-              className="relative w-full h-full inset-0 transition-opacity ease-in-out bg-[#e0dddd] duration-1000 group-hover:opacity-0"
+              className="relative w-full rounded-lg h-full inset-0 transition-opacity ease-in-out bg-[#e0dddd] duration-1000 group-hover:opacity-0"
               alt="Image 1"
             />
             <img
-              src={data?.imageBackground}
-              className="absolute inset-0 w-full h-full transition-opacity ease-in-out duration-1000  opacity-0 group-hover:opacity-100"
+              src={`data:image/png;base64,${data?.bgImage?.image}`}
+              className="absolute z-40 inset-0 w-full rounded-lg h-full transition-opacity ease-in-out duration-1000  opacity-0 group-hover:opacity-100"
               alt="Image 2"
             />
           </div>
@@ -140,7 +140,7 @@ export const ProductCard = ({ data }) => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center h-[20%]">
-            <h1 className="font-semibold md:text-xl md:py-2 text-[#CCCCCC] heading">
+            <h1 className="font-semibold  md:py-2 text-[#CCCCCC] heading">
               {isMobile
                 ? data?.name || data?.title.substring(0, 10)
                 : data?.name || data?.title}

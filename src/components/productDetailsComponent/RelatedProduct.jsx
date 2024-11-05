@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { ProductCard } from "../resuableComponents";
+import AddCardContext from "../../context/addCart/AddCardContext";
 
-export const RelatedProduct = ({ productData }) => {
+export const RelatedProduct = ({ data }) => {
+  const cart = useContext(AddCardContext);
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mt-10 md:mt-0">
       <div className="container ">
-        <div className="p-4 w-full">
+        <div className="md:p-4 w-full">
           <div className="flex justify-center items-center">
             <h1 className="text-3xl font-semibold text-amber-500 md:py-10 heading">
               Related Product
@@ -45,15 +47,20 @@ export const RelatedProduct = ({ productData }) => {
             modules={[Navigation, Pagination]}
             className="mySwiper"
           >
-            {productData?.map((product, index) => (
-              <SwiperSlide
-                key={index}
-                className="w-full justify-center items-center p-4 md:py-4"
-                style={{ display: "flex" }}
-              >
-                <ProductCard data={product} id={index} />
-              </SwiperSlide>
-            ))}
+            {cart.productsData
+              ?.filter(
+                (item) => item?.categoryId?._id === data?.categoryId?._id
+              )
+              .filter((i) => i._id !== data?._id)
+              .map((product, index) => (
+                <SwiperSlide
+                  key={index}
+                  className="w-full justify-center items-center md:py-4 mt-5"
+                  style={{ display: "flex" }}
+                >
+                  <ProductCard data={product} id={index} />
+                </SwiperSlide>
+              ))}
           </Swiper>
         </div>
       </div>

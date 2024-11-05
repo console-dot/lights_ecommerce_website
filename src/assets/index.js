@@ -58,8 +58,10 @@ import table6bg from "./tabellamp6.jpg";
 import table6 from "./tabellamp6bg.png";
 import commercialLight from "./Commercial Light.png"
 import commercialLightbg from "./Commercial Lightbg.jpg"
+import order from "./order.png"
 
 export {
+  order,
   light1Bg,
   light2,
   light1,

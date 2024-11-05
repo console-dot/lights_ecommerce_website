@@ -1,75 +1,94 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import AddCardContext from "../../context/addCart/AddCardContext";
 
 export const Step3Component = ({ setStep, checkOutData }) => {
-  const navigate = useNavigate()
-  const handlePrint = () => {
-    const printWindow = window.open("", "_blank");
-    printWindow.document.write(`
-      <html>
-        <head>
-          <title>Checkout Receipt</title>
-          <style>
-            body { font-family: Arial, sans-serif;padding:25px }
-            h1 { color: #232323; }
-            .table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-            .table th, .table td { border: 1px solid #232323; padding: 8px; text-align: left; }
-            .table th { background-color: #f2f2f2; }
-            .total {text-align:end ;  font-weight: bold;}
-          </style>
-        </head>
-        <body>
-          <h1>YOUR ORDER</h1>
-          <p>Thank you for purchasing Suze Orman's Personal Finance One One. Please retain this receipt for your records.</p>
-          <h2>BILLING ADDRESS</h2>
-          <p>Name : <span>${checkOutData?.firstName} ${
-      checkOutData?.lastName
-    }</span></p>
-          <p>Address : <span>${checkOutData?.address}</span> </p>
-          <p>Phone Number : <span>${checkOutData?.phone}</span> </p>
-          <p>City :<span> ${checkOutData?.city}</span></p>
-          <h2>ORDER SUMMARY</h2>
-          <p>Order #: ${checkOutData?._id}</p>
-          <p>Date: ${checkOutData?.checkoutDate}</p>
-          <p>Order Total: ${checkOutData?.products.reduce(
-            (acc, obj) => acc + obj.price,
-            0
-          )} Rs</p>
-          
-          <h2>Products</h2>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Price (Rs)</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${checkOutData?.products
-                .map(
-                  (product) => `
-                <tr>
-                  <td>${product.productId.name}</td>
-                  <td>${product.quantity}</td>
-                  <td>${product.price}</td>
-                </tr>
-              `
-                )
-                .join("")}
-            </tbody>
-          </table>
-              <p class="total"> Total Price: ${checkOutData?.products.reduce(
-                (acc, obj) => acc + obj.price,
-                0
-              )} Rs</p>
-        </body>
-      </html>
-    `);
-    printWindow.document.close();
-    printWindow.print();
-    navigate(`/`)
+  const cart = useContext(AddCardContext);
+
+  const setCheckOutDate = {
+    checkoutDate: checkOutData?.checkoutDate,
   };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true, // Use 12-hour format
+    };
+    return date.toLocaleString("en-US", options);
+  };
+
+  // const handlePrint = () => {
+  //   const printWindow = window.open("", "_blank");
+  //   printWindow.document.write(`
+  //     <html>
+  //       <head>
+  //         <title>Checkout Receipt</title>
+  //         <style>
+  //           body { font-family: Arial, sans-serif;padding:25px }
+  //           h1 { color: #232323; }
+  //           .table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  //           .table th, .table td { border: 1px solid #232323; padding: 8px; text-align: left; }
+  //           .table th { background-color: #f2f2f2; }
+  //           .total {text-align:end ;  font-weight: bold;}
+  //         </style>
+  //       </head>
+  //       <body>
+  //         <h1>YOUR ORDER</h1>
+  //         <p>Thank you for purchasing Suze Orman's Personal Finance One One. Please retain this receipt for your records.</p>
+  //         <h2>BILLING ADDRESS</h2>
+  //         <p>Name : <span>${checkOutData?.firstName} ${
+  //     checkOutData?.lastName
+  //   }</span></p>
+  //         <p>Address : <span>${checkOutData?.address}</span> </p>
+  //         <p>Phone Number : <span>${checkOutData?.phone}</span> </p>
+  //         <p>City :<span> ${checkOutData?.city}</span></p>
+  //         <h2>ORDER SUMMARY</h2>
+  //         <p>Order #: ${checkOutData?._id}</p>
+  //         <p>Date: ${checkOutData?.checkoutDate}</p>
+  //         <p>Order Total: ${checkOutData?.products.reduce(
+  //           (acc, obj) => acc + obj.price,
+  //           0
+  //         )} Rs</p>
+
+  //         <h2>Products</h2>
+  //         <table class="table">
+  //           <thead>
+  //             <tr>
+  //               <th>Product Name</th>
+  //               <th>Quantity</th>
+  //               <th>Price (Rs)</th>
+  //             </tr>
+  //           </thead>
+  //           <tbody>
+  //             ${checkOutData?.products
+  //               .map(
+  //                 (product) => `
+  //               <tr>
+  //                 <td>${product.productId.name}</td>
+  //                 <td>${product.quantity}</td>
+  //                 <td>${product.price}</td>
+  //               </tr>
+  //             `
+  //               )
+  //               .join("")}
+  //           </tbody>
+  //         </table>
+  //             <p class="total"> Total Price: ${checkOutData?.products.reduce(
+  //               (acc, obj) => acc + obj.price,
+  //               0
+  //             )} Rs</p>
+  //       </body>
+  //     </html>
+  //   `);
+  //   printWindow.document.close();
+  //   printWindow.print();
+  //   navigate(`/`)
+  // };
 
   return (
     <>
@@ -109,7 +128,7 @@ export const Step3Component = ({ setStep, checkOutData }) => {
                 <div className="flex gap-1">
                   <h1>Date :</h1>
                   <h1 className="text-[#494949]">
-                    {checkOutData?.checkoutDate}
+                    {formatDate(setCheckOutDate?.checkoutDate)}
                   </h1>
                 </div>
                 <div className="flex gap-1">
@@ -118,8 +137,8 @@ export const Step3Component = ({ setStep, checkOutData }) => {
                     {checkOutData?.products.reduce(
                       (acc, obj) => acc + obj.price,
                       0
-                    )}{" "}
-                    Rs
+                    )}
+                    /- Rs
                   </h1>
                 </div>
               </div>
@@ -136,8 +155,8 @@ export const Step3Component = ({ setStep, checkOutData }) => {
                   {checkOutData?.products.reduce(
                     (acc, obj) => acc + obj.price,
                     0
-                  )}{" "}
-                  Rs
+                  )}
+                  /- Rs
                 </h1>
               </div>
             </div>
@@ -158,9 +177,9 @@ export const Step3Component = ({ setStep, checkOutData }) => {
         <div className="mt-10">
           <button
             className="bg-white py-3 px-7 rounded-lg"
-            onClick={handlePrint}
+            onClick={() =>cart.handleComponentChange("order")}
           >
-            Print Checkout
+            Checkout
           </button>
         </div>
       </div>

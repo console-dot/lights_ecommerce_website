@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Layout } from '../themes'
-import { AllProductCards, Login } from '../components'
+import { AllProductCards, Login, SignUp } from '../components'
 import AddCardContext from '../context/addCart/AddCardContext'
 
 export const AllProductCardsPage = () => {
@@ -12,6 +12,7 @@ export const AllProductCardsPage = () => {
     <Layout>
           <AllProductCards/>
           <Login/>
+          <SignUp/>
     </Layout>
   )
 }

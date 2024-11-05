@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const BreadCrumbsDetailPage = ({data}) => {
+export const BreadCrumbsDetailPage = ({ data }) => {
   return (
     <div className="">
       <div className="flex justify-center items-center bg-transparent  h-24 cursor-pointer">
-        <div className="container flex-row  justify-start  px-5"style={{alignItems:'start'}}>
+        <div
+          className="container flex-row  justify-start  md:px-5"
+          style={{ alignItems: "start" }}
+        >
           <div className="">
-            <nav class="flex bg-transparent items-start justify-start" aria-label="Breadcrumb">
+            <nav
+              class="flex bg-transparent items-start justify-start"
+              aria-label="Breadcrumb"
+            >
               <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li class="inline-flex items-center">
                   <div class="inline-flex items-center text-sm font-medium text-white px-3 py-2 rounded-lg hover:text-white hover:bg-amber-500 dark:text-gray-400 dark:hover:text-white ">
@@ -62,7 +68,9 @@ export const BreadCrumbsDetailPage = ({data}) => {
                         d="m1 9 4-4-4-4"
                       />
                     </svg>
-                    <span class="ms-1 text-sm font-medium text-amber-500 md:ms-2 dark:text-gray-400">{data?.name}</span>
+                    <span class="ms-1 text-sm font-medium text-amber-500 md:ms-2 dark:text-gray-400">
+                      {data?.name}
+                    </span>
                   </div>
                 </li>
               </ol>

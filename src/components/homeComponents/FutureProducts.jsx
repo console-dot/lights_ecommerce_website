@@ -6,7 +6,6 @@ import AddCardContext from "../../context/addCart/AddCardContext";
 export const FutureProducts = () => {
   const cart = useContext(AddCardContext);
   useEffect(() => {
-    console.log(cart.productsData);
   }, [cart.productsData]);
   return (
     <div className="flex justify-center items-center">
@@ -27,6 +26,7 @@ export const FutureProducts = () => {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 md:p-0 p-2 gap-4 place-items-center">
           {cart.productsData
+            ?.filter((item) => item.categoryId !== null)
             ?.filter((item) => item.section === "feature")
             .map((i, index) => (
               <ProductCard data={i} id={index} />

@@ -3,10 +3,28 @@ import React, { useContext, useEffect } from "react";
 import AddCardContext from "../../context/addCart/AddCardContext";
 import { createCheckOut } from "../../api/checkOut";
 import { toast } from "react-toastify";
+import { getUser } from "../../api/user";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 export const Step1Component = ({ setStep, fromdata, setFromData }) => {
   const cart = useContext(AddCardContext);
   let result;
+  const navigate = useNavigate();
+  const getProfileCall = async () => {
+    const userId = localStorage.getItem("user_Id");
+    const token = localStorage.getItem("access_token");
+    const res = await getUser({ id: userId, token });
+    setFromData(res);
+    if (res.error === 401) {
+      toast("section are expire");
+      localStorage.clear();
+      navigate(`/`);
+    }
+  };
+  useEffect(() => {
+    getProfileCall();
+  }, []);
 
   const nextStep = async () => {
     setStep("2");
@@ -19,20 +37,23 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
         price: product.productId.price * product.quantity,
       };
 
-      console.log(checkoutData);
       newCheckoutData.push(checkoutData);
     });
 
     setFromData({ ...fromdata, products: newCheckoutData });
   };
-  useEffect(() => {
-    console.log(fromdata);
-  }, [fromdata]);
+  useEffect(() => {}, [fromdata]);
   return (
     <>
-      <div className="w-full flex justify-center mt-10">
+      <div className="relative w-full flex justify-center mt-10">
+        <div className="fixed top-10 left-10">
+          <FaArrowLeft
+            className=" text-amber-500 text-3xl cursor-pointer"
+            onClick={() =>navigate(`/`)}
+          />
+        </div>
         <div className="w-4/5 flex gap-10 justify-center">
-          <div className=" border-[5px] border-[#232323] w-1/2 p-4 text-white ">
+          <div className=" border-[5px] border-[#232323] flex flex-col justify-around w-1/2 p-4 text-white ">
             <div className="flex gap-2 mt-2 justify-between items-center">
               <h1>BILLING INFORMATION</h1>
               <h1 className="text-[#696969]">* Required Field</h1>
@@ -110,25 +131,8 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
                   <input
                     className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
                     placeholder="State Name"
-                  />
-                </div>
-              </div>
-              <div className="flex gap-4 mt-2">
-                <div className="flex gap-2 mt-2 flex-col w-1/2">
-                  <h1>Country *</h1>
-                  <input
-                    className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
-                    placeholder="Country Name"
-                  />
-                </div>
-                <div className="flex gap-2 mt-2 flex-col w-1/2">
-                  <h1>Zip Code*</h1>
-                  <input
-                    className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
-                    placeholder="Zip Code "
-                    name="zip"
-                    value={fromdata?.zip}
-                    required
+                    name="state"
+                    value={fromdata?.state}
                     onChange={(e) =>
                       setFromData({
                         ...fromdata,
@@ -200,7 +204,7 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
                         />
                       </div>
                       <div className="w-[20%] text-center text-xs md:text-base flex justify-center items-center text-amber-500">
-                        {i?.productId?.name || i?.title}
+                        {i?.productId?.name.substring(0, 10)}
                       </div>
                       <div className=" justify-center items-center flex w-[20%] ">
                         <div className=" justify-center items-center flex gap-1 xxs:gap-2 md:gap-1">

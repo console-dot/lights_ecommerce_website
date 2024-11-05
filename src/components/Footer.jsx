@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { logo } from "../assets";
 import { FaLocationDot, FaSquareFacebook } from "react-icons/fa6";
 import { FaInstagramSquare, FaPhoneAlt, FaTwitterSquare } from "react-icons/fa";
@@ -8,17 +8,20 @@ import { FcGoogle } from "react-icons/fc";
 import { RxCross1 } from "react-icons/rx";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useParams } from "react-router-dom";
+import { getProductCategory } from "../api/productCategory";
+import AddCardContext from "../context/addCart/AddCardContext";
 export const Footer = () => {
   const [isProfile, setIsProfile] = useState(true);
 
-  const showProfile = window.location.href 
-  useEffect(()=>{
-    if(showProfile === "http://localhost:3000/profile"){
-      setIsProfile(false)
 
+  const cart = useContext(AddCardContext);
+
+  const showProfile = window.location.href;
+  useEffect(() => {
+    if (showProfile === "http://localhost:3000/profile") {
+      setIsProfile(false);
     }
-  },[])
- 
+  }, []);
 
   const [isOpen, setIsOpen] = useState("");
   const handleToggle = (prop) => {
@@ -51,10 +54,7 @@ export const Footer = () => {
               </div>
               <div className="lg:w-1/4 w-full flex flex-col px-5 ">
                 <div className="w-full lg:hidden">
-                  <div
-                    className=" text-left flex justify-between items-center  relative"
-                    // onClick={() => handleToggle("Light")}
-                  >
+                  <div className=" text-left flex justify-between items-center  relative">
                     <h1 className="text-white font-semibold text-xl heading ">
                       Information
                     </h1>
@@ -78,25 +78,51 @@ export const Footer = () => {
                     }`}
                   >
                     <div className="p-2 w-full h-ful bg-transparent italic ">
-                      <h1 className="text-[#CCCC]">About Us</h1>
-                      <h1 className="text-[#CCCC]">Delivery Information</h1>
-                      <h1 className="text-[#CCCC]">Privacy Policy</h1>
-                      <h1 className="text-[#CCCC]">Terms & Conditions</h1>
-                      <h1 className="text-[#CCCC]">Contact Us</h1>
+                      {cart?.productCategoryData?.map((menu, index) => (
+                        <li key={index} className="relative">
+                          <button className="flex items-center h-[70px]">
+                            <div
+                              className={`nav-link navHeading text-sm ${
+                                cart.activeButton ===
+                                menu.name.split(" ").join("").toLowerCase()
+                                  ? "text-amber-400"
+                                  : "text-white"
+                              }`}
+                              onClick={() =>
+                                cart.cardButton(menu?.name, menu?._id)
+                              }
+                            >
+                              <h1>{menu.name.toUpperCase()}</h1>
+                            </div>
+                          </button>
+                        </li>
+                      ))}
                     </div>
                   </div>
                 </div>
                 <div className="hidden justify-start items-start lg:flex ">
-                  <h1 className="text-white font-semibold text-2xl  heading">
-                    Information
+                  <h1 className="text-amber-500 font-semibold text-2xl  heading">
+                    Category
                   </h1>
                 </div>
                 <div className=" flex-col pt-5 gap-2 hidden lg:flex italic">
-                  <h1 className="text-[#CCCC]">About Us</h1>
-                  <h1 className="text-[#CCCC]">Delivery Information</h1>
-                  <h1 className="text-[#CCCC]">Privacy Policy</h1>
-                  <h1 className="text-[#CCCC]">Terms & Conditions</h1>
-                  <h1 className="text-[#CCCC]">Contact Us</h1>
+                  {cart?.productCategoryData?.map((menu, index) => (
+                    <div key={index} className="relative">
+                      <button className="flex items-center ">
+                        <div
+                          className={`nav-link navHeading text-sm ${
+                            cart.activeButton ===
+                            menu.name.split(" ").join("").toLowerCase()
+                              ? "text-amber-400"
+                              : "text-[#CCCC]"
+                          }`}
+                          onClick={() => cart.cardButton(menu?.name, menu?._id)}
+                        >
+                          <h1>{menu.name.toUpperCase()}</h1>
+                        </div>
+                      </button>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="lg:w-1/4 w-full flex flex-col px-5 ">
@@ -134,16 +160,16 @@ export const Footer = () => {
                   </div>
                 </div>
                 <div className="hidden lg:flex justify-start items-start  ">
-                  <h1 className="text-white font-semibold text-2xl heading">
-                    My Account
+                  <h1 className="text-amber-500 font-semibold text-2xl  heading">
+                  Socials
                   </h1>
                 </div>
                 <div className="hidden lg:flex flex-col pt-5 gap-2 italic">
-                  <h1 className="text-[#CCCC]">My Account</h1>
-                  <h1 className="text-[#CCCC]">Order History</h1>
-                  <h1 className="text-[#CCCC]">Wish List</h1>
-                  <h1 className="text-[#CCCC]">Affiliates</h1>
-                  <h1 className="text-[#CCCC]">Newsletter</h1>
+                  <h1 className="text-[#CCCC]">Facebook</h1>
+                  <h1 className="text-[#CCCC]">Google</h1>
+                  <h1 className="text-[#CCCC]">Instagram</h1>
+                  {/* <h1 className="text-[#CCCC]">Affiliates</h1>
+                  <h1 className="text-[#CCCC]">Newsletter</h1> */}
                 </div>
               </div>
               <div className="lg:w-1/4 w-full flex flex-col px-5 ">
@@ -152,7 +178,7 @@ export const Footer = () => {
                     className=" text-left flex justify-between items-center  relative"
                     // onClick={() => handleToggle("Light")}
                   >
-                    <h1 className="text-white font-semibold text-xl heading">
+                    <h1 className="text-amber-500 font-semibold text-2xl  heading">
                       Store Information
                     </h1>
                     <div className="flex justify-end  items-center absoulte right-0 top-0 z-50 text-white">
@@ -222,13 +248,6 @@ export const Footer = () => {
                 <h1 className="text-[#CCCC] text-center ">
                   Copyright © 2024 ConsoleDot. All rights reserved.
                 </h1>
-              </div>
-              <div className="flex items-center gap-4 pt-5">
-                <FaSquareFacebook className="text-blue-700 bg-white  text-2xl" />
-                <FaTwitterSquare className="text-blue-700 bg-white text-2xl" />
-                <TfiYoutube className="text-red-700 bg-white text-2xl p-[1px]" />
-                <FcGoogle className="bg-white" />
-                <FaInstagramSquare className="text-pink-700 bg-white text-2xl" />
               </div>
             </div>
           </div>

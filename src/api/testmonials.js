@@ -6,7 +6,6 @@ export const getTestimonial = async () => {
         {
             method: 'GET',
             url: `http://localhost:5000/testimonial`,
-            // headers: { Authorization: `Bearer ${token}` }
         }
     );
     return res
