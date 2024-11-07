@@ -92,10 +92,10 @@ export const Step3Component = ({ setStep, checkOutData }) => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center mt-10">
-        <div className="border-[5px] border-[#232323] p-5 w-3/5">
+      <div className="flex flex-col items-center justify-center mt-10 pb-10 px-2 md:px-0 md:pb-0">
+        <div className="border-[5px] border-[#232323] p-3 md:p-5 w-full md:w-3/5">
           <div>
-            <h1 className="text-white">YOUR ORDER</h1>
+            <h1 className="text-amber-500 font-semibold">YOUR ORDER</h1>
             <hr className="border-[#232323] my-2" />
             <div className="flex justify-between text-white">
               <h1 className="text-[#494949]">
@@ -104,9 +104,9 @@ export const Step3Component = ({ setStep, checkOutData }) => {
               </h1>
             </div>
           </div>
-          <div className="w-full flex gap-20 mt-10">
-            <div className="w-1/2 text-white">
-              <h1>BILLING ADDRESS</h1>
+          <div className="w-full flex flex-col md:flex-row gap-5 md:gap-20 mt-10">
+            <div className="w-full md:w-1/2 text-white">
+              <h1 className="text-amber-500 font-semibold">BILLING ADDRESS</h1>
               <hr className="border-[#232323] border mt-1" />
               <div className="mt-2">
                 <h1>
@@ -117,17 +117,17 @@ export const Step3Component = ({ setStep, checkOutData }) => {
                 <h1>{checkOutData?.city}</h1>
               </div>
             </div>
-            <div className="w-1/2 text-white">
-              <h1>ORDER SUMMARY</h1>
+            <div className="w-full md:w-1/2 text-white">
+              <h1 className="text-amber-500 font-semibold">ORDER SUMMARY</h1>
               <hr className="border-[#232323] border mt-1" />
               <div className="mt-2">
                 <div className="flex gap-1">
-                  <h1>Order # :</h1>
-                  <h1 className="text-[#494949]">{checkOutData?._id}</h1>
+                  <h1 className="text-sm">Order # :</h1>
+                  <h1 className="text-sm text-[#494949]">{checkOutData?._id}</h1>
                 </div>
                 <div className="flex gap-1">
-                  <h1>Date :</h1>
-                  <h1 className="text-[#494949]">
+                  <h1 className="text-sm">Date :</h1>
+                  <h1 className="text-sm text-[#494949]">
                     {formatDate(setCheckOutDate?.checkoutDate)}
                   </h1>
                 </div>
@@ -145,9 +145,9 @@ export const Step3Component = ({ setStep, checkOutData }) => {
             </div>
           </div>
 
-          <div className="flex gap-20">
-            <div className="w-3/5 mt-5">
-              <h1 className="text-white">YOUR ORDER</h1>
+          <div className="flex flex-col md:flex-row  gap-5 md:gap-20">
+            <div className="w-full md:w-3/5 mt-5">
+              <h1 className="text-amber-500 font-semibold">YOUR ORDER</h1>
               <hr className="border-[#232323] my-2" />
               <div className="flex justify-between text-white">
                 <h1>Subtotal</h1>
@@ -160,7 +160,7 @@ export const Step3Component = ({ setStep, checkOutData }) => {
                 </h1>
               </div>
             </div>
-            <div className="w-2/5 flex flex-col justify-center items-center">
+            <div className="w-full md:w-2/5 flex flex-col justify-center items-center">
               <h1 className="text-white">Order Total</h1>
               <div className="flex ">
                 <h1 className="text-7xl text-amber-500">

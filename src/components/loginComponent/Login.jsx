@@ -8,6 +8,7 @@ import { forgetPassword } from "../../api/resetPassword";
 export const Login = () => {
   const [fromdata, setFromdata] = useState({});
   const [resetdata, setResetdata] = useState({});
+
   const data = useContext(AddCardContext);
 
   const login = async () => {
@@ -48,9 +49,13 @@ export const Login = () => {
 
   const frogetPasswordFun = async () => {
     const res = await forgetPassword({ fromdata: resetdata });
+    if (res.status === 201) {
+      toast("send message in email");
+      data?.setIsFrogetModal(false);
+    }
     console.log(res);
   };
-  console.log(data.isForgetModal);
+
   return (
     <>
       <div>
@@ -164,7 +169,7 @@ export const Login = () => {
         )}
         {data.isForgetModal && (
           <dialog id="my_modal_1" className="modal w-full" open>
-            <div className="modal-box relative z-50  bg-black rounded-none max-w-4xl md:h-[300px] h-[450px] border-[10px] p-2 md:p-5  border-[#5a5656] w-2/5">
+            <div className="modal-box relative z-50  bg-black rounded-none w-full md:max-w-4xl md:h-[300px] h-[300px] border-[10px] p-2 md:p-5  border-[#5a5656] md:w-2/5">
               <div className="w-full  top-0 right-0 flex justify-end absolute z-50  p-4">
                 <ImCross
                   className="text-[#CCCCCC] cursor-pointer"
@@ -174,12 +179,12 @@ export const Login = () => {
               <div className="w-full h-full flex relative">
                 <div className="w-full flex justify-center items-center">
                   <div className="w-full flex flex-col">
-                    <h1 className="heading text-4xl font-semibold text-amber-500 text-center pb-5">
+                    <h1 className="heading text-2xl md:text-4xl font-semibold text-amber-500 text-center pb-5">
                       Reset Password
                     </h1>
                     <div class=" xl:space-y-5">
                       <div class="md:space-y-5 space-y-2 pb-5">
-                        <label class="heading text-2xl font-semibold text-amber-500 tracking-wide">
+                        <label class="heading text-xl md:text-2xl font-semibold text-amber-500 tracking-wide">
                           Email
                         </label>
                         <input

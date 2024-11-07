@@ -45,15 +45,15 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
   useEffect(() => {}, [fromdata]);
   return (
     <>
-      <div className="relative w-full flex justify-center mt-10">
-        <div className="fixed top-10 left-10">
+      <div className="relative w-full flex justify-center mt-10 pb-10 xl:pb-0">
+        <div className="fixed top-5 left-5 md:top-10 md:left-10">
           <FaArrowLeft
             className=" text-amber-500 text-3xl cursor-pointer"
-            onClick={() =>navigate(`/`)}
+            onClick={() => navigate(`/`)}
           />
         </div>
-        <div className="w-4/5 flex gap-10 justify-center">
-          <div className=" border-[5px] border-[#232323] flex flex-col justify-around w-1/2 p-4 text-white ">
+        <div className="w-4/5 flex flex-col md:flex-row gap-10 justify-center">
+          <div className=" border-[5px] border-[#232323] flex flex-col justify-around w-full md:w-1/2 p-4 text-white ">
             <div className="flex gap-2 mt-2 justify-between items-center">
               <h1>BILLING INFORMATION</h1>
               <h1 className="text-[#696969]">* Required Field</h1>
@@ -177,7 +177,7 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
               </div>
             </div>
           </div>
-          <div className="w-2/5 flex flex-col gap-10">
+          <div className="w-full md:w-2/5 flex flex-col gap-10">
             <div className="border-[5px] border-[#232323] p-4 h-[300px] overflow-y-scroll">
               <div className="flex justify-between ">
                 <h1 className="w-[25%]  heading flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
@@ -247,14 +247,15 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
 
               <div className="mt-4 justify-between flex  p-2">
                 <h1>SubTotal</h1>
-                {
-                  (result = cart.cartData.reduce(
-                    (acc, obj) => acc + obj.productId.price * obj.quantity,
-                    0
-                  ))
-                }
+
                 <h1 className="text-amber-500 text-xl">
-                  {result} <span className="text-sm">Rs</span>{" "}
+                  {
+                    (result = cart.cartData.reduce(
+                      (acc, obj) => acc + obj.productId.price * obj.quantity,
+                      0
+                    ))
+                  }{" "}
+                  <span className="text-sm">Rs</span>{" "}
                 </h1>
               </div>
             </div>

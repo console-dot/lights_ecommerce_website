@@ -45,8 +45,8 @@ export const Gellary = () => {
                     <div className="relative w-full h-full ">
                       <div className="absolute top-0 bg-black opacity-50 w-full h-full flex justify-center  items-center "></div>
                       <div className="flex justify-center items-center w-full h-full ">
-                        <h1 className="text-center text-xl from-zinc-50 font-semibold text-amber-500 z-50 ">
-                          {image.name}
+                        <h1 className="text-center text-xl from-zinc-50 font-semibold text-amber-500 z-40 ">
+                          {image.categoryId?.name}
                         </h1>
                       </div>
                     </div>

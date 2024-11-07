@@ -17,8 +17,8 @@ export const SignUpNewsLetter = () => {
   return (
     <div className="flex justify-center items-center ">
       <div className="container p-4 ">
-        <div className="flex justify-center items-center flex-col md:flex-row w-full  bg-[#171717] overflow-hidden h-[350px] ">
-          <div className="md:w-1/2 overflow-hidden h-full">
+        <div className="flex justify-center items-center flex-col md:flex-row w-full  md:bg-[#171717] overflow-hidden h-[350px] ">
+          <div className="w-full md:w-1/2 overflow-hidden h-full">
             <img
               src={`data:image/png;base64,${signUpNewsLetterData?.imageId?.image}`}
               className="hover:scale-110 transition hover:ease-in ease-out w-full duration-500  overflow-hidden h-full cursor-pointer"

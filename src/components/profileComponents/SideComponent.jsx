@@ -12,7 +12,7 @@ export const SideComponent = () => {
   };
 
   return (
-    <div className=" ">
+    <div className="w-full ">
       <ul className="flex w-full h- flex-col gap-2 border rounded-lg border-[#636363] p-2 bg-transparent">
         <li
           className="cursor-pointer hover:bg-[#CCCCCC] rounded-lg p-2"

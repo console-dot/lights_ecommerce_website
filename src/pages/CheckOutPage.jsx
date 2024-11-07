@@ -11,18 +11,18 @@ export const CheckOutPage = () => {
   const [fromdata, setFromData] = useState();
   return (
     <>
-      <div className="h-screen">
+      <div className="min-h-screen h-full xl:h-screen overflow-hidden">
         <div className="flex justify-center">
           <h1 className="text-amber-500 text-4xl font-bold mt-10 ">CHECKOUT</h1>
         </div>
 
         <div className="flex justify-center items-center mt-5">
-          <ul className="steps w-1/2 text-white ">
-            <li className="step step-primary" value={"1"}>
+          <ul className="steps w-full md:w-1/2 text-white ">
+            <li className="step step-primary text-sm md:text-base" value={"1"}>
               Billing/Paymant
             </li>
             <li
-              className={`step ${
+              className={`step text-sm md:text-base ${
                 step === "2" || step > "2" ? "step-primary" : ""
               }`}
               value={"2"}
@@ -30,7 +30,7 @@ export const CheckOutPage = () => {
               Confirmation
             </li>
             <li
-              className={`step ${step === "3" ? "step-primary" : ""}`}
+              className={`step text-sm md:text-base ${step === "3" ? "step-primary" : ""}`}
               value={"3"}
             >
               Your Receipt
