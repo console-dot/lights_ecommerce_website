@@ -21,20 +21,23 @@ const useMediaQuery = (query) => {
 };
 
 export const ProductCard = ({ data }) => {
-  const [productDetail, setProductDetail] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [productDetail, setProductDetail] = useState(null);
   const isMdOrLarger = useMediaQuery("(min-width: 768px)");
   const [imageIcon, setImageIcon] = useState(false);
   const navigate = useNavigate();
   const cart = useContext(AddCardContext);
+
   useEffect(() => {
-    if (isMdOrLarger) {
-      setImageIcon(false);
-    } else {
-      setImageIcon(true);
-    }
+    setImageIcon(!isMdOrLarger);
   }, [isMdOrLarger]);
 
   const isMobile = useIsMobile();
+
+  const openModal = () => {
+    setProductDetail(data);
+    setIsModalOpen(true); // Open the modal
+  };
   return (
     <>
       <div
@@ -64,10 +67,7 @@ export const ProductCard = ({ data }) => {
                 <div className="flex md:flex-col justify-center items-center flex-row gap-2">
                   <div
                     className="bg-black hidden md:flex md:w-10 w-5 h-5 md:h-10 rounded-full justify-center items-center hover:bg-amber-600"
-                    onClick={() => {
-                      setProductDetail(true);
-                      document.getElementById("my_modal_1").showModal();
-                    }}
+                    onClick={() => openModal(data)}
                   >
                     <FaRegEye className="text-white" />
                   </div>
@@ -90,70 +90,30 @@ export const ProductCard = ({ data }) => {
             } md:absolute right-2 top-2 z-40 md:hidden flex justify-center items-center`}
           >
             <div className="flex items-center justify-center md:mt-2.5 md:mb-5 py-1">
-              <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                <svg
-                  class="w-3 h-3 md:w-4 md:h-4 text-yellow-300"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 22 20"
-                >
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                </svg>
-                <svg
-                  class="w-3 h-3 md:w-4 md:h-4 text-yellow-300"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 22 20"
-                >
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                </svg>
-                <svg
-                  class="w-3 h-3 md:w-4 md:h-4 text-yellow-300"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 22 20"
-                >
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                </svg>
-                <svg
-                  class="w-3 h-3 md:w-4 md:h-4 text-yellow-300"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 22 20"
-                >
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                </svg>
-                <svg
-                  class="w-3 h-3 md:w-4 md:h-4 text-gray-200 dark:text-gray-600"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 22 20"
-                >
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                </svg>
-              </div>
+              {/* Rating stars here */}
             </div>
           </div>
           <div className="flex flex-col justify-center items-center h-[20%]">
             <h1 className="font-semibold  md:py-2 text-[#CCCCCC] heading">
               {isMobile
-                ? data?.name || data?.title.substring(0, 10)
+                ? data?.name.length > 14
+                  ? data?.name.substring(0,14).concat("...")
+                  : data.name
                 : data?.name || data?.title}
             </h1>
             <h1 className="font-semibold inline  text-amber-500 ">
               {data?.price}
             </h1>
           </div>
-          <dialog id="my_modal_1" className="modal flex items-end">
-            <ProductDetailsModal data={data} />
-          </dialog>
         </div>
       </div>
+      {isModalOpen && (
+        <div className="z-50 fixed top-0 flex items-end h-screen w-full">
+          {productDetail && (
+            <ProductDetailsModal data={data} setIsModal={setIsModalOpen} />
+          )}
+        </div>
+      )}
     </>
   );
 };

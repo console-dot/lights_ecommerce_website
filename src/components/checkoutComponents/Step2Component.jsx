@@ -37,17 +37,17 @@ export const Step2Component = ({
   };
   return (
     <>
-      <div className="relative flex justify-center mt-10">
-        <div className="fixed top-10 left-10">
+      <div className="relative flex justify-center mt-10 px-2 md:px-0">
+        <div className="fixed top-5 left-5 md:top-10 md:left-10">
           <FaArrowLeft
             className=" text-amber-500 text-3xl cursor-pointer"
             onClick={() => setStep("1")}
           />
         </div>
-        <div className="border-[5px] border-[#232323] p-5 w-3/5">
-          <div className="w-full flex gap-20">
-            <div className="w-1/2 text-white">
-              <h1>BILLING ADRESS</h1>
+        <div className="border-[5px] border-[#232323] p-5 w-full  md:w-3/5">
+          <div className="w-full flex flex-col md:flex-row gap-2 md:gap-20">
+            <div className="md:w-1/2 text-white">
+              <h1 className="text-amber-500 font-semibold">BILLING ADRESS</h1>
               <hr className="border-[#232323] border mt-1 " />
               <div className="mt-2">
                 <h1>
@@ -58,16 +58,16 @@ export const Step2Component = ({
                 <h1>{fromdata.city}</h1>
               </div>
             </div>
-            <div className="w-1/2 text-white">
-              <h1>PAYMENT DETAILS </h1>
+            <div className="md:w-1/2 text-white">
+              <h1 className="text-amber-500 font-semibold">PAYMENT DETAILS </h1>
               <hr className="border-[#232323] border mt-1" />
               <div className="mt-2">Cash On Delivery</div>
             </div>
           </div>
 
-          <div className="flex gap-20 ">
-            <div className="w-3/5 mt-5">
-              <h1 className="text-white">YOUR ORDER</h1>
+          <div className="flex flex-col md:flex-row md:gap-20 gap-5">
+            <div className="w-full md:w-3/5 mt-5">
+              <h1 className="text-amber-500 font-semibold">YOUR ORDER</h1>
               <hr className="border-[#232323] my-2" />
               <div className="  flex justify-between text-white">
                 <h1>SubTotal</h1>
@@ -83,7 +83,7 @@ export const Step2Component = ({
                 </h1>
               </div>
             </div>
-            <div className="w-2/5 flex justify-center items-center">
+            <div className="w-full md:w-2/5 flex justify-center items-center">
               <button
                 className="bg-white  py-3 px-7 rounded-lg"
                 onClick={createCheckOutFun}

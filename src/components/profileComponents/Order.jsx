@@ -28,7 +28,6 @@ export const Order = () => {
     getCheckOutCall();
   }, []);
 
-
   const userId = localStorage.getItem("user_Id");
 
   return (
@@ -48,8 +47,8 @@ export const Order = () => {
                   alt=""
                   className="w-[60%] h-full flex opacity-5 bg-cover"
                 />
-                <div className="absolute flex w-full h-full p-4">
-                  <div className="w-1/2  flex flex-col   h-full">
+                <div className="absolute flex flex-col md:flex-row w-full h-full p-4 overflow-y-scroll">
+                  <div className="w-full md:w-1/2  flex flex-col   h-full">
                     <div className=" flex justify-start ">
                       <h1 className="text-amber-500 text-2xl heading">
                         Order Details
@@ -95,7 +94,7 @@ export const Order = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="w-1/2 overflow-y-scroll ">
+                  <div className="w-full md:w-1/2 overflow-y-scroll ">
                     <div className=" flex justify-start ">
                       <h1 className="text-amber-500 text-2xl heading pl-8">
                         Product Details
@@ -109,10 +108,18 @@ export const Order = () => {
                     {item.products.map((i) => (
                       <div className="flex justify-between items-center ">
                         <div className="w-[30%] h-16 flex justify-start">
-                          <img src={`data:image/png;base64,${i?.productId.avatar?.image}`} className="w-[80%] h-full" alt="" />
+                          <img
+                            src={`data:image/png;base64,${i?.productId.avatar?.image}`}
+                            className="w-[80%] h-full"
+                            alt=""
+                          />
                         </div>
                         <div className="w-[30%] flex justify-center">
-                          <h1 className="text-[#7c7c7c]">{i?.productId?.name}</h1>
+                          <h1 className="text-[#7c7c7c]">
+                            {i?.productId?.name.length > 13
+                              ? i.productId.name.substring(0, 13).concat("...")
+                              : i.productId.name}
+                          </h1>
                         </div>
                         <div className="w-[30%] flex justify-center">
                           <h1 className="text-[#7c7c7c]">{i?.quantity}</h1>

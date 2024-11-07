@@ -84,7 +84,7 @@ export const AllProductCards = () => {
                     product?.categoryId?._id === item._id.split(" ").join("")
                 )
                 .map((i, index) => (
-                  <ProductCard data={i} id={index} />
+                  <ProductCard data={i} />
                 ))}
             </div>
           </div>

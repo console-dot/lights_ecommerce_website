@@ -67,7 +67,7 @@ export const CartModal = ({ setModal }) => {
         className="fixed w-full h-screen z-10  top-0 left-0 "
         onClick={() => setModal(false)}
       ></div>
-      <div className=" lg:w-[35%] top-[45px] w-full sm:w-3/5 md:1/2   bg-black h-96  absolute  md:right-10 right-0   overflow-y-scroll border-t-[2px] border-t-[#F99106] shadow-lg z-50 flex  flex-col justify-between">
+      <div className=" lg:w-[35%] md:top-[45px] top-[40px] w-full sm:w-3/5 md:1/2   bg-black h-96  absolute  md:right-10   overflow-y-scroll border-t-[2px] border-t-[#F99106] shadow-lg z-50 flex  flex-col justify-between right-[27px]">
         <div className="p-2 fixed lg:w-[35%] w-full sm:w-3/5 md:1/2 ">
           <div className="flex px-2 justify-between ">
             <h1 className="w-[20%]  heading flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
