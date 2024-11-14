@@ -11,11 +11,12 @@ export const Login = () => {
 
   const data = useContext(AddCardContext);
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault();
     if (fromdata) {
       try {
         const res = await userLogin({ fromdata });
-        if (res) {
+        if (res.status === 200) {
           setFromdata({
             email: " ",
             password: " ",
@@ -53,7 +54,11 @@ export const Login = () => {
       toast("send message in email");
       data?.setIsFrogetModal(false);
     }
-    console.log(res);
+  };
+
+  const donotAccount = () => {
+    data?.setIsModalOpen(false);
+    data.setSignUpModal(true);
   };
 
   return (
@@ -74,75 +79,72 @@ export const Login = () => {
                     <h1 className="heading text-4xl font-semibold text-amber-500 text-center pb-5">
                       LOGIN
                     </h1>
-                    <div class=" xl:space-y-5">
-                      <div class="md:space-y-5 space-y-2 pb-5">
-                        <label class="heading text-2xl font-semibold text-amber-500 tracking-wide">
-                          Email
-                        </label>
-                        <input
-                          class=" w-full text-base px-4 py-3 border text-white  border-gray-300 placeholder:text-[#727272] rounded-lg bg-transparent focus:outline-none focus:border-amber-500"
-                          name="email"
-                          onChange={(e) =>
-                            setFromdata({
-                              ...fromdata,
-                              [e.target.name]: e.target.value,
-                            })
-                          }
-                          type=""
-                          placeholder="mail@gmail.com"
-                        />
-                      </div>
-                      <div class="md:space-y-5 space-y-2 pb-5">
-                        <label class="heading md:mb-5 text-2xl font-semibold text-amber-500 tracking-wide">
-                          Password
-                        </label>
-                        <input
-                          class="w-full text-white content-center text-base px-4 py-3 border placeholder:text-[#727272]  border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 bg-transparent"
-                          name="password"
-                          onChange={(e) =>
-                            setFromdata({
-                              ...fromdata,
-                              [e.target.name]: e.target.value,
-                            })
-                          }
-                          type=""
-                          placeholder="Enter your password"
-                        />
-                      </div>
-                      <div class="flex items-center justify-between gap-5 pt-2">
-                        <div class="flex items-center">
-                          <input
-                            id="remember_me"
-                            name="remember_me"
-                            type="checkbox"
-                            class="md:h-5 cursor-pointer md:w-5 h-3 w-3  checked:bg-amber-500 border-gray-300 "
-                          />
-                          <label
-                            for="remember_me"
-                            class="ml-2 cursor-pointer heading block md:text-base text-[12px] text-amber-500"
-                          >
-                            Remember me
+                    <form onSubmit={login}>
+                      <div class=" xl:space-y-5">
+                        <div class="md:space-y-5 space-y-2 pb-5">
+                          <label class="heading text-2xl font-semibold text-amber-500 tracking-wide">
+                            Email
                           </label>
+                          <input
+                            class=" w-full text-base px-4 py-3 border text-white  border-gray-300 placeholder:text-[#727272] rounded-lg bg-transparent focus:outline-none focus:border-amber-500"
+                            name="email"
+                            required
+                            onChange={(e) =>
+                              setFromdata({
+                                ...fromdata,
+                                [e.target.name]: e.target.value,
+                              })
+                            }
+                            type="email"
+                            placeholder="mail@gmail.com"
+                          />
                         </div>
-                        <div class="md:text-sm text-[12px] text-end">
-                          <div
-                            onClick={forgetPasswordCall}
-                            class=" font-semibold cursor-pointer  heading tracking-wide text-amber-500"
-                          >
-                            Forgot password?
+                        <div class="md:space-y-5 space-y-2 pb-5">
+                          <label class="heading md:mb-5 text-2xl font-semibold text-amber-500 tracking-wide">
+                            Password
+                          </label>
+                          <input
+                            class="w-full text-white content-center text-base px-4 py-3 border placeholder:text-[#727272]  border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 bg-transparent"
+                            name="password"
+                            required
+                            onChange={(e) =>
+                              setFromdata({
+                                ...fromdata,
+                                [e.target.name]: e.target.value,
+                              })
+                            }
+                            type="password"
+                            placeholder="Enter your password"
+                          />
+                        </div>
+                        <div class="flex items-center justify-between gap-5 pt-2">
+                          <div class="md:text-sm text-[12px] text-end">
+                            <div
+                              onClick={forgetPasswordCall}
+                              class=" font-semibold cursor-pointer  heading tracking-wide text-amber-500"
+                            >
+                              Forgot password?
+                            </div>
+                          </div>
+                          <div class="flex items-center" onClick={donotAccount}>
+                            <label
+                              for=""
+                              class="ml-2 cursor-pointer heading block md:text-sm underline text-[10px] text-white hover:text-amber-500"
+                            >
+                              Don't have account
+                            </label>
                           </div>
                         </div>
+                        <div className="w-full flex justify-center items-center mt-2 ">
+                          <button
+                            type="submit"
+                            class=" flex justify-center px-5 bg-amber-500    text-gray-100 py-2 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
+                          >
+                            Login
+                          </button>
+                        </div>
                       </div>
-                      <div className="w-full flex justify-center items-center mt-2 ">
-                        <button
-                          onClick={login}
-                          type="submit"
-                          class=" flex justify-center px-5 bg-amber-500    text-gray-100 py-2 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
-                        >
-                          Login
-                        </button>
-                      </div>
-                    </div>
+                    </form>
                   </div>
                 </div>
                 <div className="w-1/2 md:flex justify-center items-center hidden">

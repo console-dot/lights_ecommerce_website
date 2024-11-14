@@ -6,15 +6,19 @@ import { createUser } from "../../api/user";
 import AddCardContext from "../../context/addCart/AddCardContext";
 export const SignUp = () => {
   const [fromdata, setFromdata] = useState({});
-
-  const CreateUserCall = async () => {
-    const res = await createUser({ fromdata });
-  };
-
   const data = useContext(AddCardContext);
-  const handleSubmit = (e) => {
+  const CreateUserCall = async (e) => {
     e.preventDefault();
+    const res = await createUser({ fromdata });
+    if (res.status === 201) {
+      data?.setSignUpModal(false);
+      toast("User Create Sucessfully");
+    } else if (res) {
+      toast(res?.response?.data?.message);
+    }
+    console.log(res);
   };
+
   return (
     <>
       <div>
@@ -34,7 +38,7 @@ export const SignUp = () => {
                       SignUp
                     </h1>
                     <div class=" xl:space-y-5">
-                      <form onSubmit={handleSubmit}>
+                      <form onSubmit={CreateUserCall}>
                         <div className="flex gap-4">
                           <div class="w-1/2 flex flex-col gap-1">
                             <label class="heading text-xl font-semibold text-amber-500 tracking-wide">
@@ -87,7 +91,7 @@ export const SignUp = () => {
                                 [e.target.name]: e.target.value,
                               })
                             }
-                            type="text"
+                            type="email"
                             placeholder="mail@gmail.com"
                           />
                         </div>
@@ -106,7 +110,7 @@ export const SignUp = () => {
                                   [e.target.name]: e.target.value,
                                 })
                               }
-                              type="text"
+                              type="password"
                               placeholder="Password"
                             />
                           </div>
@@ -135,7 +139,7 @@ export const SignUp = () => {
                           </label>
                           <input
                             required
-                            class=" w-full text-base px-3 py-2 border text-white  border-gray-300 placeholder:text-[#727272] rounded-lg bg-transparent focus:outline-none focus:border-amber-500"
+                            class=" w-full text-base outline-none appearance-none px-3 py-2  border text-white  border-gray-300 placeholder:text-[#727272] rounded-lg bg-transparent focus:outline-none focus:border-amber-500"
                             name="phone"
                             onChange={(e) =>
                               setFromdata({
@@ -143,7 +147,7 @@ export const SignUp = () => {
                                 [e.target.name]: parseInt(e.target.value),
                               })
                             }
-                            type="text"
+                            type="number"
                             placeholder="Phone Number"
                           />
                         </div>
@@ -188,7 +192,6 @@ export const SignUp = () => {
                         <div class="flex items-center justify-between gap-5 pt-2">
                           <div class="flex items-center">
                             <input
-                              required
                               id="remember_me"
                               name="remember_me"
                               type="checkbox"
@@ -212,7 +215,6 @@ export const SignUp = () => {
                         </div>
                         <div className="w-full flex justify-center items-center mt-2 ">
                           <button
-                            onClick={CreateUserCall}
                             type="submit"
                             class=" flex justify-center px-2 bg-amber-500    text-gray-100 py-3 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
                           >
