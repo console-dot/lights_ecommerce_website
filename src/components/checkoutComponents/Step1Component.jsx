@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 
 import AddCardContext from "../../context/addCart/AddCardContext";
 import { createCheckOut } from "../../api/checkOut";
@@ -9,6 +9,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 export const Step1Component = ({ setStep, fromdata, setFromData }) => {
   const cart = useContext(AddCardContext);
+  const formRef = useRef(null);
   let result;
   const navigate = useNavigate();
   const getProfileCall = async () => {
@@ -16,7 +17,7 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
     const token = localStorage.getItem("access_token");
     const res = await getUser({ id: userId, token });
     setFromData(res);
-    if (res.error === 401) {
+    if (res?.response?.status === 401) {
       toast("section are expire");
       localStorage.clear();
       navigate(`/`);
@@ -26,22 +27,25 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
     getProfileCall();
   }, []);
 
-  const nextStep = async () => {
-    setStep("2");
-    const newCheckoutData = [];
+  const nextStep = async (e) => {
+    e.preventDefault(); // Prevent default form submission
 
-    cart.cartData.forEach((product) => {
-      const checkoutData = {
+    if (formRef?.current?.checkValidity()) {
+      // Only proceed if form is valid
+      formRef.current.submit();
+      const newCheckoutData = cart.cartData.map((product) => ({
         productId: product.productId._id,
         quantity: product.quantity,
         price: product.productId.price * product.quantity,
-      };
+      }));
 
-      newCheckoutData.push(checkoutData);
-    });
-
-    setFromData({ ...fromdata, products: newCheckoutData });
+      setFromData({ ...fromdata, products: newCheckoutData });
+      setStep("2");
+    } else {
+      formRef?.current?.reportValidity(); // Show error messages if form is invalid
+    }
   };
+
   useEffect(() => {}, [fromdata]);
   return (
     <>
@@ -59,64 +63,31 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
               <h1 className="text-[#696969]">* Required Field</h1>
             </div>
             <hr className=" border-[#232323]" />
-
-            <div>
-              <div className="flex gap-2 mt-2 flex-col">
-                <h1>First Name*</h1>
-                <input
-                  className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
-                  placeholder="First Name"
-                  name="firstName"
-                  required
-                  value={fromdata?.firstName}
-                  onChange={(e) =>
-                    setFromData({
-                      ...fromdata,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="flex gap-2 mt-2 flex-col">
-                <h1>Last Name *</h1>
-                <input
-                  className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
-                  placeholder="Last Name"
-                  value={fromdata?.lastName}
-                  name="lastName"
-                  required
-                  onChange={(e) =>
-                    setFromData({
-                      ...fromdata,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="flex gap-2 mt-2 flex-col">
-                <h1>Address *</h1>
-                <input
-                  className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
-                  placeholder="Address"
-                  name="address"
-                  value={fromdata?.address}
-                  required
-                  onChange={(e) =>
-                    setFromData({
-                      ...fromdata,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="flex gap-4 mt-2">
-                <div className="flex gap-2 mt-2 flex-col w-1/2">
-                  <h1>City *</h1>
+            <form id="myForm">
+              <div>
+                <div className="flex gap-2 mt-2 flex-col">
+                  <h1>First Name*</h1>
                   <input
                     className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
-                    placeholder="City Name"
-                    name="city"
-                    value={fromdata?.city}
+                    placeholder="First Name"
+                    name="firstName"
+                    required
+                    value={fromdata?.firstName}
+                    onChange={(e) =>
+                      setFromData({
+                        ...fromdata,
+                        [e.target.name]: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="flex gap-2 mt-2 flex-col">
+                  <h1>Last Name *</h1>
+                  <input
+                    className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
+                    placeholder="Last Name"
+                    value={fromdata?.lastName}
+                    name="lastName"
                     required
                     onChange={(e) =>
                       setFromData({
@@ -126,13 +97,80 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
                     }
                   />
                 </div>
-                <div className="flex gap-2 mt-2 flex-col w-1/2">
-                  <h1>State *</h1>
+                <div className="flex gap-2 mt-2 flex-col">
+                  <h1>Address *</h1>
                   <input
                     className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
-                    placeholder="State Name"
-                    name="state"
-                    value={fromdata?.state}
+                    placeholder="Address"
+                    name="address"
+                    value={fromdata?.address}
+                    required
+                    onChange={(e) =>
+                      setFromData({
+                        ...fromdata,
+                        [e.target.name]: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="flex gap-4 mt-2">
+                  <div className="flex gap-2 mt-2 flex-col w-1/2">
+                    <h1>City *</h1>
+                    <input
+                      className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
+                      placeholder="City Name"
+                      name="city"
+                      value={fromdata?.city}
+                      required
+                      onChange={(e) =>
+                        setFromData({
+                          ...fromdata,
+                          [e.target.name]: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                  <div className="flex gap-2 mt-2 flex-col w-1/2">
+                    <h1>State *</h1>
+                    <input
+                      className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
+                      placeholder="State Name"
+                      name="state"
+                      value={fromdata?.state}
+                      onChange={(e) =>
+                        setFromData({
+                          ...fromdata,
+                          [e.target.name]: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="flex gap-2 mt-2 flex-col">
+                  <h1>Email Address *</h1>
+                  <input
+                    className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
+                    placeholder="Email Address"
+                    name="email"
+                    value={fromdata?.email}
+                    required
+                    onChange={(e) =>
+                      setFromData({
+                        ...fromdata,
+                        [e.target.name]: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="flex gap-2 mt-2 flex-col">
+                  <h1>Phone Number *</h1>
+                  <input
+                    className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
+                    placeholder="Phone Number "
+                    name="phone"
+                    required
+                    value={fromdata?.phone}
                     onChange={(e) =>
                       setFromData({
                         ...fromdata,
@@ -142,40 +180,7 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
                   />
                 </div>
               </div>
-
-              <div className="flex gap-2 mt-2 flex-col">
-                <h1>Email Address *</h1>
-                <input
-                  className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
-                  placeholder="Email Address"
-                  name="email"
-                  value={fromdata?.email}
-                  required
-                  onChange={(e) =>
-                    setFromData({
-                      ...fromdata,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="flex gap-2 mt-2 flex-col">
-                <h1>Phone Number *</h1>
-                <input
-                  className="bg-transparent w-full rounded-lg border border-[#232323] p-2"
-                  placeholder="Phone Number "
-                  name="phone"
-                  required
-                  value={fromdata?.phone}
-                  onChange={(e) =>
-                    setFromData({
-                      ...fromdata,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </div>
-            </div>
+            </form>
           </div>
           <div className="w-full md:w-2/5 flex flex-col gap-10">
             <div className="border-[5px] border-[#232323] p-4 h-[300px] overflow-y-scroll">
@@ -238,6 +243,7 @@ export const Step1Component = ({ setStep, fromdata, setFromData }) => {
                 <h1>Your Order</h1>
                 <button
                   className="bg-white text-black px-2 py-1 rounded-lg mb-1"
+                  type="submit"
                   onClick={nextStep}
                 >
                   Confirm Order

@@ -8,12 +8,13 @@ import { TiTick } from "react-icons/ti";
 import { createCarts, deleteCarts } from "../../api/cart";
 import { toast } from "react-toastify";
 
-export const CartModal = ({ setModal }) => {
+export const CartModal = () => {
   const [updateQuantity, setUpdateQuantity] = useState();
   const [isUpdate, setIsUpdate] = useState();
   const navigate = useNavigate();
   const cart = useContext(AddCardContext);
   const changeAddQuantity = (product) => {
+    console.log(product.productId?._id);
     setIsUpdate(product.productId?._id);
     cart.setCartData((prevCartData) =>
       prevCartData.map((item) =>
@@ -23,6 +24,12 @@ export const CartModal = ({ setModal }) => {
       )
     );
   };
+
+  useEffect(() => {
+    if (isUpdate) {
+      updateCartFun(isUpdate);
+    }
+  }, [cart.cartData.map((item) => item.quantity)]);
   const changeSubtractQuantity = (product) => {
     setIsUpdate(product.productId?._id);
     cart.setCartData((prevCartData) =>
@@ -42,22 +49,19 @@ export const CartModal = ({ setModal }) => {
     const token = localStorage.getItem("access_token");
     const res = await createCarts({ cartData: formData, token });
     if (res.status === 200) {
-      setIsUpdate(false);
-    } else {
-      cart.setIsModalOpen(true);
-    }
-    if (res.error === 401) {
+    } else if (res.response.status === 401) {
       toast("section are expire");
+      cart.setIsCartModal(false);
+      cart.setIsModalOpen(true);
       localStorage.clear();
-      navigate(`/`);
     }
   };
 
   const goToCheckOutPage = () => {
     if (cart?.cartData?.length > 0) {
-      navigate(`/check-out`)
-    }else{
-      toast("add item in cart")
+      navigate(`/check-out`);
+    } else {
+      toast("add item in cart");
     }
   };
 
@@ -65,7 +69,7 @@ export const CartModal = ({ setModal }) => {
     <div className="absolute w-full">
       <div
         className="fixed w-full h-screen z-10  top-0 left-0 "
-        onClick={() => setModal(false)}
+        onClick={() => cart.setIsCartModal(false)}
       ></div>
       <div className=" lg:w-[35%] md:top-[45px] top-[40px] w-full sm:w-3/5 md:1/2   bg-black h-96  absolute  md:right-10   overflow-y-scroll border-t-[2px] border-t-[#F99106] shadow-lg z-50 flex  flex-col justify-between right-[27px]">
         <div className="p-2 fixed lg:w-[35%] w-full sm:w-3/5 md:1/2 ">
@@ -82,7 +86,7 @@ export const CartModal = ({ setModal }) => {
             <h1 className="w-[20%]  heading flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
               Price
             </h1>
-            {isUpdate ? (
+            {/* {isUpdate ? (
               <h1 className="w-[20%] heading  flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
                 Save
               </h1>
@@ -90,7 +94,10 @@ export const CartModal = ({ setModal }) => {
               <h1 className="w-[20%] heading  flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
                 Delete
               </h1>
-            )}
+            )} */}
+            <h1 className="w-[20%] heading  flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
+              Delete
+            </h1>
           </div>
         </div>
         <div className="mt-10">
@@ -145,7 +152,7 @@ export const CartModal = ({ setModal }) => {
                     {product?.productId?.price * product?.quantity}
                   </div>
                   <div className="w-[20%] flex justify-center items-center hover:cursor-pointer">
-                    {isUpdate === product.productId?._id ? (
+                    {/* {isUpdate === product.productId?._id ? (
                       <TiTick
                         onClick={() => updateCartFun(product?.productId?._id)}
                       />
@@ -156,7 +163,13 @@ export const CartModal = ({ setModal }) => {
                           cart.deleteCartFun(product?.productId?._id)
                         }
                       />
-                    )}
+                    )} */}
+                    <MdDeleteSweep
+                      className="text-2xl ml-2 text-amber-500"
+                      onClick={() =>
+                        cart.deleteCartFun(product?.productId?._id)
+                      }
+                    />
                   </div>
                 </div>
               </div>
@@ -164,10 +177,9 @@ export const CartModal = ({ setModal }) => {
           ))}
         </div>
         <div className="w-full flex justify-center py-2 underline ">
-          <button className="text-white" onClick={ goToCheckOutPage}>
-            Check
+          <button className="text-white" onClick={goToCheckOutPage}>
+            CheckOut
           </button>
-          Out
         </div>
       </div>
     </div>

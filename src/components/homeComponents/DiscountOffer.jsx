@@ -33,11 +33,11 @@ export const DiscountOffer = () => {
             <p className="text-xl font-semibold text-center heading">
               {dicounteOfferData?.discountOfferh3}
             </p>
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               <button className="shop-button mt-6 w-28 px-2 py-3   bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white  rounded-full">
                 <span>Shop Now</span>
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="hidden md:block w-[50%]"></div>
         </div>

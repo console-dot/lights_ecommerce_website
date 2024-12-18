@@ -10,12 +10,7 @@ export const createCarts = async ({ cartData, token }) => {
     });
     return res;
   } catch (error) {
-    if (error.response && error.response.status === 401) {
-      return { error: 401 }; 
-    } else {
-      console.log("API Request Error:", error);
-      throw error;
-    }
+   console.log(error)
   }
 };
 export const getCarts = async ({ id }) => {

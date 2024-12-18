@@ -32,9 +32,9 @@ function App() {
     localStorage.setItem("access_token", res?.accessToken);
     localStorage.setItem("refreshToken", res?.refreshToken);
   };
-  useEffect(() => {
-    refreshTokenCall();
-  }, []);
+  // useEffect(() => {
+  //   refreshTokenCall();
+  // }, []);
 
   return (
     // <Nav />

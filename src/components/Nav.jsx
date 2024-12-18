@@ -5,27 +5,15 @@ import {
   FaChevronUp,
   FaRegUser,
 } from "react-icons/fa";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import {
-  glowPlate1,
-  glowPlate2,
-  glowPlate3,
-  glowPlate4,
-  glowPlate5,
-  logo,
-  menuImg,
-} from "../assets";
+import { logo } from "../assets";
 import { useWindowSize } from "../hooks";
-import { IoIosSearch } from "react-icons/io";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import AddCardContext from "../context/addCart/AddCardContext";
 import { CartModal } from "./resuableComponents";
-import { getProductCategory } from "../api/productCategory";
 
 export const Nav = () => {
   const cart = useContext(AddCardContext);
-  const [modal, setModal] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
   const size = useWindowSize();
@@ -126,7 +114,6 @@ export const Nav = () => {
         )}
 
         <div className="flex items-center md:gap-6 gap-3 relative ">
-          <IoIosSearch className="md:text-2xl text-xl cursor-pointer" />
           {localStorage.getItem("user_Id") ? (
             <FaRegUser
               className="md:text-xl cursor-pointer"
@@ -153,11 +140,11 @@ export const Nav = () => {
             <>
               <AiOutlineShoppingCart
                 className="md:text-2xl text-xl cursor-pointer"
-                onClick={() => setModal(!modal)}
+                onClick={() => cart.setIsCartModal(!cart.isCartModal)}
               />
               <div
                 className="h-5 w-5 cursor-pointer rounded-full absolute top-[-5px] right-[-10px] bg-[#ffad2a] flex justify-center items-center"
-                onClick={() => setModal(!modal)}
+                onClick={() => cart.setIsCartModal(!cart.isCartModal)}
               >
                 <h1 className="text-white font-bold">
                   {cart?.cartData?.length}
@@ -166,7 +153,7 @@ export const Nav = () => {
             </>
           )}
         </div>
-        {modal && <CartModal setModal={setModal} />}
+        {cart.isCartModal && <CartModal  />}
       </div>
     </nav>
   );

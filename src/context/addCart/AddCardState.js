@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { createCarts, deleteCarts, getCarts } from "../../api/cart";
 import { getProductCategory } from "../../api/productCategory";
 export const AddCardState = (props) => {
+  const [isCartModal, setIsCartModal] = useState(false);
   const categoryLocation = window.location;
   const categoryName = categoryLocation?.pathname?.split("/")[2];
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ export const AddCardState = (props) => {
   const [productCategoryData, setProductCategoryData] = useState();
   const [isForgetModal, setIsFrogetModal] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState("");
+
   const handleComponentChange = (component) => {
     setSelectedComponent(component);
     navigate(`/userDetails/${component}`); // Navigate to the new route
@@ -79,6 +81,7 @@ export const AddCardState = (props) => {
   };
 
   const addToCart = async (obj) => {
+    console.log(obj);
     if (localStorage.getItem("user_Id")?.length > 0) {
       setAddCartData((prevData) => ({
         ...prevData,
@@ -168,6 +171,8 @@ export const AddCardState = (props) => {
         onChange,
         deleteCartFun,
         cardButton,
+        setIsCartModal,
+        isCartModal,
         addQuantity,
         cards,
         handleSearch,

@@ -29,11 +29,11 @@ export const LuxuryStylist = () => {
                   {luxuryStylishData?.luxuryh2}
                 </h1>
               </div>
-              <div className="mt-5">
+              {/* <div className="mt-5">
                 <button className="shop-button px-4 py-2 bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full">
                   <span>Read More</span>
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className=" hidden md:flex   md:w-1/2 w-full order-1 md:order-none">
