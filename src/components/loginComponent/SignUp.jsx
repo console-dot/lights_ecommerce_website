@@ -12,9 +12,9 @@ export const SignUp = () => {
     const res = await createUser({ fromdata });
     if (res.status === 201) {
       data?.setSignUpModal(false);
-      toast("User Create Sucessfully");
+      toast.success("Sign Up Sucessfully");
     } else if (res) {
-      toast(res?.response?.data?.message);
+      toast.error(res?.response?.data?.message);
     }
     console.log(res);
   };
@@ -191,7 +191,7 @@ export const SignUp = () => {
                         </div>
                         <div class="flex items-center justify-between gap-5 pt-2">
                           <div class="flex items-center">
-                            <input
+                            {/* <input
                               id="remember_me"
                               name="remember_me"
                               type="checkbox"
@@ -202,7 +202,7 @@ export const SignUp = () => {
                               class="ml-2 cursor-pointer heading block md:text-base text-[12px] text-amber-500"
                             >
                               Remember me
-                            </label>
+                            </label> */}
                           </div>
                           <div class="md:text-sm text-[12px] text-end">
                             <a
@@ -216,7 +216,7 @@ export const SignUp = () => {
                         <div className="w-full flex justify-center items-center mt-2 ">
                           <button
                             type="submit"
-                            class=" flex justify-center px-2 bg-amber-500    text-gray-100 py-3 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
+                            class=" flex justify-center px-6 bg-amber-500    text-gray-100 py-3 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
                           >
                             Create Account
                           </button>

@@ -11,7 +11,7 @@ export const CheckOutPage = () => {
   const [fromdata, setFromData] = useState();
   return (
     <>
-      <div className="min-h-screen h-full xl:h-screen overflow-hidden">
+      <div className="min-h-screen h-full xl:h-screen overflow-y-scroll pb-8">
         <div className="flex justify-center">
           <h1 className="text-amber-500 text-4xl font-bold mt-10 ">CHECKOUT</h1>
         </div>

@@ -69,7 +69,14 @@ export const BreadCrumbsDetailPage = ({ data }) => {
                       />
                     </svg>
                     <span class="ms-1 text-sm font-medium text-amber-500 md:ms-2 dark:text-gray-400">
-                      {data?.name}
+                      {data?.name
+                        ?.split(" ")
+                        .map(
+                          (word) =>
+                            word.charAt(0).toUpperCase() +
+                            word.slice(1).toLowerCase()
+                        )
+                        .join(" ")}
                     </span>
                   </div>
                 </li>

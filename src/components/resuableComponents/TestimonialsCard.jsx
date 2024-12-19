@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdFormatQuote } from "react-icons/md";
 import { getTestimonial } from "../../api/testmonials";
-import { toast } from "react-toastify";
 
 export const TestimonialsCard = () => {
   const [testimonialData, setTestmonialsData] = useState();

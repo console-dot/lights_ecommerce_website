@@ -22,7 +22,7 @@ export const Login = () => {
             password: " ",
           });
           if (res.status === 200) {
-            toast("Login successfully");
+            toast.success("Login successfully");
             data?.setCheckProfile(true);
           }
           data?.setIsModalOpen(false);
@@ -34,11 +34,11 @@ export const Login = () => {
             localStorage.setItem("cartId", res?.user?.cartId);
           }
         } else {
-          toast(res?.response?.data?.message);
+          toast.error(res?.response?.data?.message);
         }
       } catch (error) {
         console.error("login error:", error);
-        toast(`${error.response.data.message}`);
+        toast.error(`${error.response.data.message}`);
       }
     }
   };
@@ -51,7 +51,7 @@ export const Login = () => {
   const frogetPasswordFun = async () => {
     const res = await forgetPassword({ fromdata: resetdata });
     if (res.status === 201) {
-      toast("send message in email");
+      toast.info("send message in email");
       data?.setIsFrogetModal(false);
     }
   };

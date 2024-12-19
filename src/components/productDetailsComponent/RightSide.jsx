@@ -5,18 +5,31 @@ import { MdModeEditOutline } from "react-icons/md";
 
 export const RightSide = ({ data }) => {
   const cart = useContext(AddCardContext);
+  console.log("data-->",data )
   return (
     <>
       <div className=" w-full flex flex-col md:px-5 sticky">
         <div>
           {" "}
           <h1 className="text-[#BFBFBF] text-lg">
-            {data?.categoryId?.name}
+            {data?.categoryId?.name
+              ?.split(" ")
+              .map(
+                (word) =>
+                  word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+              )
+              .join(" ")}
           </h1>{" "}
         </div>
         <div>
           <h1 className="text-amber-500 text-3xl pb-2  heading">
-            {data?.name || "Name Light"}
+            {data?.name
+              ?.split(" ")
+              .map(
+                (word) =>
+                  word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+              )
+              .join(" ") || "Name Light"}
           </h1>
         </div>
         <div className="flex flex-col">
@@ -30,9 +43,13 @@ export const RightSide = ({ data }) => {
             </div>
             <div className="flex  font-semibold ">
               <h1 className="text-[#b1b1b1] w-32 heading">Availabel Stock :</h1>
-              <h1 className="text-[#b1b1b1] md:px-10 italic">
-                {data?.inStock?.toString()}
-              </h1>
+              {data?.stock === 0 ? (
+                <h1 className="text-red-500 md:px-10 italic">Out Of Stock</h1>
+              ) : (
+                <h1 className="text-[#b1b1b1] md:px-10 italic">
+                  {data?.stock?.toString() + " Items Available"}
+                </h1>
+              )}
             </div>
             <div className="flex justify-start items-center">
               <button

@@ -27,13 +27,13 @@ export const SideComponent = () => {
           <h1>Your Order</h1>
         </li>
 
-        <li
+        {/* <li
           className="cursor-pointer  rounded-lg p-2 flex items-center gap-2"
           onClick={logoutFunc}
         >
           <RxExit className="rotate-180" />
           <h1> LogOut</h1>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

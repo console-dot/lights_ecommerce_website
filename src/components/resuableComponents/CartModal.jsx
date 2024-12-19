@@ -50,7 +50,7 @@ export const CartModal = () => {
     const res = await createCarts({ cartData: formData, token });
     if (res.status === 200) {
     } else if (res.response.status === 401) {
-      toast("section are expire");
+      toast.warn("Session Expired");
       cart.setIsCartModal(false);
       cart.setIsModalOpen(true);
       localStorage.clear();
@@ -61,17 +61,17 @@ export const CartModal = () => {
     if (cart?.cartData?.length > 0) {
       navigate(`/check-out`);
     } else {
-      toast("add item in cart");
+      toast.success("Added Succesfuly");
     }
   };
 
   return (
-    <div className="absolute w-full">
+    <div className="absolute w-full right-0">
       <div
-        className="fixed w-full h-screen z-10  top-0 left-0 "
+        className="fixed w-full h-screen z-10   "
         onClick={() => cart.setIsCartModal(false)}
       ></div>
-      <div className=" lg:w-[35%] md:top-[45px] top-[40px] w-full sm:w-3/5 md:1/2   bg-black h-96  absolute  md:right-10   overflow-y-scroll border-t-[2px] border-t-[#F99106] shadow-lg z-50 flex  flex-col justify-between right-[27px]">
+      <div className=" lg:w-[35%] md:top-[45px] top-[40px] w-full sm:w-3/5 md:1/2   bg-black h-96  absolute  md:right-10   overflow-y-scroll border-t-[2px] border-t-[#F99106] shadow-lg z-50 flex  flex-col justify-between right-0">
         <div className="p-2 fixed lg:w-[35%] w-full sm:w-3/5 md:1/2 ">
           <div className="flex px-2 justify-between ">
             <h1 className="w-[20%]  heading flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
@@ -96,7 +96,7 @@ export const CartModal = () => {
               </h1>
             )} */}
             <h1 className="w-[20%] heading  flex justify-center items-center text-gray-400 text-xs md:text-xl font-semibold">
-              Delete
+              Remove
             </h1>
           </div>
         </div>
@@ -176,8 +176,8 @@ export const CartModal = () => {
             </>
           ))}
         </div>
-        <div className="w-full flex justify-center py-2 underline ">
-          <button className="text-white" onClick={goToCheckOutPage}>
+        <div className="w-full flex justify-center py-2  ">
+          <button className="text-white border-[0.5px] px-6 py-2 rounded-full hover:border-amber-500 hover:text-amber-500" onClick={goToCheckOutPage}>
             CheckOut
           </button>
         </div>

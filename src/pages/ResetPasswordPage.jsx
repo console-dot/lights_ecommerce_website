@@ -29,7 +29,7 @@ export const ResetPasswordPage = () => {
     e.preventDefault();
     const res = await resetPasswordFun({ fromdata: updatedPassword });
     if (res.status === 401 || 500) {
-      toast(res?.message);
+      toast.error(res?.message);
     }
     if (res.status === 201) {
       navigate(`/`);

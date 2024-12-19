@@ -18,18 +18,11 @@ export const ProfilePage = () => {
         <div className=" pl-5 md:pl-10 pt-2">
           <FaArrowLeft
             className=" text-amber-500 text-3xl cursor-pointer"
-            onClick={() =>navigate(`/`)}
+            onClick={() => navigate(`/`)}
           />
         </div>
-        <div
-          className="container h-screen px-2 md:px-10 pt-5 gap-5"
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "start",
-          }}
-        >
-          <div className="md:flex w-1/5 hidden  text-white">
+        <div className="md:container h-auto px-2 md:px-10 pt-5 gap-5 flex md:flex-row flex-col">
+          <div className="flex md:w-1/5 w-full   text-white">
             <SideComponent />
           </div>
           <div className="w-full  md:w-4/5 ">

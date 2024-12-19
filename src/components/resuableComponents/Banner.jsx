@@ -70,17 +70,17 @@ export const Banner = () => {
                 }`}
               >
                 <div className="flex flex-col ml-[15%]">
-                  <h1 className="font-mono text-white text-[10px] md:text-2xl 2xl:text-5xl italic">
+                  <h1 className="font-mono text-white text-[10px] md:text-xl 2xl:text-3xl italic">
                     {i?.bannerh1}
                   </h1>
-                  <h1 className="text-white md:text-6xl  font-extrabold md:mt-5 2xl:text-9xl heading">
+                  <h1 className="text-white md:text-4xl  font-extrabold md:mt-5 2xl:text-6xl heading">
                     {i?.bannerh2}
                   </h1>
                   <div className="flex md:mt-6">
                     <h1 className="lg:border-r-2 heading md:text-5xl font-bold border-amber-500 text-amber-500 pr-3 2xl:text-9xl">
                       Sale
                     </h1>
-                    <div className="md:px-2 text-white hidden lg:flex flex-col justify-start items-start 2xl:text-5xl">
+                    <div className="md:px-2 text-white hidden lg:flex flex-col justify-start items-start 2xl:text-2xl">
                       <h1 className="italic">{i.bannerh3}</h1>
                     </div>
                   </div>
