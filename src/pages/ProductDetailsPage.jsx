@@ -13,19 +13,28 @@ import {
 import { useParams } from "react-router-dom";
 import AddCardContext from "../context/addCart/AddCardContext";
 import { getSingleProduct } from "../api/products";
+import { FaSpinner } from "react-icons/fa";
 export const ProductDetailsPage = () => {
-  const [data, setData] = useState();
-
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // Loading state
   const setButton = useContext(AddCardContext);
-  useEffect(() => {
-    setButton.setActiveButton(" ");
-  }, [setButton.activeButton]);
   const params = useParams();
 
+  useEffect(() => {
+    setButton.setActiveButton(" ");
+  }, [setButton]);
+
   const getSingleProductCall = async () => {
-    const id = params?.id;
-    const res = await getSingleProduct({ id });
-    setData(res?.data);
+    try {
+      setIsLoading(true); // Start loading
+      const id = params?.id;
+      const res = await getSingleProduct({ id });
+      setData(res?.data);
+    } catch (error) {
+      console.error("Error fetching product:", error);
+    } finally {
+      setIsLoading(false); // Stop loading
+    }
   };
 
   useEffect(() => {
@@ -33,6 +42,26 @@ export const ProductDetailsPage = () => {
       getSingleProductCall();
     }
   }, [params?.id]);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="text-2xl font-semibold text-amber-500 animate-spin">
+          <FaSpinner size={40}/>
+        </div>
+      </div>
+    );
+  }
+
+  if (!data) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="text-xl font-medium text-red-500">
+          Product not found.
+        </div>
+      </div>
+    );
+  }
   return (
     <Layout>
       <div className="px-5 ">
@@ -47,7 +76,7 @@ export const ProductDetailsPage = () => {
             }}
           >
             <div className="w-full md:w-[50%] lg:w-[65%] h-full   ">
-              <ProductDetails data={data} />
+              {<ProductDetails data={data} />}
             </div>
             <div className="w-full md:w-[50%] lg:w-[35%] h-full sticky top-24">
               <RightSide data={data} />

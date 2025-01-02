@@ -36,15 +36,15 @@ export const SignUpNewsLetter = () => {
               {signUpNewsLetterData?.signUpNewLetterh2}
             </h1>
             <div className=" border-b border-white relative lg:pt-5 pt-2 pb-1">
-              <input
+              {/* <input
                 type="text"
                 placeholder="enter your email"
                 className="input input-bordered text-white input-primary w-full  focus:outline-none border-none bg-transparent"
-              />
+              /> */}
               <div className="absolute bottom-2.5 right-0">
-                <button className="shop-button px-2 py-1   bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full">
+                {/* <button className="shop-button px-2 py-1   bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white rounded-full">
                   <span className="text-white ">Subscribe</span>
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@ export const Profile = () => {
     const res = await getUser({ id: userId, token });
     setFromdata(res);
     if (res.error === 401) {
-      toast("section are expire");
+      toast.warn("Session Expired");
       localStorage.clear();
       navigate(`/`)
     }
@@ -34,8 +34,8 @@ export const Profile = () => {
 
       <div className="w-full flex justify-center items-center mt-5"></div>
       <div className="mt-5 w-full flex justify-center items-center">
-        <table className="w-3/5 flex justify-between my-auto">
-          <tr className="text-white w-1/2  heading flex flex-col gap-5">
+        <table className="md:w-3/5 w-full flex justify-between my-auto">
+          <tr className="text-white md:w-1/2 w-full  heading flex flex-col gap-5">
             <td className="">First Name </td>
             <td className="">Last Name </td>
             <td>Phone Number </td>
@@ -44,7 +44,7 @@ export const Profile = () => {
             <td>Address </td>
             <td>State </td>
           </tr>
-          <tr className="text-[#CCCCCC] w-1/2 italic flex flex-col gap-5">
+          <tr className="text-[#CCCCCC] md:w-1/2 w-full italic flex flex-col gap-5">
             {edit ? (
               <>
                 <input

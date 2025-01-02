@@ -66,12 +66,12 @@ export const AddCardState = (props) => {
     setQuantity(1);
     const res = await createCarts({ cartData: addcartData, token });
     if (res.error === 401) {
-      toast("section are expire");
+      toast.warn("Session Expired");
       localStorage.clear();
       navigate(`/`);
     }
     if (res.status === 200) {
-      toast("add product in cart", { autoClose: 1000 });
+      toast.success("Added Succesfuly", { autoClose: 1000 });
       localStorage.setItem("cartId", res?.data?._id);
       const id = localStorage.getItem("cartId");
       if (id) {
@@ -120,14 +120,14 @@ export const AddCardState = (props) => {
     const token = localStorage.getItem("access_token");
     const res = await deleteCarts({ cartData: formData, token });
     if (res.error === 401) {
-      toast("section are expire");
+      toast.warn("Expired Session");
       localStorage.clear();
       navigate(`/`);
     }
     if (res.status === 200) {
       const cartUserId = localStorage.getItem("cartId");
       getCartsCall(cartUserId);
-      toast(" delete cart item");
+      toast.info("Item Removed");
     }
   };
 

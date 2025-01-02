@@ -22,7 +22,7 @@ export const AllProductCards = () => {
   return (
     <div className="min-h-screen">
       {/* <ProductCardBanner name={name} /> */}
-      <div className="md:px-5 px-5 pt-5  mt-10 md:mt-0">
+      <div className="md:px-5 px-5 md:pt-5 pt-0  mt-0 md:mt-0">
         <nav
           class="flex bg-transparent py-5 justify-start items-center"
           aria-label="Breadcrumb"

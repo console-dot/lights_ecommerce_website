@@ -38,9 +38,9 @@ export const CategoryCard = () => {
               <h1 className="md:text-xl heading lg:text-3xl py-1  md:pb-2 font-semibold text-white lg:py-3 ">
                 {item?.categoryCardDesignh2}
               </h1>
-              <button className="shop-button px-2 py-1 lg:px-4 lg:py-2   bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white font-semibold  rounded-full flex justify-center items-center">
+              {/* <button className="shop-button px-2 py-1 lg:px-4 lg:py-2   bg-transparent border border-[#f99106]  text-[#f99106] hover:text-white font-semibold  rounded-full flex justify-center items-center">
                 <span className="text-[10px] md:text-base">Shop Now</span>
-              </button>
+              </button> */}
             </div>
             <div
               className={`absolute top-0 w-full  bg-white overflow-hidden transition-all duration-500 delay-75 ease-in-out ${

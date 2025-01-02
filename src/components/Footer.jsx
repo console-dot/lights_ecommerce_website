@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { logo } from "../assets";
 import { FaLocationDot, FaSquareFacebook } from "react-icons/fa6";
-import { FaInstagramSquare, FaPhoneAlt, FaTwitterSquare } from "react-icons/fa";
+import { FaFacebookF, FaGoogle, FaInstagram, FaInstagramSquare, FaPhoneAlt, FaTwitterSquare } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { TfiYoutube } from "react-icons/tfi";
 import { FcGoogle } from "react-icons/fc";
@@ -12,7 +12,6 @@ import { getProductCategory } from "../api/productCategory";
 import AddCardContext from "../context/addCart/AddCardContext";
 export const Footer = () => {
   const [isProfile, setIsProfile] = useState(true);
-
 
   const cart = useContext(AddCardContext);
 
@@ -161,15 +160,37 @@ export const Footer = () => {
                 </div>
                 <div className="hidden lg:flex justify-start items-start  ">
                   <h1 className="text-amber-500 font-semibold text-2xl  heading">
-                  Socials
+                    Socials
                   </h1>
                 </div>
                 <div className="hidden lg:flex flex-col pt-5 gap-2 italic">
-                  <h1 className="text-[#CCCC]">Facebook</h1>
-                  <h1 className="text-[#CCCC]">Google</h1>
-                  <h1 className="text-[#CCCC]">Instagram</h1>
-                  {/* <h1 className="text-[#CCCC]">Affiliates</h1>
-                  <h1 className="text-[#CCCC]">Newsletter</h1> */}
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[#CCCC] hover:text-white transition-colors"
+                  >
+                    <FaFacebookF className="text-md" />
+                    <h1>Facebook</h1>
+                  </a>
+                  <a
+                    href="https://google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[#CCCC] hover:text-white transition-colors"
+                  >
+                    <FaGoogle className="text-md" />
+                    <h1>Google</h1>
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[#CCCC] hover:text-white transition-colors"
+                  >
+                    <FaInstagram className="text-md" />
+                    <h1>Instagram</h1>
+                  </a>
                 </div>
               </div>
               <div className="lg:w-1/4 w-full flex flex-col px-5 ">

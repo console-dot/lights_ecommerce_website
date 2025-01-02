@@ -41,7 +41,7 @@ export const ProductCard = ({ data }) => {
   return (
     <>
       <div
-        className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 md:p-1 relative lg:h-[470px] h-[300px] sm:h-[400px] md:[290px] cursor-pointer"
+        className="lg:w-[300px] w-[150px] md:w-[240px] group p-2 md:p-1 relative lg:h-[470px] h-[300px] sm:h-[400px] md:[290px] cursor-pointer   bg-opacity-30 backdrop-blur-md rounded-xl border-2 border-white border-opacity-10 "
         onMouseEnter={isMdOrLarger ? () => setImageIcon(true) : undefined}
         onMouseLeave={isMdOrLarger ? () => setImageIcon(false) : undefined}
       >
@@ -71,9 +71,7 @@ export const ProductCard = ({ data }) => {
                   >
                     <FaRegEye className="text-white" />
                   </div>
-                  <div className="bg-black md:w-10 w-8 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-amber-600">
-                    <FaHeart className="text-white" />
-                  </div>
+                  <div>{/* <FaHeart className="text-white" /> */}</div>
                   <div
                     className="bg-black md:w-10 w-8 h-8 md:h-10 rounded-full flex justify-center items-center hover:bg-amber-600"
                     onClick={() => cart.addToCart(data)}
@@ -97,12 +95,35 @@ export const ProductCard = ({ data }) => {
             <h1 className="font-semibold  md:py-2 text-[#CCCCCC] heading">
               {isMobile
                 ? data?.name.length > 14
-                  ? data?.name.substring(0,14).concat("...")
-                  : data.name
-                : data?.name || data?.title}
+                  ? data?.name
+                      ?.split(" ")
+                      .map(
+                        (word) =>
+                          word.charAt(0).toUpperCase() +
+                          word.slice(1).toLowerCase()
+                      )
+                      .join(" ")
+                      .substring(0, 14)
+                      .concat("...")
+                  : data?.name
+                      ?.split(" ")
+                      .map(
+                        (word) =>
+                          word.charAt(0).toUpperCase() +
+                          word.slice(1).toLowerCase()
+                      )
+                      .join(" ")
+                : data?.name
+                    ?.split(" ")
+                    .map(
+                      (word) =>
+                        word.charAt(0).toUpperCase() +
+                        word.slice(1).toLowerCase()
+                    )
+                    .join(" ") || data?.title}
             </h1>
             <h1 className="font-semibold inline  text-amber-500 ">
-              {data?.price}
+              PKR : {data?.price}
             </h1>
           </div>
         </div>
